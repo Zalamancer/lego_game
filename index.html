@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LEGO Builder</title>
+<style>
+  :root {
+    --bg: #6ec6ff;
+    --panel: rgba(255, 255, 255, 0.72);
+    --panel-border: rgba(255, 255, 255, 0.9);
+    --accent: #ffd400;
+    --text: #1a1d24;
+    --text-dim: #3b4a63;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: linear-gradient(180deg, #7fd4ff 0%, #ffd9a8 60%, #ffb0c8 100%); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+  #app { position: fixed; inset: 0; }
+  canvas { display: block; cursor: crosshair; }
+
+  /* Top bar */
+  .top-bar {
+    position: absolute; top: 16px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px; padding: 8px; background: var(--panel); border: 1px solid var(--panel-border);
+    border-radius: 14px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); z-index: 10;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+  .tool {
+    width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    background: transparent; color: var(--text); border: 1px solid transparent; border-radius: 10px;
+    cursor: pointer; transition: all 0.15s ease; font-size: 18px;
+  }
+  .tool:hover { background: rgba(0,0,0,0.06); }
+  .tool.active { background: var(--accent); color: #111; border-color: var(--accent); box-shadow: 0 4px 14px rgba(255, 212, 0, 0.55); }
+  .divider { width: 1px; background: var(--panel-border); margin: 4px 2px; }
+
+  /* Left panel - bricks */
+  .left-panel {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    background: var(--panel); border: 1px solid var(--panel-border); border-radius: 14px;
+    padding: 12px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); z-index: 10;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4); width: 220px;
+  }
+  .panel-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); margin-bottom: 10px; font-weight: 600; }
+  .brick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .brick-btn {
+    aspect-ratio: 1; background: rgba(0,0,0,0.04); border: 1px solid transparent;
+    border-radius: 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--text); transition: all 0.15s ease; padding: 6px; font-size: 10px; gap: 4px;
+  }
+  .brick-btn:hover { background: rgba(0,0,0,0.08); }
+  .brick-btn.active { background: var(--accent); color: #111; border-color: var(--accent); box-shadow: 0 4px 14px rgba(255,212,0,0.5); }
+  .brick-preview { display: grid; gap: 2px; }
+  .brick-cell { width: 8px; height: 8px; background: currentColor; border-radius: 1px; opacity: 0.7; }
+
+  /* Right panel - colors */
+  .right-panel {
+    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+    background: var(--panel); border: 1px solid var(--panel-border); border-radius: 14px;
+    padding: 12px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); z-index: 10;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4); width: 180px;
+  }
+  .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .color-btn {
+    aspect-ratio: 1; border-radius: 8px; cursor: pointer; border: 2px solid transparent;
+    transition: all 0.15s ease; position: relative;
+  }
+  .color-btn:hover { transform: scale(1.08); }
+  .color-btn.active { border-color: white; box-shadow: 0 0 0 2px var(--accent); }
+
+  /* Bottom bar - instructions + stats */
+  .bottom-bar {
+    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+    background: var(--panel); border: 1px solid var(--panel-border); border-radius: 12px;
+    padding: 10px 18px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); z-index: 10;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4); display: flex; gap: 20px; align-items: center;
+    font-size: 12px; color: var(--text-dim);
+  }
+  .bottom-bar kbd {
+    background: rgba(0,0,0,0.08); padding: 2px 7px; border-radius: 4px;
+    color: var(--text); font-family: ui-monospace, monospace; font-size: 11px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .stat { color: var(--text); font-weight: 600; }
+
+  .logo {
+    position: absolute; top: 16px; left: 16px; z-index: 10;
+    font-weight: 800; font-size: 20px; letter-spacing: -0.02em;
+    background: var(--panel); padding: 10px 16px; border-radius: 12px;
+    border: 1px solid var(--panel-border); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  }
+  .logo span { color: var(--accent); }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<div class="logo">LEGO<span>.</span>Builder</div>
+
+<div class="top-bar">
+  <button class="tool active" data-mode="build" title="Build (B)">🧱</button>
+  <button class="tool" data-mode="erase" title="Erase (E)">🗑️</button>
+  <div class="divider"></div>
+  <button class="tool" id="rotateBtn" title="Rotate (R)">↻</button>
+  <button class="tool" id="clearBtn" title="Clear all">✕</button>
+  <div class="divider"></div>
+  <button class="tool" id="houseBtn" title="Build house">🏠</button>
+  <button class="tool" id="treeBtn" title="Plant tree">🌳</button>
+  <div class="divider"></div>
+  <button class="tool" id="saveBtn" title="Save">💾</button>
+  <button class="tool" id="loadBtn" title="Load">📂</button>
+</div>
+
+<div class="left-panel">
+  <div class="panel-title">Bricks</div>
+  <div class="brick-grid" id="brickGrid"></div>
+</div>
+
+<div class="right-panel">
+  <div class="panel-title">Color</div>
+  <div class="color-grid" id="colorGrid"></div>
+</div>
+
+<div class="bottom-bar">
+  <span><kbd>Click</kbd> place</span>
+  <span><kbd>Shift+Click</kbd> remove</span>
+  <span><kbd>R</kbd> rotate</span>
+  <span><kbd>Drag</kbd> orbit</span>
+  <span>Bricks: <span class="stat" id="brickCount">0</span></span>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ---------- LEGO dimensions (in world units) ----------
+const STUD = 0.8;          // distance between studs (one stud width)
+const PLATE_H = 0.32;      // plate height (1/3 of brick)
+const BRICK_H = PLATE_H * 3;
+const STUD_R = STUD * 0.3;
+const STUD_H = PLATE_H * 0.5;
+const BASE_SIZE = 32;      // baseplate is 32x32 studs
+
+// ---------- Scene setup ----------
+const app = document.getElementById('app');
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x9ee0ff);
+scene.fog = new THREE.Fog(0xbfe9ff, 55, 120);
+
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 200);
+camera.position.set(18, 18, 22);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.35;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+app.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 8;
+controls.maxDistance = 60;
+controls.maxPolarAngle = Math.PI / 2 - 0.05;
+controls.target.set(0, 1, 0);
+
+// ---------- Lighting ----------
+scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+
+const hemi = new THREE.HemisphereLight(0xbfe9ff, 0x88c46a, 1.05);
+scene.add(hemi);
+
+const sun = new THREE.DirectionalLight(0xfff5d6, 1.8);
+sun.position.set(15, 25, 10);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.left = -20;
+sun.shadow.camera.right = 20;
+sun.shadow.camera.top = 20;
+sun.shadow.camera.bottom = -20;
+sun.shadow.camera.near = 0.5;
+sun.shadow.camera.far = 60;
+sun.shadow.bias = -0.0005;
+scene.add(sun);
+
+// Fill light from the opposite side for colorful rim
+const fill = new THREE.DirectionalLight(0xff9ecb, 0.45);
+fill.position.set(-18, 12, -10);
+scene.add(fill);
+
+// ---------- Baseplate ----------
+const baseGroup = new THREE.Group();
+scene.add(baseGroup);
+
+function buildBaseplate() {
+  const baseW = BASE_SIZE * STUD;
+  const baseH = PLATE_H;
+  const baseGeo = new THREE.BoxGeometry(baseW, baseH, baseW);
+  const baseMat = new THREE.MeshStandardMaterial({ color: 0x5cc94a, roughness: 0.7, metalness: 0.0 });
+  const base = new THREE.Mesh(baseGeo, baseMat);
+  base.position.y = baseH / 2;
+  base.receiveShadow = true;
+  baseGroup.add(base);
+
+  // studs on baseplate
+  const studGeo = new THREE.CylinderGeometry(STUD_R, STUD_R, STUD_H, 16);
+  const studMat = baseMat.clone();
+  const studMesh = new THREE.InstancedMesh(studGeo, studMat, BASE_SIZE * BASE_SIZE);
+  studMesh.receiveShadow = true;
+  studMesh.castShadow = true;
+  const dummy = new THREE.Object3D();
+  let idx = 0;
+  const offset = -(BASE_SIZE - 1) * STUD / 2;
+  for (let x = 0; x < BASE_SIZE; x++) {
+    for (let z = 0; z < BASE_SIZE; z++) {
+      dummy.position.set(offset + x * STUD, baseH + STUD_H / 2, offset + z * STUD);
+      dummy.updateMatrix();
+      studMesh.setMatrixAt(idx++, dummy.matrix);
+    }
+  }
+  baseGroup.add(studMesh);
+
+  // subtle ground shadow area beneath
+  const groundGeo = new THREE.CircleGeometry(50, 64);
+  const groundMat = new THREE.MeshStandardMaterial({ color: 0x3a9f2e, roughness: 1 });
+  const ground = new THREE.Mesh(groundGeo, groundMat);
+  ground.rotation.x = -Math.PI / 2;
+  ground.position.y = -0.01;
+  ground.receiveShadow = true;
+  scene.add(ground);
+}
+buildBaseplate();
+
+// ---------- Brick factory ----------
+// Grid system: world position = (gx * STUD - offset, yLevel, gz * STUD - offset)
+// Brick occupies cells from (gx, gz) to (gx+w-1, gz+d-1) on level floors (y = level * PLATE_H).
+
+const brickGeoCache = new Map();
+function getBrickGeometry(w, d, h) {
+  const key = `${w}x${d}x${h}`;
+  if (brickGeoCache.has(key)) return brickGeoCache.get(key);
+
+  const group = new THREE.Group();
+  const bw = w * STUD;
+  const bd = d * STUD;
+  const bh = h * PLATE_H;
+
+  // Body with slight rounded edges feel — use BoxGeometry (fast)
+  const body = new THREE.BoxGeometry(bw * 0.98, bh, bd * 0.98);
+  // we return merged geometry data; but simpler: return a helper that builds mesh
+  brickGeoCache.set(key, { body, w, d, h, bw, bd, bh });
+  return brickGeoCache.get(key);
+}
+
+const studGeoShared = new THREE.CylinderGeometry(STUD_R, STUD_R, STUD_H, 14);
+
+function createBrickMesh(def, colorHex) {
+  const { body, w, d, bw, bd, bh } = def;
+  const material = new THREE.MeshStandardMaterial({
+    color: colorHex, roughness: 0.32, metalness: 0.08,
+  });
+  const group = new THREE.Group();
+
+  const bodyMesh = new THREE.Mesh(body, material);
+  bodyMesh.castShadow = true;
+  bodyMesh.receiveShadow = true;
+  bodyMesh.position.y = bh / 2;
+  group.add(bodyMesh);
+
+  // studs
+  const studInstanced = new THREE.InstancedMesh(studGeoShared, material, w * d);
+  studInstanced.castShadow = true;
+  studInstanced.receiveShadow = true;
+  const dummy = new THREE.Object3D();
+  let i = 0;
+  for (let x = 0; x < w; x++) {
+    for (let z = 0; z < d; z++) {
+      const px = -bw / 2 + STUD / 2 + x * STUD;
+      const pz = -bd / 2 + STUD / 2 + z * STUD;
+      dummy.position.set(px, bh + STUD_H / 2, pz);
+      dummy.updateMatrix();
+      studInstanced.setMatrixAt(i++, dummy.matrix);
+    }
+  }
+  group.add(studInstanced);
+
+  group.userData = { w, d, h: def.h, bw, bd, bh };
+  return group;
+}
+
+// ---------- Brick types ----------
+const BRICK_TYPES = [
+  { id: '1x1',  w: 1, d: 1, h: 3, label: '1×1' },
+  { id: '1x2',  w: 1, d: 2, h: 3, label: '1×2' },
+  { id: '1x3',  w: 1, d: 3, h: 3, label: '1×3' },
+  { id: '1x4',  w: 1, d: 4, h: 3, label: '1×4' },
+  { id: '2x2',  w: 2, d: 2, h: 3, label: '2×2' },
+  { id: '2x3',  w: 2, d: 3, h: 3, label: '2×3' },
+  { id: '2x4',  w: 2, d: 4, h: 3, label: '2×4' },
+  { id: 'p2x2', w: 2, d: 2, h: 1, label: '2×2 plate' },
+  { id: 'p2x4', w: 2, d: 4, h: 1, label: '2×4 plate' },
+];
+
+const COLORS = [
+  { name: 'Red',     hex: 0xff2a2a },
+  { name: 'Yellow',  hex: 0xffd400 },
+  { name: 'Blue',    hex: 0x0a7bff },
+  { name: 'Green',   hex: 0x2ecf2e },
+  { name: 'White',   hex: 0xffffff },
+  { name: 'Black',   hex: 0x1a1a1a },
+  { name: 'Orange',  hex: 0xff8a1a },
+  { name: 'LBlue',   hex: 0x66d4ff },
+  { name: 'LGreen',  hex: 0xb7f03a },
+  { name: 'Pink',    hex: 0xff5fb0 },
+  { name: 'Purple',  hex: 0xa24cff },
+  { name: 'Gray',    hex: 0xb5bac0 },
+];
+
+let currentBrickType = BRICK_TYPES[6]; // 2x4
+let currentColor = COLORS[0].hex;
+let currentRotation = 0; // 0 or 1 (swap w/d)
+let currentMode = 'build';
+
+// ---------- Grid occupancy ----------
+// occupancy[level] is a Map of "gx,gz" -> brickRecord
+const occupancy = new Map(); // level -> Map
+function getLevelMap(level) {
+  if (!occupancy.has(level)) occupancy.set(level, new Map());
+  return occupancy.get(level);
+}
+
+// ---------- Placement group ----------
+const placedGroup = new THREE.Group();
+scene.add(placedGroup);
+
+let brickRecords = []; // {mesh, gx, gz, level, w, d, h, color, typeId}
+
+function cellsFor(gx, gz, w, d) {
+  const cells = [];
+  for (let x = 0; x < w; x++) for (let z = 0; z < d; z++) cells.push(`${gx + x},${gz + z}`);
+  return cells;
+}
+
+function canPlaceAt(gx, gz, level, w, d, h) {
+  // Bounds check on baseplate footprint
+  if (gx < 0 || gz < 0 || gx + w > BASE_SIZE || gz + d > BASE_SIZE) return false;
+  // For each plate-level this brick spans, no overlap
+  for (let ly = 0; ly < h; ly++) {
+    const lvl = level + ly;
+    const map = getLevelMap(lvl);
+    for (const c of cellsFor(gx, gz, w, d)) {
+      if (map.has(c)) return false;
+    }
+  }
+  return true;
+}
+
+function getTopLevelAt(gx, gz, w, d) {
+  // find highest occupied level under this footprint, then return level above it
+  let maxTop = 0;
+  for (const [lvl, map] of occupancy.entries()) {
+    for (const c of cellsFor(gx, gz, w, d)) {
+      if (map.has(c)) {
+        if (lvl + 1 > maxTop) maxTop = lvl + 1;
+      }
+    }
+  }
+  return maxTop;
+}
+
+function placeBrick(gx, gz, level, type, rot, colorHex) {
+  const w = rot ? type.d : type.w;
+  const d = rot ? type.w : type.d;
+  if (!canPlaceAt(gx, gz, level, w, d, type.h)) return null;
+
+  const def = getBrickGeometry(w, d, type.h);
+  const mesh = createBrickMesh(def, colorHex);
+
+  const offset = -(BASE_SIZE - 1) * STUD / 2 - STUD / 2;
+  // world position: center of brick footprint
+  const cx = offset + (gx + w / 2) * STUD;
+  const cz = offset + (gz + d / 2) * STUD;
+  const cy = PLATE_H + level * PLATE_H; // baseplate top is at PLATE_H
+
+  mesh.position.set(cx, cy, cz);
+  placedGroup.add(mesh);
+
+  const record = { mesh, gx, gz, level, w, d, h: type.h, color: colorHex, typeId: type.id, rot };
+  brickRecords.push(record);
+
+  // mark occupancy
+  for (let ly = 0; ly < type.h; ly++) {
+    const lvl = level + ly;
+    const map = getLevelMap(lvl);
+    for (const c of cellsFor(gx, gz, w, d)) map.set(c, record);
+  }
+  updateBrickCount();
+  return record;
+}
+
+function removeBrick(record) {
+  if (!record) return;
+  placedGroup.remove(record.mesh);
+  record.mesh.traverse(o => {
+    if (o.geometry && o.geometry !== studGeoShared) {
+      // body geometry is cached — do NOT dispose shared cached geometry
+    }
+    if (o.material && Array.isArray(o.material)) o.material.forEach(m => m.dispose());
+    else if (o.material) o.material.dispose();
+  });
+  // free occupancy
+  for (let ly = 0; ly < record.h; ly++) {
+    const lvl = record.level + ly;
+    const map = getLevelMap(lvl);
+    for (const c of cellsFor(record.gx, record.gz, record.w, record.d)) map.delete(c);
+  }
+  brickRecords = brickRecords.filter(r => r !== record);
+  updateBrickCount();
+}
+
+function clearAll() {
+  [...brickRecords].forEach(removeBrick);
+  occupancy.clear();
+}
+
+// ---------- Ghost (preview) brick ----------
+let ghost = null;
+function updateGhost() {
+  if (ghost) {
+    placedGroup.remove(ghost);
+    ghost.traverse(o => {
+      if (o.material) {
+        if (Array.isArray(o.material)) o.material.forEach(m => m.dispose());
+        else o.material.dispose();
+      }
+    });
+    ghost = null;
+  }
+}
+function makeGhost(type, rot, colorHex) {
+  const w = rot ? type.d : type.w;
+  const d = rot ? type.w : type.d;
+  const def = getBrickGeometry(w, d, type.h);
+  const mesh = createBrickMesh(def, colorHex);
+  mesh.traverse(o => {
+    if (o.material) {
+      o.material.transparent = true;
+      o.material.opacity = 0.55;
+      o.material.depthWrite = false;
+    }
+    if (o.castShadow !== undefined) o.castShadow = false;
+  });
+  mesh.userData.ghost = true;
+  return mesh;
+}
+
+// ---------- Raycasting / picking ----------
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+let hoverInfo = null; // { gx, gz, level, valid }
+
+function computeHover(event) {
+  const rect = renderer.domElement.getBoundingClientRect();
+  mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+  mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+  raycaster.setFromCamera(mouse, camera);
+
+  // intersect baseplate AND placed bricks
+  const targets = [];
+  baseGroup.traverse(o => { if (o.isMesh) targets.push(o); });
+  placedGroup.traverse(o => { if (o.isMesh && !o.userData.ghost) targets.push(o); });
+
+  const hits = raycaster.intersectObjects(targets, false);
+  if (hits.length === 0) return null;
+
+  const hit = hits[0];
+  const point = hit.point.clone();
+  const normal = hit.face ? hit.face.normal.clone().transformDirection(hit.object.matrixWorld) : new THREE.Vector3(0, 1, 0);
+
+  // Determine the top surface y of whatever we hit.
+  // If normal points up, point.y IS the top. Otherwise, compute top from the hit object's world bounding box.
+  let topOfHit;
+  if (normal.y > 0.5) {
+    topOfHit = point.y;
+  } else {
+    // Find the parent with userData (brick group) or use the mesh itself
+    let obj = hit.object;
+    while (obj && !(obj.userData && obj.userData.bh) && obj.parent) obj = obj.parent;
+    const box = new THREE.Box3().setFromObject(obj || hit.object);
+    topOfHit = box.max.y;
+  }
+
+  // Compute grid cell under pointer projected onto the top of hit object
+  const offset = -(BASE_SIZE - 1) * STUD / 2 - STUD / 2;
+
+  const w = currentRotation ? currentBrickType.d : currentBrickType.w;
+  const d = currentRotation ? currentBrickType.w : currentBrickType.d;
+
+  // Snap so brick center aligns; compute gx, gz such that footprint is centered on pointer
+  const rawGx = (point.x - offset) / STUD - w / 2;
+  const rawGz = (point.z - offset) / STUD - d / 2;
+  const gx = Math.round(rawGx);
+  const gz = Math.round(rawGz);
+
+  // Determine level: top of hit object
+  // baseplate top y ≈ PLATE_H; brick top y = PLATE_H + (level + h) * PLATE_H
+  let level = Math.round((topOfHit - PLATE_H) / PLATE_H);
+  if (level < 0) level = 0;
+
+  // When hovering the top of an existing brick, the raycaster gives y at brick top.
+  // The correct `level` for a new brick is that value.
+  // When hovering baseplate, topOfHit ≈ PLATE_H so level = 0. Correct.
+
+  const valid = canPlaceAt(gx, gz, level, w, d, currentBrickType.h);
+  return { gx, gz, level, valid, hit };
+}
+
+function refreshGhost() {
+  updateGhost();
+  if (currentMode !== 'build') return;
+  if (!hoverInfo) return;
+  const g = makeGhost(currentBrickType, currentRotation, hoverInfo.valid ? currentColor : 0xff3344);
+  const offset = -(BASE_SIZE - 1) * STUD / 2 - STUD / 2;
+  const w = currentRotation ? currentBrickType.d : currentBrickType.w;
+  const d = currentRotation ? currentBrickType.w : currentBrickType.d;
+  const cx = offset + (hoverInfo.gx + w / 2) * STUD;
+  const cz = offset + (hoverInfo.gz + d / 2) * STUD;
+  const cy = PLATE_H + hoverInfo.level * PLATE_H;
+  g.position.set(cx, cy, cz);
+  placedGroup.add(g);
+  ghost = g;
+}
+
+// ---------- Mouse events ----------
+let mouseDownPos = null;
+renderer.domElement.addEventListener('pointerdown', (e) => {
+  mouseDownPos = { x: e.clientX, y: e.clientY };
+});
+
+renderer.domElement.addEventListener('pointermove', (e) => {
+  hoverInfo = computeHover(e);
+  refreshGhost();
+});
+
+renderer.domElement.addEventListener('pointerup', (e) => {
+  if (!mouseDownPos) return;
+  const dx = e.clientX - mouseDownPos.x;
+  const dy = e.clientY - mouseDownPos.y;
+  mouseDownPos = null;
+  if (Math.hypot(dx, dy) > 4) return; // drag -> don't place
+
+  const info = computeHover(e);
+  if (!info) return;
+
+  if (currentMode === 'erase' || e.shiftKey) {
+    // erase topmost brick under pointer
+    const hit = info.hit;
+    let target = hit.object;
+    while (target && !target.userData.w && target.parent) target = target.parent;
+    if (target && target.userData && target.userData.w) {
+      const rec = brickRecords.find(r => r.mesh === target);
+      if (rec) removeBrick(rec);
+    }
+    return;
+  }
+
+  if (info.valid) {
+    placeBrick(info.gx, info.gz, info.level, currentBrickType, currentRotation, currentColor);
+    refreshGhost();
+  }
+});
+
+renderer.domElement.addEventListener('pointerleave', () => {
+  hoverInfo = null;
+  updateGhost();
+});
+
+// ---------- Keyboard ----------
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'r' || e.key === 'R') {
+    currentRotation = 1 - currentRotation;
+    refreshGhost();
+  } else if (e.key === 'b' || e.key === 'B') {
+    setMode('build');
+  } else if (e.key === 'e' || e.key === 'E') {
+    setMode('erase');
+  } else if (e.key === 'Escape') {
+    setMode('build');
+  }
+});
+
+// ---------- UI ----------
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.tool[data-mode]').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  renderer.domElement.style.cursor = mode === 'erase' ? 'not-allowed' : 'crosshair';
+  refreshGhost();
+}
+
+document.querySelectorAll('.tool[data-mode]').forEach(btn => {
+  btn.addEventListener('click', () => setMode(btn.dataset.mode));
+});
+document.getElementById('rotateBtn').addEventListener('click', () => {
+  currentRotation = 1 - currentRotation;
+  refreshGhost();
+});
+document.getElementById('clearBtn').addEventListener('click', () => {
+  if (confirm('Clear all bricks?')) clearAll();
+});
+
+// Brick grid
+const brickGrid = document.getElementById('brickGrid');
+BRICK_TYPES.forEach((type, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'brick-btn' + (type === currentBrickType ? ' active' : '');
+  btn.dataset.id = type.id;
+
+  const preview = document.createElement('div');
+  preview.className = 'brick-preview';
+  preview.style.gridTemplateColumns = `repeat(${type.w}, 1fr)`;
+  for (let k = 0; k < type.w * type.d; k++) {
+    const cell = document.createElement('div');
+    cell.className = 'brick-cell';
+    preview.appendChild(cell);
+  }
+  const label = document.createElement('div');
+  label.textContent = type.label;
+  label.style.fontSize = '10px';
+  label.style.opacity = '0.85';
+
+  btn.appendChild(preview);
+  btn.appendChild(label);
+  btn.addEventListener('click', () => {
+    currentBrickType = type;
+    document.querySelectorAll('.brick-btn').forEach(b => b.classList.toggle('active', b.dataset.id === type.id));
+    refreshGhost();
+  });
+  brickGrid.appendChild(btn);
+});
+
+// Color grid
+const colorGrid = document.getElementById('colorGrid');
+COLORS.forEach((c, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'color-btn' + (c.hex === currentColor ? ' active' : '');
+  btn.style.background = '#' + c.hex.toString(16).padStart(6, '0');
+  btn.title = c.name;
+  btn.dataset.hex = c.hex;
+  btn.addEventListener('click', () => {
+    currentColor = c.hex;
+    document.querySelectorAll('.color-btn').forEach(b => b.classList.toggle('active', parseInt(b.dataset.hex) === c.hex));
+    refreshGhost();
+  });
+  colorGrid.appendChild(btn);
+});
+
+function updateBrickCount() {
+  document.getElementById('brickCount').textContent = brickRecords.length;
+}
+
+// Save / Load
+document.getElementById('saveBtn').addEventListener('click', () => {
+  const data = brickRecords.map(r => ({
+    t: r.typeId, x: r.gx, z: r.gz, l: r.level, r: r.rot, c: r.color
+  }));
+  localStorage.setItem('lego-builder-save', JSON.stringify(data));
+  flashToast('Saved!');
+});
+document.getElementById('loadBtn').addEventListener('click', () => {
+  const raw = localStorage.getItem('lego-builder-save');
+  if (!raw) return flashToast('Nothing saved yet');
+  clearAll();
+  try {
+    const data = JSON.parse(raw);
+    data.forEach(d => {
+      const type = BRICK_TYPES.find(t => t.id === d.t);
+      if (type) placeBrick(d.x, d.z, d.l, type, d.r || 0, d.c);
+    });
+    flashToast('Loaded!');
+  } catch (err) { flashToast('Load failed'); }
+});
+
+function flashToast(msg) {
+  const el = document.createElement('div');
+  el.textContent = msg;
+  el.style.cssText = `position:fixed;top:80px;left:50%;transform:translateX(-50%);
+    background:rgba(20,22,28,0.96);color:#fff;padding:10px 20px;border-radius:10px;z-index:99;
+    font-size:13px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    animation: toastIn 0.3s ease`;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 1400);
+}
+
+// ---------- Resize & loop ----------
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+animate();
+
+// ---------- Tree builder ----------
+// A tree is a 2×2 brown trunk (3 courses) with a 2×2 → 4×4 → 2×2 green canopy.
+// Anchor (x, z) = trunk NW corner. Canopy occupies x-1..x+2, z-1..z+2.
+function placeTree(x, z, variant = 0) {
+  const TRUNK = 0x8a5a2e;
+  const LEAF = variant === 0 ? 0x2ecf2e : 0xb7f03a;
+  const T = id => BRICK_TYPES.find(t => t.id === id);
+  const P = (xx, zz, lvl, id, rot, col) => placeBrick(xx, zz, lvl, T(id), rot, col);
+
+  // Trunk (3 courses)
+  P(x, z, 0, '2x2', 0, TRUNK);
+  P(x, z, 3, '2x2', 0, TRUNK);
+  P(x, z, 6, '2x2', 0, TRUNK);
+  // Canopy bottom (narrow)
+  P(x, z, 9, '2x2', 0, LEAF);
+  // Canopy middle (4×4 ring)
+  P(x - 1, z - 1, 12, '2x2', 0, LEAF);
+  P(x + 1, z - 1, 12, '2x2', 0, LEAF);
+  P(x - 1, z + 1, 12, '2x2', 0, LEAF);
+  P(x + 1, z + 1, 12, '2x2', 0, LEAF);
+  // Canopy top (narrow)
+  P(x, z, 15, '2x2', 0, LEAF);
+}
+
+// Attempt to find a random empty spot and plant a tree there.
+function plantRandomTree() {
+  for (let attempt = 0; attempt < 300; attempt++) {
+    const x = 1 + Math.floor(Math.random() * (BASE_SIZE - 3));
+    const z = 1 + Math.floor(Math.random() * (BASE_SIZE - 3));
+    // Canopy range is x-1..x+2, z-1..z+2 — must stay in 0..BASE_SIZE-1.
+    if (x - 1 < 0 || z - 1 < 0 || x + 2 > BASE_SIZE - 1 || z + 2 > BASE_SIZE - 1) continue;
+    let clear = true;
+    for (let lvl = 0; lvl < 18 && clear; lvl++) {
+      const map = getLevelMap(lvl);
+      for (let dx = -1; dx <= 2 && clear; dx++) {
+        for (let dz = -1; dz <= 2 && clear; dz++) {
+          if (map.has(`${x + dx},${z + dz}`)) clear = false;
+        }
+      }
+    }
+    if (clear) {
+      placeTree(x, z, Math.floor(Math.random() * 2));
+      return true;
+    }
+  }
+  return false;
+}
+
+// ---------- House builder ----------
+function buildHouse() {
+  clearAll();
+  const T = id => BRICK_TYPES.find(tt => tt.id === id);
+  const WHITE = 0xffffff, RED = 0xff2a2a, BROWN = 0x8a5a2e;
+  const GLASS = 0x66d4ff, BLACK = 0x1a1a1a, GRAY = 0xb5bac0;
+  const P = (x, z, lvl, id, rot, col) => placeBrick(x, z, lvl, T(id), rot, col);
+
+  // Footprint: x=11..20, z=11..20 (10×10), 4 brick courses tall
+  // Door opening at x=15,16 on front wall (z=11), levels 0-8
+  // Windows at x=11 & x=20 side walls, z=14,15 at level 6-8
+
+  // ----- Course 0 (levels 0-2) -----
+  P(11, 11, 0, '1x4', 1, WHITE); // front left
+  P(17, 11, 0, '1x4', 1, WHITE); // front right
+  P(11, 20, 0, '1x4', 1, WHITE); // back segment 1
+  P(15, 20, 0, '1x4', 1, WHITE); // back segment 2
+  P(19, 20, 0, '1x2', 1, WHITE); // back segment 3
+  P(11, 12, 0, '1x4', 0, WHITE); // left wall a
+  P(11, 16, 0, '1x4', 0, WHITE); // left wall b
+  P(20, 12, 0, '1x4', 0, WHITE); // right wall a
+  P(20, 16, 0, '1x4', 0, WHITE); // right wall b
+
+  // ----- Course 1 (levels 3-5) - staggered -----
+  P(11, 11, 3, '1x4', 1, WHITE);
+  P(17, 11, 3, '1x4', 1, WHITE);
+  P(11, 20, 3, '1x2', 1, WHITE);
+  P(13, 20, 3, '1x4', 1, WHITE);
+  P(17, 20, 3, '1x4', 1, WHITE);
+  P(11, 12, 3, '1x2', 0, WHITE);
+  P(11, 14, 3, '1x4', 0, WHITE);
+  P(11, 18, 3, '1x2', 0, WHITE);
+  P(20, 12, 3, '1x2', 0, WHITE);
+  P(20, 14, 3, '1x4', 0, WHITE);
+  P(20, 18, 3, '1x2', 0, WHITE);
+
+  // ----- Course 2 (levels 6-8) - windows on sides, door still open -----
+  P(11, 11, 6, '1x4', 1, WHITE);
+  P(17, 11, 6, '1x4', 1, WHITE);
+  P(11, 20, 6, '1x4', 1, WHITE);
+  P(15, 20, 6, '1x4', 1, WHITE);
+  P(19, 20, 6, '1x2', 1, WHITE);
+  // Left wall with window at z=14,15
+  P(11, 12, 6, '1x2', 0, WHITE);
+  P(11, 14, 6, '1x2', 0, GLASS);
+  P(11, 16, 6, '1x4', 0, WHITE);
+  // Right wall with window
+  P(20, 12, 6, '1x2', 0, WHITE);
+  P(20, 14, 6, '1x2', 0, GLASS);
+  P(20, 16, 6, '1x4', 0, WHITE);
+
+  // ----- Course 3 (levels 9-11) - close door top and windows -----
+  P(11, 11, 9, '1x2', 1, WHITE);
+  P(13, 11, 9, '1x4', 1, WHITE); // spans door top
+  P(17, 11, 9, '1x4', 1, WHITE);
+  P(11, 20, 9, '1x2', 1, WHITE);
+  P(13, 20, 9, '1x4', 1, WHITE);
+  P(17, 20, 9, '1x4', 1, WHITE);
+  P(11, 12, 9, '1x4', 0, WHITE);
+  P(11, 16, 9, '1x4', 0, WHITE);
+  P(20, 12, 9, '1x4', 0, WHITE);
+  P(20, 16, 9, '1x4', 0, WHITE);
+
+  // ----- Door panel (brown) inset 1 stud inside the opening -----
+  P(15, 12, 0, '1x2', 1, BROWN);
+  P(15, 12, 3, '1x2', 1, BROWN);
+
+  // ----- Stepping stone path in front of the door -----
+  P(14, 9, 0, 'p2x4', 1, GRAY); // x=14..17 z=9..10
+
+  // ===== ROOF =====
+  // Level 12 — red plate layer with 1-stud overhang on all sides (12×12)
+  for (let rz = 0; rz < 6; rz++) {
+    const zz = 10 + rz * 2;
+    P(10, zz, 12, 'p2x4', 1, RED); // x=10..13
+    P(14, zz, 12, 'p2x4', 1, RED); // x=14..17
+    P(18, zz, 12, 'p2x4', 1, RED); // x=18..21
+  }
+
+  // Stepped pitched roof — ridge runs along z axis, slopes in x direction
+  // Helper: tile a rectangle with red bricks row-by-row along z (rows of depth 2)
+  function roofStep(level, xStart, xEnd) {
+    for (let rz = 0; rz < 5; rz++) {
+      const zz = 11 + rz * 2;
+      let x = xStart;
+      while (x <= xEnd) {
+        const rem = xEnd - x + 1;
+        if (rem >= 4) { P(x, zz, level, '2x4', 1, RED); x += 4; }
+        else if (rem >= 2) { P(x, zz, level, '2x2', 0, RED); x += 2; }
+        else { P(x, zz, level, '1x2', 0, RED); x += 1; }
+      }
+    }
+  }
+  roofStep(13, 11, 20); // 10 wide
+  roofStep(16, 12, 19); // 8
+  roofStep(19, 13, 18); // 6
+  roofStep(22, 14, 17); // 4
+  roofStep(25, 15, 16); // 2 (ridge)
+
+  // ----- Chimney on the ridge -----
+  P(15, 12, 28, '2x2', 0, GRAY);
+  P(15, 12, 31, '2x2', 0, BLACK); // soot cap
+
+  // ----- Trees around the house (4 corners of the yard) -----
+  placeTree(6, 5, 0);    // front-left (dark green)
+  placeTree(25, 6, 1);   // front-right (light green)
+  placeTree(6, 25, 1);   // back-left (light green)
+  placeTree(25, 25, 0);  // back-right (dark green)
+
+  // Center camera on the house
+  controls.target.set(0, 4, 0);
+}
+
+document.getElementById('houseBtn').addEventListener('click', () => {
+  buildHouse();
+  flashToast('House built! 🏠');
+});
+
+document.getElementById('treeBtn').addEventListener('click', () => {
+  const ok = plantRandomTree();
+  flashToast(ok ? 'Tree planted! 🌳' : 'No room for a tree');
+});
+
+// Build initial house
+buildHouse();
+</script>
+</body>
+</html>
