@@ -109,6 +109,18 @@
   .card h3 .sub{color:var(--pbs-ink-muted);font-weight:600;letter-spacing:0.18em}
 
   .tools{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  /* Denser 2-col grid for the long Examples/Tycoon button lists. Reuses .tool styling. */
+  .kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+
+  /* Inline select docked inside the card's h3 (e.g. Tycoon speed). */
+  .card h3 select{
+    appearance:none;-webkit-appearance:none;
+    border:1.5px solid var(--pbs-ink);background:var(--pbs-paper);color:var(--pbs-ink);
+    border-radius:8px;padding:3px 8px;font:inherit;font-size:10px;font-weight:700;
+    letter-spacing:0.08em;cursor:pointer;box-shadow:0 2px 0 var(--pbs-ink);
+    font-family:"DM Mono",ui-monospace,monospace;
+    text-transform:none;
+  }
   .tool{
     appearance:none;
     border:1.5px solid var(--pbs-ink);
@@ -148,26 +160,32 @@
     box-shadow:0 0 0 1.5px var(--pbs-butter);
   }
 
-  /* Category tabs */
-  .tabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+  /* Super-group pill tabs — white-active, chunky ink border. Mirrors the
+     PanelIconTabs pattern from the studio (bg-white active, ink for rest). */
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
   .tab{
     appearance:none;
     border:1.5px solid var(--pbs-ink);
-    background:var(--pbs-paper);
+    background:transparent;
     color:var(--pbs-ink);
     border-radius:999px;
-    padding:5px 11px;
-    font:inherit;font-size:10px;font-weight:700;letter-spacing:0.06em;
+    padding:6px 12px;
+    font:inherit;font-size:10.5px;font-weight:700;letter-spacing:0.06em;
     cursor:pointer;
     box-shadow:0 2px 0 var(--pbs-ink);
     transition:transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+    display:inline-flex;align-items:center;gap:6px;
   }
-  .tab:hover{background:var(--pbs-cream-2);transform:translateY(-1px);box-shadow:0 3px 0 var(--pbs-ink)}
+  .tab:hover{background:var(--pbs-paper);transform:translateY(-1px);box-shadow:0 3px 0 var(--pbs-ink)}
   .tab.on{
-    background:var(--pbs-ink);color:var(--pbs-butter);border-color:var(--pbs-ink);
-    box-shadow:0 3px 0 #000;
+    background:#ffffff;color:var(--pbs-ink);border-color:var(--pbs-ink);
+    box-shadow:0 3px 0 var(--pbs-ink);
   }
-  .tab .cnt{opacity:0.55;margin-left:4px;font-weight:500}
+  .tab .cnt{
+    font-family:"DM Mono",ui-monospace,monospace;
+    opacity:0.6;font-weight:600;font-size:9.5px;letter-spacing:0.04em;
+  }
+  .tab.on .cnt{opacity:0.75}
 
   .search{
     width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none;
@@ -487,6 +505,39 @@
     <div class="colors" id="colors"></div>
   </div>
 
+  <div class="card">
+    <h3>Examples</h3>
+    <div class="kit-grid">
+      <button class="tool" id="exampleBtn">House</button>
+      <button class="tool" id="worldBtn">World</button>
+      <button class="tool" id="mpWorldBtn">4-Player</button>
+      <button class="tool" id="carBtn">Car</button>
+      <button class="tool" id="planeBtn">Helicopter</button>
+      <button class="tool" id="gearsBtn">Gears</button>
+      <button class="tool" id="engineBtn">Engine</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Tycoon <span class="sub"><select id="speedSel" title="Sim speed">
+      <option value="0.5">0.5×</option>
+      <option value="1" selected>1×</option>
+      <option value="2">2×</option>
+      <option value="4">4×</option>
+      <option value="8">8×</option>
+      <option value="16">16×</option>
+      <option value="32">32×</option>
+      <option value="64">64×</option>
+    </select></span></h3>
+    <div class="kit-grid">
+      <button class="tool" id="tycoonBtn">Start</button>
+      <button class="tool" id="shopBtn">$ Shop</button>
+      <button class="tool" id="hireBtn">Hire $50</button>
+      <button class="tool" id="skyBtn">Skyscraper</button>
+      <button class="tool" id="cityBtn">City</button>
+    </div>
+  </div>
+
   <div class="card shortcuts-card">
     <h3>Shortcuts</h3>
     <div class="shortcuts">
@@ -507,30 +558,6 @@
   <div class="sep"></div>
   <button id="saveBtn">Save</button>
   <button id="loadBtn">Load</button>
-  <div class="sep"></div>
-  <button id="exampleBtn">House</button>
-  <button id="worldBtn">World</button>
-  <button id="mpWorldBtn">4-Player</button>
-  <button id="carBtn">Car</button>
-  <button id="planeBtn">Helicopter</button>
-  <button id="gearsBtn">Gears</button>
-  <button id="engineBtn">Engine</button>
-  <div class="sep"></div>
-  <button id="tycoonBtn">Tycoon</button>
-  <button id="hireBtn">Hire $50</button>
-  <button id="shopBtn">$ Shop</button>
-  <button id="skyBtn">Skyscraper</button>
-  <button id="cityBtn">City</button>
-  <select id="speedSel" title="Tycoon sim speed">
-    <option value="0.5">0.5×</option>
-    <option value="1" selected>1×</option>
-    <option value="2">2×</option>
-    <option value="4">4×</option>
-    <option value="8">8×</option>
-    <option value="16">16×</option>
-    <option value="32">32×</option>
-    <option value="64">64×</option>
-  </select>
   <div class="sep"></div>
   <button id="playBtn">▶ Play</button>
   <div class="sep"></div>
@@ -853,6 +880,24 @@ const PARTS = [
 function partsInCategory(cat){ return PARTS.filter(p => p.cat === cat); }
 function partEntry(num){ return PARTS.find(p => p.num === num); }
 
+// ================= Super-groups (top-of-panel pill tabs) =================
+// Collapses the ~20 raw LDraw categories into 6 discoverable buckets. Any
+// category loaded later from parts-catalog.json that isn't in a group falls
+// into "All" only.
+const GROUPS = [
+  { label: 'All',    cats: null },
+  { label: 'Build',  cats: ['Bricks','Plates','Tiles','Baseplates','Panels','Essentials'] },
+  { label: 'Shape',  cats: ['Slopes','Round','Arches'] },
+  { label: 'Detail', cats: ['Windows','Doors','Fences','Plants','Hinges','Props','Brackets'] },
+  { label: 'Life',   cats: ['Minifigs','Animals','Vehicles','Wheels','Tyres'] },
+  { label: 'Tech',   cats: ['Gears','Technic','Special','Beams'] },
+];
+function partsInGroup(label){
+  const g = GROUPS.find(x => x.label === label);
+  if (!g || !g.cats) return PARTS.slice();
+  return PARTS.filter(p => g.cats.includes(p.cat));
+}
+
 // ================= Part meta overrides =================
 // LDraw's bbox-derived W/D is correct for most parts, but small gears (1×1
 // physical footprint) can't mesh with larger gears on the integer stud grid
@@ -903,7 +948,7 @@ const state = {
   tool: 'build',
   rot: 0,                  // 0 | 90 | 180 | 270
   color: COLORS[0].hex,
-  selectedCategory: 'Bricks',
+  selectedCategory: 'All',
   selectedPart: '3001',    // 2×4 brick default
   studShape: 'round',      // for baseplate only
   parts: [],               // { id, partNum, gx0, gz0, layer, rot, W, D, H, hex, _slots }
@@ -3784,14 +3829,14 @@ let searchQuery = '';
 
 function renderTabs(){
   tabsEl.innerHTML = '';
-  CATEGORIES.forEach(cat => {
-    const count = partsInCategory(cat).length;
-    if (!count) return;                              // hide empty tabs
+  GROUPS.forEach(g => {
+    const count = partsInGroup(g.label).length;
+    if (!count) return;                              // hide empty groups
     const b = document.createElement('button');
-    b.className = 'tab' + (cat === state.selectedCategory ? ' on' : '');
-    b.innerHTML = `${cat}<span class="cnt">${count}</span>`;
+    b.className = 'tab' + (g.label === state.selectedCategory ? ' on' : '');
+    b.innerHTML = `${g.label}<span class="cnt">${count}</span>`;
     b.addEventListener('click', () => {
-      state.selectedCategory = cat;
+      state.selectedCategory = g.label;
       searchEl.value = '';
       searchQuery = '';
       renderTabs();
@@ -3810,7 +3855,7 @@ function renderParts(){
       p.name.toLowerCase().includes(q) || p.num.toLowerCase().includes(q)
     ).slice(0, 250);
   } else {
-    list = partsInCategory(state.selectedCategory);
+    list = partsInGroup(state.selectedCategory);
   }
   if (!list.length){
     const d = document.createElement('div');
