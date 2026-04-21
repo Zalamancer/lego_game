@@ -8033,6 +8033,26 @@ addEventListener('resize', ()=>{
         return ack(action, { quality: q });
       }
 
+      case 'getCatalog': {
+        // Pull-based catalog for embedders that attach after the initial
+        // 'ready' broadcast (e.g. React parent whose mount races the iframe
+        // load). Same payload shape as ready.
+        return ack(action, {
+          parts: (typeof PARTS !== 'undefined' ? PARTS : []),
+          categories: (typeof CATEGORIES !== 'undefined' ? CATEGORIES : []),
+          colors: (typeof COLORS !== 'undefined' ? COLORS.map(c => ({ name: c.name, hex: c.hex })) : []),
+          schemes: ['vibrant','classic'],
+          qualities: ['high','medium','low'],
+          state: {
+            tool:    (typeof state !== 'undefined' && state.tool)     || 'build',
+            color:   (typeof state !== 'undefined' && state.color)    || null,
+            rot:     (typeof state !== 'undefined' && state.rot)      || 0,
+            scheme:  (typeof activeTheme   !== 'undefined' ? activeTheme   : 'classic'),
+            quality: (typeof activeQuality !== 'undefined' ? activeQuality : 'high'),
+          },
+        });
+      }
+
       default:
         return err(action, 'unknown action');
     }
