@@ -7899,6 +7899,125 @@ addEventListener('resize', ()=>{
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// ================= Scratch blocks bridge =================
+// When this game is embedded under /studio/scratch/bricks (or any other
+// two-pane shell based on BlocksGameShell), the parent window relays
+// messages from the Scratch blocks iframe. Shape of inbound messages:
+//   { source: 'scratch-blocks', action: '<verb>', ...args }
+// Replies go back so reactive (hat) blocks can eventually listen:
+//   { source: 'game', type: 'ack'|'error'|'ready', action, ...info }
+// Everything here is additive — when the game runs standalone (no parent
+// listener), postMessage to window.parent is a no-op.
+(function scratchBridge(){
+  function reply(type, action, extra){
+    try { window.parent && window.parent.postMessage(Object.assign({ source:'game', type, action }, extra || {}), '*'); }
+    catch(_){}
+  }
+  const ack = (action, extra) => reply('ack', action, extra);
+  const err = (action, message) => reply('error', action, { message });
+
+  function handle(msg){
+    const action = msg.action;
+    switch(action){
+      case 'ping':
+        return ack(action, { ok: true });
+
+      case 'setTool':
+        setTool(msg.tool === 'delete' ? 'delete' : 'build');
+        return ack(action, { tool: state.tool });
+
+      case 'selectPart': {
+        const p = parseInt(msg.partNum, 10);
+        if (!p) return err(action, 'partNum required');
+        state.selectedPart = p;
+        (async () => {
+          try { await loadPart(p); updatePartMetaLbl(); rebuildGhost(); ack(action, { partNum: p }); }
+          catch(e){ err(action, String(e && e.message || e)); }
+        })();
+        return;
+      }
+
+      case 'setColor': {
+        const raw = String(msg.hex || '').replace(/^#/, '');
+        if (!/^[0-9a-fA-F]{6}$/.test(raw)) return err(action, 'hex must be RRGGBB');
+        state.color = '#' + raw.toUpperCase();
+        return ack(action, { hex: state.color });
+      }
+
+      case 'setRotation': {
+        let r = parseInt(msg.rot, 10) | 0;
+        r = ((r % 360) + 360) % 360;
+        if (![0,90,180,270].includes(r)) r = 0;
+        state.rot = r;
+        updateRotLbl(); rebuildGhost();
+        return ack(action, { rot: state.rot });
+      }
+
+      case 'build': {
+        const num   = parseInt(msg.partNum != null ? msg.partNum : state.selectedPart, 10);
+        const gx    = parseInt(msg.gx, 10) | 0;
+        const gz    = parseInt(msg.gz, 10) | 0;
+        const layer = parseInt(msg.layer != null ? msg.layer : 0, 10) | 0;
+        const rot   = parseInt(msg.rot   != null ? msg.rot   : state.rot, 10) | 0;
+        const hex   = msg.hex || state.color;
+        try {
+          const r = placePart(num, gx, gz, layer, rot, hex);
+          return r ? ack(action, { id: r.id }) : err(action, 'placement failed (support/bounds/collision)');
+        } catch(e){ return err(action, String(e && e.message || e)); }
+      }
+
+      case 'remove': {
+        const id = parseInt(msg.id, 10);
+        if (!id) return err(action, 'id required');
+        const ok = removePart(id);
+        return ok ? ack(action, { id }) : err(action, 'no such part');
+      }
+
+      case 'moveCharacter': {
+        if (!physics.character) return err(action, 'no character spawned');
+        const ch = physics.character;
+        ch.x += Number(msg.dx) || 0;
+        ch.y += Number(msg.dy) || 0;
+        ch.z += Number(msg.dz) || 0;
+        return ack(action, { x: ch.x, y: ch.y, z: ch.z });
+      }
+
+      case 'teleportCharacter': {
+        if (!physics.character) return err(action, 'no character spawned');
+        const ch = physics.character;
+        if (typeof msg.x === 'number') ch.x = msg.x;
+        if (typeof msg.y === 'number') ch.y = msg.y;
+        if (typeof msg.z === 'number') ch.z = msg.z;
+        if (typeof msg.yaw === 'number') ch.yaw = msg.yaw;
+        return ack(action, { x: ch.x, y: ch.y, z: ch.z, yaw: ch.yaw });
+      }
+
+      case 'turnCharacter': {
+        if (!physics.character) return err(action, 'no character spawned');
+        const deg = Number(msg.deg) || 0;
+        physics.character.yaw = (physics.character.yaw || 0) + deg * Math.PI / 180;
+        return ack(action, { yaw: physics.character.yaw });
+      }
+
+      default:
+        return err(action, 'unknown action');
+    }
+  }
+
+  window.addEventListener('message', (e) => {
+    const d = e.data;
+    if (!d || typeof d !== 'object') return;
+    if (d.source !== 'scratch-blocks') return;
+    try { handle(d); } catch(ex){ console.warn('[scratch-bridge]', ex); err(d.action, String(ex && ex.message || ex)); }
+  });
+
+  // Announce readiness so the parent can gate Scratch-side wiring.
+  reply('ready', null, { api: [
+    'ping','setTool','selectPart','setColor','setRotation','build','remove',
+    'moveCharacter','teleportCharacter','turnCharacter'
+  ] });
+})();
 </script>
 </body>
 </html>
