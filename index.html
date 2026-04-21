@@ -444,10 +444,25 @@
   .toast.gem{background:var(--pbs-sky);color:var(--pbs-sky-ink);border-color:var(--pbs-sky-ink);box-shadow:0 3px 0 var(--pbs-sky-ink)}
   .toast.prestige{background:var(--pbs-pink);color:var(--pbs-pink-ink);border-color:var(--pbs-pink-ink);box-shadow:0 3px 0 var(--pbs-pink-ink)}
   .toast.ach{background:var(--pbs-ink);color:var(--pbs-butter);border:1.5px solid var(--pbs-butter);box-shadow:0 3px 0 var(--pbs-butter)}
+  /* Embedded mode (?embed=1): hide the in-iframe side docks and brand so
+     the parent Problocks studio can own the Parts / Scheme / Quality / Color
+     UI via postMessage. The 3D canvas + toast HUD + actions bar stay. */
+  body.embed .dock,
+  body.embed .dock-left,
+  body.embed .brand { display: none !important; }
 </style>
 </head>
 <body>
 <div id="app"></div>
+<script>
+  // Toggle embedded layout before the main script runs so the CSS hide
+  // rules apply immediately (no flash of in-iframe Parts/Scheme dock).
+  try {
+    if (new URLSearchParams(location.search).get('embed') === '1') {
+      document.body.classList.add('embed');
+    }
+  } catch (_) { /* noop */ }
+</script>
 
 <div class="brand">
   <div class="eyebrow">Studio · LDraw</div>
@@ -8000,6 +8015,24 @@ addEventListener('resize', ()=>{
         return ack(action, { yaw: physics.character.yaw });
       }
 
+      case 'setScheme': {
+        // Defer to the existing click-handler so the full remap pipeline
+        // (applyTheme → palette remap → renderColorPicker) runs unchanged.
+        const t = String(msg.theme || '');
+        const btn = document.querySelector(`#schemes [data-theme="${t}"]`);
+        if (!btn) return err(action, 'unknown theme: ' + t);
+        btn.click();
+        return ack(action, { theme: t, colors: COLORS.map(c => c.hex) });
+      }
+
+      case 'setQuality': {
+        const q = String(msg.quality || '');
+        const btn = document.querySelector(`#quality [data-q="${q}"]`);
+        if (!btn) return err(action, 'unknown quality: ' + q);
+        btn.click();
+        return ack(action, { quality: q });
+      }
+
       default:
         return err(action, 'unknown action');
     }
@@ -8013,10 +8046,28 @@ addEventListener('resize', ()=>{
   });
 
   // Announce readiness so the parent can gate Scratch-side wiring.
-  reply('ready', null, { api: [
-    'ping','setTool','selectPart','setColor','setRotation','build','remove',
-    'moveCharacter','teleportCharacter','turnCharacter'
-  ] });
+  // Include the full parts catalog, category order, color palette, and
+  // current tool/scheme/quality state so the embedding studio UI can
+  // mirror the in-iframe dock without duplicating the catalog in React.
+  reply('ready', null, {
+    api: [
+      'ping','setTool','selectPart','setColor','setRotation','build','remove',
+      'moveCharacter','teleportCharacter','turnCharacter',
+      'setScheme','setQuality',
+    ],
+    parts: (typeof PARTS !== 'undefined' ? PARTS : []),
+    categories: (typeof CATEGORIES !== 'undefined' ? CATEGORIES : []),
+    colors: (typeof COLORS !== 'undefined' ? COLORS.map(c => ({ name: c.name, hex: c.hex })) : []),
+    schemes: ['vibrant','classic'],
+    qualities: ['high','medium','low'],
+    state: {
+      tool:    (typeof state !== 'undefined' && state.tool)     || 'build',
+      color:   (typeof state !== 'undefined' && state.color)    || null,
+      rot:     (typeof state !== 'undefined' && state.rot)      || 0,
+      scheme:  (typeof activeTheme   !== 'undefined' ? activeTheme   : 'classic'),
+      quality: (typeof activeQuality !== 'undefined' ? activeQuality : 'high'),
+    },
+  });
 })();
 </script>
 </body>
