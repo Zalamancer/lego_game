@@ -8033,6 +8033,22 @@ addEventListener('resize', ()=>{
         return ack(action, { quality: q });
       }
 
+      case 'getThumb': {
+        // Render a 3D thumbnail for the given part and ship it back as a
+        // PNG dataURL. Embedders (e.g. outer React Parts panel) use this
+        // to show the same preview the in-iframe dock used to render.
+        const p = parseInt(msg.partNum, 10);
+        if (!p) return err(action, 'partNum required');
+        (async () => {
+          try {
+            const canvas = await getThumbnail(p);
+            const dataUrl = canvas.toDataURL('image/png');
+            ack(action, { partNum: p, dataUrl });
+          } catch(e){ err(action, String(e && e.message || e)); }
+        })();
+        return;
+      }
+
       case 'getCatalog': {
         // Pull-based catalog for embedders that attach after the initial
         // 'ready' broadcast (e.g. React parent whose mount races the iframe
