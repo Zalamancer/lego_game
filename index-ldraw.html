@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LDraw Parts — Demo</title>
+<style>
+  :root{
+    --ink:#1a1d24; --muted:#4a5875; --panel:rgba(255,255,255,0.75); --border:rgba(255,255,255,0.9);
+    --shadow:0 14px 40px rgba(20,40,80,0.18), 0 2px 6px rgba(20,40,80,0.08);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;overflow:hidden;color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background:linear-gradient(180deg,#7fd4ff 0%,#b8e4ff 35%,#ffd9a8 70%,#ffb0c8 100%);}
+  #app{position:fixed;inset:0}
+  canvas{display:block}
+
+  .brand{position:fixed;left:20px;top:18px;z-index:10;pointer-events:none}
+  .brand .eyebrow{font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .brand .title{font-size:22px;font-weight:600;letter-spacing:-0.01em;margin-top:2px}
+
+  .dock{position:fixed;right:20px;top:18px;bottom:18px;width:300px;z-index:10;display:flex;flex-direction:column;gap:12px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);
+    padding:14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .card h3{margin:0 0 10px;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .demos{display:flex;flex-wrap:wrap;gap:6px}
+  .demo{appearance:none;border:1px solid rgba(255,255,255,0.7);background:rgba(255,255,255,0.55);border-radius:10px;
+    padding:8px 12px;font:inherit;font-size:12px;font-weight:600;color:var(--ink);cursor:pointer}
+  .demo:hover{background:#fff}
+  .demo.clear{background:rgba(255,80,80,0.12);border-color:rgba(255,80,80,0.4);color:#b81d1d}
+  .demo.clear:hover{background:rgba(255,80,80,0.2)}
+  .search{width:100%;border:1px solid rgba(255,255,255,0.7);background:rgba(255,255,255,0.55);
+    border-radius:10px;padding:8px 12px;font:inherit;font-size:12px;color:var(--ink);margin-bottom:8px;
+    -webkit-appearance:none;appearance:none}
+  .search:focus{outline:none;background:#fff;border-color:#ffd400}
+  .tabs{display:flex;gap:4px;overflow-x:auto;margin-bottom:8px;padding-bottom:4px;flex-shrink:0;
+    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,0.2) transparent}
+  .tabs::-webkit-scrollbar{height:6px}
+  .tabs::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.2);border-radius:3px}
+  .tab{appearance:none;border:1px solid rgba(255,255,255,0.7);background:rgba(255,255,255,0.45);
+    border-radius:8px;padding:5px 10px;font:inherit;font-size:11px;font-weight:600;color:var(--ink);
+    cursor:pointer;white-space:nowrap;flex-shrink:0}
+  .tab:hover{background:#fff}
+  .tab.on{background:#1a1d24;color:#fff;border-color:#1a1d24}
+  .tab .cnt{opacity:0.6;margin-left:4px;font-weight:500}
+  .parts{display:grid;grid-template-columns:1fr;gap:6px;overflow:auto;flex:1;min-height:120px;
+    padding-right:2px}
+  .parts .empty{color:var(--muted);font-size:11px;padding:14px 4px;text-align:center}
+  .part{appearance:none;border:1px solid rgba(255,255,255,0.7);background:rgba(255,255,255,0.55);border-radius:10px;
+    padding:10px 12px;font:inherit;font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:left}
+  .part:hover{background:#fff}
+  .part.on{background:#ffd400;color:#111;border-color:#ffd400;box-shadow:0 4px 14px rgba(255,212,0,0.55)}
+  .part .pn{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:0.08em;flex-shrink:0}
+  .colors{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .color{aspect-ratio:1/1;border-radius:8px;border:1px solid rgba(255,255,255,0.6);cursor:pointer;padding:0;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15)}
+  .color.sel{outline:2px solid #ffd400;outline-offset:2px}
+  .status{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:10;
+    background:var(--panel);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);
+    padding:10px 16px;font-size:12px;font-weight:600;color:var(--ink);
+    backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .status.err{color:#b81d1d}
+  .small{font-size:11px;color:var(--muted);line-height:1.4;margin-top:8px}
+  .hint{position:fixed;left:20px;bottom:18px;z-index:10;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;display:flex;gap:14px;flex-wrap:wrap;max-width:calc(100vw - 360px)}
+  .hint kbd{display:inline-block;border:1px solid var(--border);background:var(--panel);padding:3px 7px;border-radius:6px;
+    font:inherit;font-size:10px;margin-right:4px;color:var(--ink)}
+  @media (max-width:1100px){ .hint{display:none} }
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<div class="brand">
+  <div class="eyebrow">LDraw · three.js demo</div>
+  <div class="title">Real Brick Parts</div>
+</div>
+
+<div class="dock">
+  <div class="card">
+    <h3>Color</h3>
+    <div class="colors" id="colors"></div>
+  </div>
+  <div class="card">
+    <h3>Demo builds</h3>
+    <div class="demos">
+      <button class="demo" data-demo="scene">Garden Scene</button>
+      <button class="demo clear" data-demo="clear">Clear</button>
+    </div>
+    <div class="small">Click a demo to auto-build something with the parts library.</div>
+  </div>
+  <div class="card" style="flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0">
+    <h3>Parts</h3>
+    <input type="search" class="search" id="part-search" placeholder="Search 1000+ parts…" />
+    <div class="tabs" id="tabs"></div>
+    <div class="parts" id="parts"></div>
+    <div class="small">Click a part, then click a surface to place. Full LDraw geometry loads on demand.</div>
+  </div>
+</div>
+
+<div class="status" id="status">Ready.</div>
+
+<div class="hint">
+  <span><kbd>Click</kbd> place</span>
+  <span><kbd>Shift+click</kbd> remove</span>
+  <span><kbd>Right-drag</kbd> orbit</span>
+  <span><kbd>Scroll</kbd> zoom</span>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { LDrawLoader } from 'three/addons/loaders/LDrawLoader.js';
+
+// ---- Fallback catalog (used if assets/parts-catalog.json is missing) ----
+// The real catalog (~1000+ parts, incl. Technic gears/axles/beams) is built by
+// running `node scripts/build-catalog.mjs` and lives at assets/parts-catalog.json.
+const FALLBACK_CATALOG = {
+  categories: [
+    { id:'essentials', label:'Essentials', parts:[
+      { num:'3005',  name:'Brick 1×1' },
+      { num:'3004',  name:'Brick 1×2' },
+      { num:'3010',  name:'Brick 1×4' },
+      { num:'3003',  name:'Brick 2×2' },
+      { num:'3001',  name:'Brick 2×4' },
+      { num:'3024',  name:'Plate 1×1' },
+      { num:'3023',  name:'Plate 1×2' },
+      { num:'3710',  name:'Plate 1×4' },
+      { num:'3022',  name:'Plate 2×2' },
+      { num:'3020',  name:'Plate 2×4' },
+      { num:'3795',  name:'Plate 2×6' },
+      { num:'3070b', name:'Tile 1×1' },
+      { num:'3069b', name:'Tile 1×2' },
+      { num:'3068b', name:'Tile 2×2' },
+      { num:'3040',  name:'Slope 45° 2×1' },
+      { num:'3039',  name:'Slope 45° 2×2' },
+      { num:'3037',  name:'Slope 45° 2×4' },
+      { num:'4073',  name:'Round Plate 1×1' },
+      { num:'4032a', name:'Round Plate 2×2' },
+      { num:'3941',  name:'Round Brick 2×2' },
+    ]},
+  ],
+};
+
+// LEGO-ish color palette mapped to LDraw color codes (see LDConfig.ldr)
+const COLORS = [
+  { name:'Red',           code:4,   hex:'#b40000' },
+  { name:'Yellow',        code:14,  hex:'#f5cd2f' },
+  { name:'Blue',          code:1,   hex:'#1e5aa8' },
+  { name:'Green',         code:2,   hex:'#00852b' },
+  { name:'White',         code:15,  hex:'#f4f4f4' },
+  { name:'Black',         code:0,   hex:'#1b2a34' },
+  { name:'Orange',        code:25,  hex:'#fe8a18' },
+  { name:'Light Blue',    code:9,   hex:'#5a93db' },
+  { name:'Bright Green',  code:10,  hex:'#4b9f4a' },
+  { name:'Pink',          code:13,  hex:'#fc97ac' },
+  { name:'Purple',        code:22,  hex:'#81007b' },
+  { name:'Light Gray',    code:71,  hex:'#a0a19f' },
+  { name:'Dark Gray',     code:72,  hex:'#646464' },
+  { name:'Tan',           code:19,  hex:'#d7c599' },
+];
+
+// LDraw → world scale: 1 LDU = 0.4 mm. 1 stud (8mm) = 20 LDU.
+// We pick a world unit so a 2x4 brick reads at a familiar size.
+const LDU_TO_WORLD = 0.04;        // → 1 stud = 0.8 world units (matches main app)
+const PARTS_PATH = 'assets/ldraw/';
+const STUD = 0.8;                 // 1 stud in world units
+const PLATE = 0.32;               // 1 plate height in world units (8 LDU)
+const BASE_TOP = 0.18;            // top of baseplate (Y)
+const GRID_HALF = 12;             // baseplate is 24×24 studs → cells gx,gz ∈ [-12, 12)
+
+// ---- State ----
+const state = {
+  selectedPart: '3001',
+  selectedColorCode: 4,
+  selectedColorHex: '#b40000',
+  loadedParts: new Map(),  // partNum -> THREE.Group (template, cloned per placement)
+  loading: new Map(),      // partNum -> Promise
+  partMeta: new Map(),     // partNum -> { W, D, H }  footprint in studs + body height in plates
+  nextPlacementId: 1,
+};
+
+// Occupancy grid: key "gx,gy,gz" -> placementId
+// gx,gz are stud indices, gy is plate-height index, both 0-based from grid origin
+const occ = new Map();
+const okey = (gx,gy,gz) => `${gx},${gy},${gz}`;
+
+// ---- Scene ----
+const app = document.getElementById('app');
+const renderer = new THREE.WebGLRenderer({ antialias:true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+app.appendChild(renderer.domElement);
+const canvas = renderer.domElement;
+
+const scene = new THREE.Scene();
+
+// pastel sky background + env
+function makeSkyTexture(){
+  const c = document.createElement('canvas'); c.width=1024; c.height=512;
+  const ctx = c.getContext('2d');
+  const g = ctx.createLinearGradient(0,0,0,512);
+  g.addColorStop(0,'#7fd4ff'); g.addColorStop(0.4,'#b8e4ff');
+  g.addColorStop(0.6,'#ffe6c4'); g.addColorStop(1,'#ffa8c4');
+  ctx.fillStyle=g; ctx.fillRect(0,0,1024,512);
+  const tex = new THREE.CanvasTexture(c);
+  tex.mapping = THREE.EquirectangularReflectionMapping;
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+const sky = makeSkyTexture();
+scene.background = sky;
+{
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromEquirectangular(sky).texture;
+  pmrem.dispose();
+}
+scene.fog = new THREE.Fog(0xcde8ff, 60, 160);
+
+const camera = new THREE.PerspectiveCamera(40, window.innerWidth/window.innerHeight, 0.1, 200);
+camera.position.set(14, 14, 16);
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.1;
+controls.minDistance = 4; controls.maxDistance = 60;
+controls.maxPolarAngle = Math.PI/2 - 0.02;
+controls.mouseButtons = { LEFT:null, MIDDLE:THREE.MOUSE.DOLLY, RIGHT:THREE.MOUSE.ROTATE };
+controls.target.set(0,2,0);
+
+scene.add(new THREE.HemisphereLight(0xbfe9ff, 0x6fa85a, 0.4));
+const sun = new THREE.DirectionalLight(0xfff5d6, 1.6);
+sun.position.set(15,25,10); sun.castShadow=true;
+sun.shadow.mapSize.set(2048,2048);
+const s = 18;
+sun.shadow.camera.left=-s; sun.shadow.camera.right=s;
+sun.shadow.camera.top=s; sun.shadow.camera.bottom=-s;
+sun.shadow.bias=-0.0004; sun.shadow.normalBias=0.03;
+scene.add(sun);
+scene.add(new THREE.AmbientLight(0xffffff, 0.18));
+
+// grass floor
+const floor = new THREE.Mesh(
+  new THREE.PlaneGeometry(200,200),
+  new THREE.MeshStandardMaterial({ color:0x6cc958, roughness:1 })
+);
+floor.rotation.x = -Math.PI/2;
+floor.receiveShadow = true;
+scene.add(floor);
+
+// 24x24 baseplate (just a flat green slab — no studs in this demo)
+const BASE_W = 24 * 0.8;  // 24 studs
+const baseplate = new THREE.Mesh(
+  new THREE.BoxGeometry(BASE_W, 0.18, BASE_W),
+  new THREE.MeshStandardMaterial({ color:0x5cc94a, roughness:0.8 })
+);
+baseplate.position.y = 0.09;
+baseplate.receiveShadow = true;
+baseplate.name = 'baseplate';
+scene.add(baseplate);
+
+// holder for placed parts
+const placedGroup = new THREE.Group();
+scene.add(placedGroup);
+
+// ---- LDraw loader ----
+const ldraw = new LDrawLoader();
+ldraw.smoothNormals = true;
+
+let materialsReady = false;
+const materialsPromise = ldraw.preloadMaterials(PARTS_PATH + 'LDConfig.ldr')
+  .then(() => { materialsReady = true; setStatus('Materials loaded. Pick a part to load it.'); })
+  .catch(err => { setStatus('Failed to load LDConfig.ldr — did you run setup-ldraw.sh?', true); console.error(err); });
+ldraw.setPartsLibraryPath(PARTS_PATH);
+
+// load a part .dat into a template Group; cache it
+function loadPart(partNum){
+  if (state.loadedParts.has(partNum)) return Promise.resolve(state.loadedParts.get(partNum));
+  if (state.loading.has(partNum)) return state.loading.get(partNum);
+
+  const p = materialsPromise.then(() => new Promise((resolve, reject) => {
+    setStatus(`Loading ${partNum}.dat …`);
+    ldraw.load(`${PARTS_PATH}parts/${partNum}.dat`, (group) => {
+      // LDraw is +Y DOWN with origin at the top of the brick body (where studs attach).
+      // We:
+      //   1) flip Y so studs point up (rotate 180° around Z)
+      //   2) scale LDU → world units
+      //   3) compute the resulting bounding box and offset so the BOTTOM sits at y=0
+      //      (so callers can place the wrapper at any surface y)
+      const wrapper = new THREE.Group();
+      group.rotation.z = Math.PI;
+      wrapper.add(group);
+      wrapper.scale.setScalar(LDU_TO_WORLD);
+      wrapper.traverse(o => { if (o.isMesh){ o.castShadow = true; o.receiveShadow = true; }});
+
+      // bbox in world-of-wrapper space (parent identity), then bake offset into inner group
+      wrapper.updateMatrixWorld(true);
+      const bbox = new THREE.Box3().setFromObject(wrapper);
+      const size = new THREE.Vector3(); bbox.getSize(size);
+      // raise inner group so wrapper-local bottom = 0
+      group.position.y += -bbox.min.y / LDU_TO_WORLD; // inner group is in LDU; convert offset
+
+      // Footprint metadata (round to nearest stud / plate)
+      // - W,D: stud footprint (min 1)
+      // - H:   body height in plates (floor with epsilon drops the stud cap)
+      const meta = {
+        W: Math.max(1, Math.round(size.x / STUD)),
+        D: Math.max(1, Math.round(size.z / STUD)),
+        H: Math.max(1, Math.floor(size.y / PLATE + 0.001)),
+      };
+      state.partMeta.set(partNum, meta);
+
+      state.loadedParts.set(partNum, wrapper);
+      setStatus(`Ready — ${partNum} (${meta.W}×${meta.D}, ${meta.H}p tall)`);
+      resolve(wrapper);
+    }, undefined, (err) => {
+      setStatus(`Failed to load ${partNum}.dat`, true);
+      console.error(err);
+      reject(err);
+    });
+  }));
+  state.loading.set(partNum, p);
+  return p;
+}
+
+// recolor a cloned part: replace materials with one tinted to selected color
+function recolor(group, hex){
+  const tint = new THREE.Color(hex);
+  group.traverse(o => {
+    if (!o.isMesh || !o.material) return;
+    const mats = Array.isArray(o.material) ? o.material : [o.material];
+    o.material = mats.map(m => {
+      // skip transparent (windows) and clear pieces — keep their look
+      if (m.transparent || (m.opacity != null && m.opacity < 1)) return m;
+      const isMain = m.userData?.code === undefined || m.userData?.code === 0 || true;
+      if (isMain){
+        const c = m.clone();
+        c.color = tint.clone();
+        c.envMapIntensity = 0.4;
+        return c;
+      }
+      return m;
+    });
+    if (mats.length === 1) o.material = o.material[0];
+  });
+}
+
+// Place a loaded part. cellInfo = { gx0, gz0, layer, W, D, H } describes the
+// grid cells it occupies; worldPos is the wrapper origin (already snapped).
+function placePartAt(partNum, hex, worldPos, cellInfo, rotDeg=0){
+  const template = state.loadedParts.get(partNum);
+  if (!template) return;
+  const inst = template.clone(true);
+  recolor(inst, hex);
+  inst.position.copy(worldPos);
+  if (rotDeg) inst.rotation.y = rotDeg * Math.PI / 180;
+  inst.userData.partNum = partNum;
+  inst.userData.placementId = state.nextPlacementId++;
+  inst.userData.cells = cellInfo;
+  // mark occupancy
+  for (let i=0; i<cellInfo.W; i++)
+    for (let j=0; j<cellInfo.D; j++)
+      for (let k=0; k<cellInfo.H; k++)
+        occ.set(okey(cellInfo.gx0+i, cellInfo.layer+k, cellInfo.gz0+j), inst.userData.placementId);
+  placedGroup.add(inst);
+}
+
+function unplace(inst){
+  if (!inst || !inst.userData.cells) return;
+  const c = inst.userData.cells;
+  for (let i=0; i<c.W; i++)
+    for (let j=0; j<c.D; j++)
+      for (let k=0; k<c.H; k++)
+        occ.delete(okey(c.gx0+i, c.layer+k, c.gz0+j));
+  placedGroup.remove(inst);
+}
+
+// ---- Raycasting / interaction ----
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+let dragStart = null;
+
+canvas.addEventListener('pointermove', (e) => {
+  const r = canvas.getBoundingClientRect();
+  pointer.x = ((e.clientX - r.left)/r.width)*2 - 1;
+  pointer.y = -((e.clientY - r.top)/r.height)*2 + 1;
+});
+canvas.addEventListener('pointerdown', (e) => {
+  if (e.button !== 0) return;
+  dragStart = { x:e.clientX, y:e.clientY, shift:e.shiftKey };
+});
+canvas.addEventListener('pointerup', (e) => {
+  if (e.button !== 0 || !dragStart) return;
+  const moved = Math.hypot(e.clientX - dragStart.x, e.clientY - dragStart.y) > 3;
+  const shift = dragStart.shift;
+  dragStart = null;
+  if (moved) return;
+  raycaster.setFromCamera(pointer, camera);
+  const hits = raycaster.intersectObjects([baseplate, placedGroup], true);
+  if (!hits.length) return;
+  if (shift){
+    // remove the topmost placed part under cursor
+    let obj = hits[0].object;
+    while (obj && !obj.userData.partNum && obj.parent) obj = obj.parent;
+    if (obj && obj.userData.partNum) unplace(obj);
+    return;
+  }
+  const hit = hits[0];
+  // Only allow placement on UP-facing surfaces.
+  const n = hit.face
+    ? hit.face.normal.clone().transformDirection(hit.object.matrixWorld)
+    : new THREE.Vector3(0,1,0);
+  if (n.y < 0.5){
+    setStatus('Click a flat top surface to place.');
+    return;
+  }
+
+  // Need the part metadata to know footprint. If not loaded yet, kick off load.
+  const meta = state.partMeta.get(state.selectedPart);
+  if (!meta){
+    setStatus('Loading part — try again in a moment.');
+    loadPart(state.selectedPart).catch(()=>{});
+    return;
+  }
+  const { W, D, H } = meta;
+
+  // X/Z corner snap: choose gx0,gz0 so the part center is closest to the hit.
+  // Center of a W-stud part starting at gx0 is (gx0 + W/2)*STUD.
+  const gx0 = Math.round(hit.point.x / STUD - W / 2);
+  const gz0 = Math.round(hit.point.z / STUD - D / 2);
+
+  // Y plate-layer (which plate-row the part starts at, 0 = on baseplate top)
+  const yLocal = Math.max(0, hit.point.y - BASE_TOP);
+  const layer = Math.floor(yLocal / PLATE + 0.001);
+
+  // Bounds: keep entire footprint on the 24×24 baseplate
+  if (gx0 < -GRID_HALF || gz0 < -GRID_HALF || gx0 + W > GRID_HALF || gz0 + D > GRID_HALF){
+    setStatus('Out of bounds — part extends past the baseplate.');
+    return;
+  }
+
+  // Collision: every cell the part will occupy must be free
+  for (let i=0; i<W; i++)
+    for (let j=0; j<D; j++)
+      for (let k=0; k<H; k++){
+        if (occ.has(okey(gx0+i, layer+k, gz0+j))){
+          setStatus('Blocked — another brick is in the way.');
+          return;
+        }
+      }
+
+  // Support: above the baseplate, at least one cell directly below must be filled
+  if (layer > 0){
+    let supported = false;
+    for (let i=0; i<W && !supported; i++)
+      for (let j=0; j<D && !supported; j++)
+        if (occ.has(okey(gx0+i, layer-1, gz0+j))) supported = true;
+    if (!supported){
+      setStatus('Floating — needs a brick directly below.');
+      return;
+    }
+  }
+
+  // World position for the wrapper (its bottom = layer*PLATE + BASE_TOP, X/Z = footprint center)
+  const cx = (gx0 + W/2) * STUD;
+  const cz = (gz0 + D/2) * STUD;
+  const cy = BASE_TOP + layer * PLATE;
+  placePartAt(state.selectedPart, state.selectedColorHex, new THREE.Vector3(cx, cy, cz),
+              { gx0, gz0, layer, W, D, H });
+  setStatus(`Placed ${state.selectedPart} (${W}×${D}, ${H}p) at layer ${layer}.`);
+});
+
+canvas.addEventListener('contextmenu', e => e.preventDefault());
+
+// ---- UI ----
+const statusEl = document.getElementById('status');
+function setStatus(msg, isErr=false){
+  statusEl.textContent = msg;
+  statusEl.classList.toggle('err', !!isErr);
+}
+
+const partsEl = document.getElementById('parts');
+const tabsEl = document.getElementById('tabs');
+const searchEl = document.getElementById('part-search');
+
+let catalog = FALLBACK_CATALOG;
+let currentCatId = 'essentials';
+let searchQuery = '';
+
+// Escape for safe HTML insertion of part names/nums.
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+})[c]); }
+
+function allParts(){
+  const seen = new Set();
+  const out = [];
+  for (const cat of catalog.categories){
+    for (const p of cat.parts){
+      if (seen.has(p.num)) continue;
+      seen.add(p.num);
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+function renderTabs(){
+  tabsEl.innerHTML = '';
+  for (const cat of catalog.categories){
+    const b = document.createElement('button');
+    b.className = 'tab' + (cat.id === currentCatId ? ' on' : '');
+    b.innerHTML = `${esc(cat.label)}<span class="cnt">${cat.parts.length}</span>`;
+    b.addEventListener('click', () => {
+      currentCatId = cat.id;
+      searchEl.value = '';
+      searchQuery = '';
+      renderTabs();
+      renderParts();
+    });
+    tabsEl.appendChild(b);
+  }
+}
+
+function renderParts(){
+  let items;
+  if (searchQuery){
+    const q = searchQuery.toLowerCase();
+    items = allParts().filter(p =>
+      p.name.toLowerCase().includes(q) || p.num.toLowerCase().includes(q)
+    ).slice(0, 200);  // cap to keep DOM light
+  } else {
+    const cat = catalog.categories.find(c => c.id === currentCatId);
+    items = cat ? cat.parts : [];
+  }
+  partsEl.innerHTML = '';
+  if (!items.length){
+    const d = document.createElement('div');
+    d.className = 'empty';
+    d.textContent = searchQuery ? `No parts match "${searchQuery}".` : 'No parts in this category.';
+    partsEl.appendChild(d);
+    return;
+  }
+  for (const p of items){
+    const b = document.createElement('button');
+    b.className = 'part' + (p.num === state.selectedPart ? ' on' : '');
+    b.innerHTML = `<span>${esc(p.name)}</span><span class="pn">#${esc(p.num)}</span>`;
+    b.addEventListener('click', () => {
+      state.selectedPart = p.num;
+      [...partsEl.children].forEach(c => c.classList.remove('on'));
+      b.classList.add('on');
+      loadPart(p.num).catch(()=>{});
+    });
+    partsEl.appendChild(b);
+  }
+}
+
+// Debounced search — filters across all categories.
+let searchTimer = null;
+searchEl.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => {
+    searchQuery = searchEl.value.trim();
+    renderParts();
+  }, 100);
+});
+
+// Load the real catalog; fall back silently if missing.
+(async () => {
+  try {
+    const res = await fetch('assets/parts-catalog.json');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    if (!json.categories?.length) throw new Error('empty catalog');
+    catalog = json;
+    const ess = catalog.categories.find(c => c.id === 'essentials');
+    if (ess && ess.parts.length){
+      state.selectedPart = ess.parts[0].num;
+    }
+  } catch (e) {
+    console.warn('parts-catalog.json not found — using fallback. Run `node scripts/build-catalog.mjs` to populate.');
+  }
+  renderTabs();
+  renderParts();
+  loadPart(state.selectedPart).catch(()=>{});
+})();
+
+const colorsEl = document.getElementById('colors');
+COLORS.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'color' + (c.code === state.selectedColorCode ? ' sel' : '');
+  b.style.background = c.hex;
+  b.title = c.name;
+  b.addEventListener('click', () => {
+    state.selectedColorCode = c.code;
+    state.selectedColorHex = c.hex;
+    [...colorsEl.children].forEach(x => x.classList.remove('sel'));
+    b.classList.add('sel');
+  });
+  colorsEl.appendChild(b);
+});
+
+// (default-part pre-load happens inside the catalog IIFE above, after
+//  state.selectedPart is reconciled with the fetched essentials list)
+
+// ---- Demo builds --------------------------------------------------
+// Each step is { num, hex, gx0, gz0, layer }.
+// gx0,gz0 are stud indices; layer is plate-height index (0 = on baseplate).
+// We use the actual loaded meta (W,D,H) to compute the wrapper center.
+
+function runSteps(steps){
+  const uniq = [...new Set(steps.map(s => s.num))];
+  return Promise.all(uniq.map(n => loadPart(n))).then(() => {
+    for (const s of steps){
+      const meta = state.partMeta.get(s.num);
+      if (!meta){ console.warn('no meta for', s.num); continue; }
+      const rot = s.rot || 0;
+      const swap = (rot === 90 || rot === 270);
+      const W = swap ? meta.D : meta.W;
+      const D = swap ? meta.W : meta.D;
+      const H = meta.H;
+      const cx = (s.gx0 + W/2) * STUD;
+      const cz = (s.gz0 + D/2) * STUD;
+      const cy = BASE_TOP + s.layer * PLATE;
+      placePartAt(s.num, s.hex, new THREE.Vector3(cx, cy, cz),
+                  { gx0:s.gx0, gz0:s.gz0, layer:s.layer, W, D, H }, rot);
+    }
+  });
+}
+
+function clearBuild(){
+  while (placedGroup.children.length) placedGroup.remove(placedGroup.children[0]);
+  occ.clear();
+}
+
+// A full "Garden Scene": house with peaked slope roof, two trees of different
+// sizes, a row of flowers, and a garden bench.
+// Uses rotation (rot: 0/90/180/270) so side walls and roof slopes work.
+function buildScene(){
+  const RED='#b40000', BLUE='#1e5aa8', WHITE='#f4f4f4', DKGR='#646464';
+  const TAN='#d7c599', BROWN='#8a5a2b', GREEN='#4b9f4a', LTGR='#a0a19f';
+  const BLACK='#1b2a34', PINK='#fc97ac', YELLOW='#f5cd2f', ORANGE='#fe8a18';
+  const PURPLE='#81007b';
+  const s = [];
+
+  // ===== HOUSE — 6×6 footprint centered at origin =====
+  // Floor: three Plate 2×6 stacked in Z (each W=6, D=2)
+  s.push(
+    { num:'3795', hex:TAN, gx0:-3, gz0:-3, layer:0 },
+    { num:'3795', hex:TAN, gx0:-3, gz0:-1, layer:0 },
+    { num:'3795', hex:TAN, gx0:-3, gz0: 1, layer:0 },
+  );
+  // Back wall: Brick 1×6 (red)
+  s.push({ num:'3009', hex:RED, gx0:-3, gz0:-3, layer:1 });
+  // Side walls: Brick 1×4 rotated 90° so they run along Z
+  s.push({ num:'3010', hex:RED, gx0:-3, gz0:-2, layer:1, rot:90 });
+  s.push({ num:'3010', hex:RED, gx0: 2, gz0:-2, layer:1, rot:90 });
+  // Front wall: two Brick 1×2 flanking a 2-stud door gap
+  s.push(
+    { num:'3004', hex:RED, gx0:-3, gz0: 2, layer:1 },
+    { num:'3004', hex:RED, gx0: 1, gz0: 2, layer:1 },
+  );
+  // Roof base (layer 4, on top of 3-plate-tall walls): three Plate 2×6 (dark gray)
+  s.push(
+    { num:'3795', hex:DKGR, gx0:-3, gz0:-3, layer:4 },
+    { num:'3795', hex:DKGR, gx0:-3, gz0:-1, layer:4 },
+    { num:'3795', hex:DKGR, gx0:-3, gz0: 1, layer:4 },
+  );
+  // Peaked roof: central 2×4 brick (rotated to run along Z) + two 2×2 slopes facing each other
+  s.push({ num:'3001', hex:RED, gx0:-1, gz0:-2, layer:5, rot:90 }); // peak base 2×4
+  // Slopes at layer 8 — back slope rot=0 (peak on +Z/inner edge), front slope rot=180
+  s.push({ num:'3039', hex:WHITE, gx0:-1, gz0:-2, layer:8, rot:0   });
+  s.push({ num:'3039', hex:WHITE, gx0:-1, gz0: 0, layer:8, rot:180 });
+  // Chimney on back-left corner of roof + tile cap
+  s.push(
+    { num:'3005',  hex:DKGR,  gx0:-3, gz0:-3, layer:5 },
+    { num:'3070b', hex:BLACK, gx0:-3, gz0:-3, layer:8 },
+  );
+  // Door-step: Tile 2×2 on the baseplate in front of the door
+  s.push({ num:'3068b', hex:LTGR, gx0:-1, gz0: 3, layer:0 });
+  // Garden path: three Tile 1×2 running out from the door
+  s.push(
+    { num:'3069b', hex:LTGR, gx0:-1, gz0: 5, layer:0, rot:90 }, // rot=90 → runs along Z
+    { num:'3069b', hex:LTGR, gx0: 0, gz0: 5, layer:0, rot:90 },
+  );
+
+  // ===== BIG TREE at (-7, 4) =====
+  s.push(
+    { num:'3024',  hex:BROWN, gx0:-7, gz0:4, layer:0 },  // plate 1×1
+    { num:'3005',  hex:BROWN, gx0:-7, gz0:4, layer:1 },  // trunk brick 1
+    { num:'3005',  hex:BROWN, gx0:-7, gz0:4, layer:4 },  // trunk brick 2
+    { num:'3003',  hex:GREEN, gx0:-7, gz0:4, layer:7 },  // leaves 2×2
+    { num:'3003',  hex:GREEN, gx0:-7, gz0:4, layer:10 }, // leaves 2×2
+    { num:'4032a', hex:GREEN, gx0:-7, gz0:4, layer:13 }, // round-plate top
+  );
+
+  // ===== SMALL TREE at (7, 5) =====
+  s.push(
+    { num:'3024',  hex:BROWN, gx0:7, gz0:5, layer:0 },
+    { num:'3005',  hex:BROWN, gx0:7, gz0:5, layer:1 },
+    { num:'3003',  hex:GREEN, gx0:7, gz0:5, layer:4 },
+    { num:'4032a', hex:GREEN, gx0:7, gz0:5, layer:7 },
+  );
+
+  // ===== FLOWER ROW along gz=7 =====
+  const blooms = [PINK, YELLOW, ORANGE, PURPLE, BLUE];
+  for (let i=0; i<5; i++){
+    const gx = -4 + i*2;
+    s.push(
+      { num:'3024', hex:GREEN,     gx0:gx, gz0:7, layer:0 }, // leaf
+      { num:'3005', hex:GREEN,     gx0:gx, gz0:7, layer:1 }, // stem
+      { num:'4073', hex:blooms[i], gx0:gx, gz0:7, layer:4 }, // round plate 1×1 bloom
+    );
+  }
+
+  // ===== GARDEN BENCH beside the house =====
+  // Two 1×1 brick legs + a 1×4 plate seat running along Z
+  s.push(
+    { num:'3005', hex:BROWN, gx0:8, gz0:-5, layer:0 }, // leg
+    { num:'3005', hex:BROWN, gx0:8, gz0:-2, layer:0 }, // leg
+    { num:'3710', hex:BROWN, gx0:8, gz0:-5, layer:3, rot:90 }, // plate 1×4 seat
+  );
+
+  return runSteps(s);
+}
+
+document.querySelectorAll('.demo').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const id = btn.dataset.demo;
+    try {
+      if (id === 'clear'){ clearBuild(); setStatus('Cleared.'); return; }
+      setStatus(`Building ${id}…`);
+      if (id === 'scene') await buildScene();
+      setStatus(`Built: ${id}.`);
+    } catch(e){
+      console.error(e);
+      setStatus('Build failed — see console.', true);
+    }
+  });
+});
+
+// ---- Frame loop ----
+function frame(){
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+frame();
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>

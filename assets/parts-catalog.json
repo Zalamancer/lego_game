@@ -1,0 +1,5011 @@
+{
+  "generated": "2026-04-19T10:33:53.641Z",
+  "count": 1212,
+  "uniqueParts": 1160,
+  "categories": [
+    {
+      "id": "essentials",
+      "label": "Essentials",
+      "parts": [
+        {
+          "num": "3005",
+          "name": "Brick 1×1"
+        },
+        {
+          "num": "3004",
+          "name": "Brick 1×2"
+        },
+        {
+          "num": "3622",
+          "name": "Brick 1×3"
+        },
+        {
+          "num": "3010",
+          "name": "Brick 1×4"
+        },
+        {
+          "num": "3009",
+          "name": "Brick 1×6"
+        },
+        {
+          "num": "3008",
+          "name": "Brick 1×8"
+        },
+        {
+          "num": "3003",
+          "name": "Brick 2×2"
+        },
+        {
+          "num": "3002",
+          "name": "Brick 2×3"
+        },
+        {
+          "num": "3001",
+          "name": "Brick 2×4"
+        },
+        {
+          "num": "3024",
+          "name": "Plate 1×1"
+        },
+        {
+          "num": "3023",
+          "name": "Plate 1×2"
+        },
+        {
+          "num": "3623",
+          "name": "Plate 1×3"
+        },
+        {
+          "num": "3710",
+          "name": "Plate 1×4"
+        },
+        {
+          "num": "3666",
+          "name": "Plate 1×6"
+        },
+        {
+          "num": "3460",
+          "name": "Plate 1×8"
+        },
+        {
+          "num": "3022",
+          "name": "Plate 2×2"
+        },
+        {
+          "num": "3021",
+          "name": "Plate 2×3"
+        },
+        {
+          "num": "3020",
+          "name": "Plate 2×4"
+        },
+        {
+          "num": "3795",
+          "name": "Plate 2×6"
+        },
+        {
+          "num": "3034",
+          "name": "Plate 2×8"
+        },
+        {
+          "num": "3070b",
+          "name": "Tile 1×1"
+        },
+        {
+          "num": "3069b",
+          "name": "Tile 1×2"
+        },
+        {
+          "num": "63864",
+          "name": "Tile 1×3"
+        },
+        {
+          "num": "2431",
+          "name": "Tile 1×4"
+        },
+        {
+          "num": "3068b",
+          "name": "Tile 2×2"
+        },
+        {
+          "num": "87079",
+          "name": "Tile 2×4"
+        },
+        {
+          "num": "3040",
+          "name": "Slope 45° 2×1"
+        },
+        {
+          "num": "3039",
+          "name": "Slope 45° 2×2"
+        },
+        {
+          "num": "3038",
+          "name": "Slope 45° 2×3"
+        },
+        {
+          "num": "3037",
+          "name": "Slope 45° 2×4"
+        },
+        {
+          "num": "3665",
+          "name": "Slope Inverted 45° 2×1"
+        },
+        {
+          "num": "3660",
+          "name": "Slope Inverted 45° 2×2"
+        },
+        {
+          "num": "54200",
+          "name": "Slope 30° 1×1 (cheese)"
+        },
+        {
+          "num": "4073",
+          "name": "Round Plate 1×1"
+        },
+        {
+          "num": "4032a",
+          "name": "Round Plate 2×2"
+        },
+        {
+          "num": "3941",
+          "name": "Round Brick 2×2"
+        },
+        {
+          "num": "3062b",
+          "name": "Round Brick 1×1"
+        },
+        {
+          "num": "87580",
+          "name": "Plate 2×2 Jumper"
+        },
+        {
+          "num": "3794",
+          "name": "Plate 1×2 Jumper"
+        },
+        {
+          "num": "87087",
+          "name": "Brick 1×1 w/ Stud on Side"
+        },
+        {
+          "num": "3700",
+          "name": "Technic Brick 1×2 (hole)"
+        },
+        {
+          "num": "3701",
+          "name": "Technic Brick 1×4 (holes)"
+        },
+        {
+          "num": "3673",
+          "name": "Technic Pin"
+        },
+        {
+          "num": "4274",
+          "name": "Technic Pin ½"
+        },
+        {
+          "num": "2780",
+          "name": "Technic Pin with Friction"
+        },
+        {
+          "num": "3705",
+          "name": "Technic Axle 4"
+        },
+        {
+          "num": "3706",
+          "name": "Technic Axle 6"
+        },
+        {
+          "num": "3707",
+          "name": "Technic Axle 8"
+        },
+        {
+          "num": "3647",
+          "name": "Gear 8 Tooth"
+        },
+        {
+          "num": "3648",
+          "name": "Gear 24 Tooth"
+        },
+        {
+          "num": "32270",
+          "name": "Gear 12 Tooth Double Bevel"
+        },
+        {
+          "num": "32269",
+          "name": "Gear 20 Tooth Double Bevel"
+        },
+        {
+          "num": "3650",
+          "name": "Gear Worm Screw"
+        },
+        {
+          "num": "32523",
+          "name": "Technic Beam 3"
+        },
+        {
+          "num": "32316",
+          "name": "Technic Beam 5"
+        },
+        {
+          "num": "32524",
+          "name": "Technic Beam 7"
+        },
+        {
+          "num": "32525",
+          "name": "Technic Beam 11"
+        },
+        {
+          "num": "32013",
+          "name": "Technic Angle Connector #1 (0°)"
+        },
+        {
+          "num": "32014",
+          "name": "Technic Angle Connector #6 (90°)"
+        },
+        {
+          "num": "3713",
+          "name": "Technic Bush"
+        },
+        {
+          "num": "2909",
+          "name": "Technic Crank Handle"
+        }
+      ]
+    },
+    {
+      "id": "brick",
+      "label": "Bricks",
+      "parts": [
+        {
+          "num": "2356",
+          "name": "Brick 4 × 6"
+        },
+        {
+          "num": "2456",
+          "name": "Brick 2 × 6"
+        },
+        {
+          "num": "3001",
+          "name": "Brick 2 × 4"
+        },
+        {
+          "num": "3002",
+          "name": "Brick 2 × 3"
+        },
+        {
+          "num": "3003",
+          "name": "Brick 2 × 2"
+        },
+        {
+          "num": "3004",
+          "name": "Brick 1 × 2"
+        },
+        {
+          "num": "3005",
+          "name": "Brick 1 × 1"
+        },
+        {
+          "num": "3007",
+          "name": "Brick 2 × 8"
+        },
+        {
+          "num": "3008",
+          "name": "Brick 1 × 8"
+        },
+        {
+          "num": "3009",
+          "name": "Brick 1 × 6"
+        },
+        {
+          "num": "3010",
+          "name": "Brick 1 × 4"
+        },
+        {
+          "num": "733",
+          "name": "Brick 10 × 10"
+        },
+        {
+          "num": "3622",
+          "name": "Brick 1 × 3"
+        },
+        {
+          "num": "4201",
+          "name": "Brick 8 × 8"
+        },
+        {
+          "num": "2465",
+          "name": "Brick 1 × 16"
+        },
+        {
+          "num": "3006",
+          "name": "Brick 2 × 10"
+        },
+        {
+          "num": "4202",
+          "name": "Brick 4 × 12"
+        },
+        {
+          "num": "4204",
+          "name": "Brick 8 × 16"
+        },
+        {
+          "num": "6111",
+          "name": "Brick 1 × 10"
+        },
+        {
+          "num": "6112",
+          "name": "Brick 1 × 12"
+        },
+        {
+          "num": "6212",
+          "name": "Brick 4 × 10"
+        },
+        {
+          "num": "4876",
+          "name": "Fabuland Slide"
+        },
+        {
+          "num": "3245a",
+          "name": "Brick 1 × 2 × 2"
+        },
+        {
+          "num": "3754",
+          "name": "Brick 1 × 6 × 5"
+        },
+        {
+          "num": "6007",
+          "name": "Brick Separator"
+        },
+        {
+          "num": "6213",
+          "name": "Brick 2 × 6 × 3"
+        },
+        {
+          "num": "30072",
+          "name": "Brick 12 × 24"
+        },
+        {
+          "num": "702",
+          "name": "Brick 4 × 4 Corner"
+        },
+        {
+          "num": "2300",
+          "name": "Duplo Brick 2 × 6"
+        },
+        {
+          "num": "2462",
+          "name": "Brick 3 × 3 Facet"
+        },
+        {
+          "num": "3011",
+          "name": "Duplo Brick 2 × 4"
+        },
+        {
+          "num": "14716",
+          "name": "Brick 1 × 1 × 3"
+        },
+        {
+          "num": "3437",
+          "name": "Duplo Brick 2 × 2"
+        },
+        {
+          "num": "4199",
+          "name": "Duplo Brick 2 × 8"
+        },
+        {
+          "num": "2291",
+          "name": "Duplo Brick 2 × 10"
+        },
+        {
+          "num": "2357",
+          "name": "Brick 2 × 2 Corner"
+        },
+        {
+          "num": "27976",
+          "name": "Slide 4 × 6 × 6"
+        },
+        {
+          "num": "6107",
+          "name": "Brick 5 × 5 Facet"
+        },
+        {
+          "num": "30136",
+          "name": "Brick 1 × 2 Log"
+        },
+        {
+          "num": "30137",
+          "name": "Brick 1 × 4 Log"
+        },
+        {
+          "num": "30144",
+          "name": "Brick 2 × 4 × 3"
+        },
+        {
+          "num": "30145",
+          "name": "Brick 2 × 2 × 3"
+        },
+        {
+          "num": "39266",
+          "name": "Brick 1 × 5 × 2"
+        },
+        {
+          "num": "49311",
+          "name": "Brick 1 × 4 × 3"
+        },
+        {
+          "num": "14413",
+          "name": "Brick 4 × 4 Facet"
+        },
+        {
+          "num": "790",
+          "name": "Fabuland Roof Chimney"
+        },
+        {
+          "num": "31459",
+          "name": "=Duplo Brick 2 × 4"
+        },
+        {
+          "num": "31460",
+          "name": "=Duplo Brick 2 × 2"
+        },
+        {
+          "num": "87084",
+          "name": "Duplo Brick 2 × 3"
+        },
+        {
+          "num": "87620",
+          "name": "Brick 2 × 2 Facet"
+        },
+        {
+          "num": "48138",
+          "name": "Quatro Brick 2 × 2"
+        },
+        {
+          "num": "48201",
+          "name": "Quatro Brick 2 × 4"
+        },
+        {
+          "num": "48287",
+          "name": "Quatro Brick 1 × 2"
+        },
+        {
+          "num": "48411",
+          "name": "Quatro Brick 1 × 4"
+        },
+        {
+          "num": "2577",
+          "name": "Brick 4 × 4 Corner Round"
+        },
+        {
+          "num": "31110",
+          "name": "Duplo Brick 2 × 2 × 2"
+        },
+        {
+          "num": "31111",
+          "name": "Duplo Brick 2 × 4 × 2"
+        },
+        {
+          "num": "40244",
+          "name": "Staircase Spiral Axle"
+        },
+        {
+          "num": "5152",
+          "name": "Brick 3 × 3 Corner Round"
+        },
+        {
+          "num": "2463",
+          "name": "Brick 3 × 3 × 2 Facet Top"
+        },
+        {
+          "num": "40243",
+          "name": "Staircase Spiral Riser"
+        },
+        {
+          "num": "31000",
+          "name": "Duplo Primo Brick 1 × 1"
+        },
+        {
+          "num": "31148",
+          "name": "Duplo Primo Brick 2 × 2"
+        },
+        {
+          "num": "31149",
+          "name": "Duplo Primo Brick 2 × 3"
+        },
+        {
+          "num": "16968",
+          "name": "Brick 1 × 4 Disk Shooter"
+        },
+        {
+          "num": "30134",
+          "name": "Staircase 7 × 4 × 6 Open"
+        },
+        {
+          "num": "48092",
+          "name": "Brick 4 × 4 Corner Round"
+        },
+        {
+          "num": "2464",
+          "name": "Brick 3 × 3 × 2 Facet Bottom"
+        },
+        {
+          "num": "4066a",
+          "name": "Duplo Brick 1 × 2 × 2 Type 1"
+        },
+        {
+          "num": "4066b",
+          "name": "Duplo Brick 1 × 2 × 2 Type 2"
+        },
+        {
+          "num": "6143",
+          "name": "Brick 2 × 2 Round Reinforced"
+        },
+        {
+          "num": "30505",
+          "name": "Brick 3 × 3 without Corner"
+        },
+        {
+          "num": "71075a",
+          "name": "Brick 1 × 1 × 1.667 Round"
+        },
+        {
+          "num": "33243",
+          "name": "Brick 1 × 3 × 2 Curved Top"
+        },
+        {
+          "num": "6037",
+          "name": "Brick 2 × 2 × 3.333 Octagonal"
+        },
+        {
+          "num": "13358",
+          "name": "Duplo Brick 2 × 2 Hinge Base"
+        },
+        {
+          "num": "6442",
+          "name": "Duplo Train Track Point Lever"
+        },
+        {
+          "num": "925",
+          "name": "Brick 1 × 8 without Center Studs"
+        },
+        {
+          "num": "6066",
+          "name": "Brick 4 × 8 × 2.333 Turret Top"
+        },
+        {
+          "num": "3065",
+          "name": "Brick 1 × 2 without Centre Stud"
+        },
+        {
+          "num": "33230",
+          "name": "Brick 16 × 16 Quarter Circle"
+        },
+        {
+          "num": "42657",
+          "name": "Duplo Brick 1 × 2 × 2 Type 3"
+        },
+        {
+          "num": "98225",
+          "name": "Duplo Brick Round 2 × 2 × 2"
+        },
+        {
+          "num": "11267",
+          "name": "Slide 7 × 12 × 6.333 Half Turn"
+        },
+        {
+          "num": "3066",
+          "name": "Brick 1 × 4 without Centre Studs"
+        },
+        {
+          "num": "3067a",
+          "name": "Brick 1 × 6 without Centre Studs"
+        },
+        {
+          "num": "47974",
+          "name": "Brick 4 × 8 Round Half Circle"
+        },
+        {
+          "num": "26832",
+          "name": "Duplo Brick Gear 8 Tooth 4 × 4"
+        },
+        {
+          "num": "3245c",
+          "name": "Brick 1 × 2 × 2 without Understud"
+        },
+        {
+          "num": "42025",
+          "name": "Duplo Brick 1 × 3 × 2 Triangle"
+        },
+        {
+          "num": "47993",
+          "name": "Brick 3 × 8 × 4 Sloped Railing"
+        },
+        {
+          "num": "26835",
+          "name": "Duplo Brick Gear 12 Tooth 6 × 6"
+        },
+        {
+          "num": "65734",
+          "name": "Brick 1 × 4 × 2.667 Curved Top"
+        },
+        {
+          "num": "772",
+          "name": "Brick 1 × 2 × 2 without Centre Studs"
+        },
+        {
+          "num": "4783",
+          "name": "Fabuland Ferris Wheel Axle Support"
+        },
+        {
+          "num": "6072",
+          "name": "Brick 7 × 7 × 2.333 Turret Quarter"
+        },
+        {
+          "num": "6169",
+          "name": "Staircase 13 × 13 × 12 Curved Open"
+        },
+        {
+          "num": "30181",
+          "name": "Brick 4 × 10 without Two Corners"
+        },
+        {
+          "num": "30492",
+          "name": "Brick 8 × 8 Sports Field Section"
+        },
+        {
+          "num": "700a",
+          "name": "Brick 10 × 20 without Underside Studs"
+        },
+        {
+          "num": "22886",
+          "name": "Brick 1 × 2 × 3 without Understud"
+        },
+        {
+          "num": "30489",
+          "name": "Brick 16 × 8 Sports Field Section"
+        },
+        {
+          "num": "716a",
+          "name": "Brick 2 × 4 Half Round without Cutouts"
+        },
+        {
+          "num": "3755a",
+          "name": "Brick 1 × 3 × 5 without Inner Ridges"
+        },
+        {
+          "num": "6032",
+          "name": "Brick 2 × 3 × 1.667 Octagonal Offset"
+        },
+        {
+          "num": "6043",
+          "name": "Brick 2 × 2 × 3.333 Octagonal Corner"
+        },
+        {
+          "num": "2046",
+          "name": "Staircase 6 × 6 × 7.333 Enclosed Curved"
+        },
+        {
+          "num": "3941",
+          "name": "Brick 2 × 2 Round without Reinforcement"
+        },
+        {
+          "num": "18783",
+          "name": "Duplo Brick 1 × 2 × 2 Logs Horizontal"
+        },
+        {
+          "num": "4784",
+          "name": "Staircase 4 × 6 × 7.333 Enclosed Straight"
+        },
+        {
+          "num": "3063a",
+          "name": "Brick 2 × 2 Corner Round without Stud Notch"
+        },
+        {
+          "num": "71752",
+          "name": "Brick 2 × 2 × 0.667 Ribbed Horizontally"
+        },
+        {
+          "num": "4750",
+          "name": "Brick 13.667 × 13.667 Round Fabuland Hollowed"
+        },
+        {
+          "num": "28387",
+          "name": "Slide 6 × 6 × 6 Quarter Turn Left Down Going"
+        },
+        {
+          "num": "28466",
+          "name": "Staircase 6 × 6 × 4 Quarter Turn Left Up Going"
+        },
+        {
+          "num": "2458",
+          "name": "Brick 1 × 2 with Pin"
+        },
+        {
+          "num": "4730",
+          "name": "Brick 2 × 2 with Pin"
+        },
+        {
+          "num": "6249",
+          "name": "Brick 2 × 4 with Pins"
+        },
+        {
+          "num": "2653",
+          "name": "Brick 1 × 4 with Groove"
+        },
+        {
+          "num": "2877",
+          "name": "Brick 1 × 2 with Grille"
+        },
+        {
+          "num": "2921",
+          "name": "Brick 1 × 1 with Handle"
+        },
+        {
+          "num": "4216",
+          "name": "Brick 1 × 2 with Groove"
+        },
+        {
+          "num": "4217",
+          "name": "Brick 1 × 14 with Groove"
+        },
+        {
+          "num": "4612",
+          "name": "Brick 2 × 4 × 2 with Tail"
+        },
+        {
+          "num": "30236",
+          "name": "Brick 1 × 2 with Handle"
+        },
+        {
+          "num": "30526",
+          "name": "Brick 1 × 2 with 2 Pins"
+        },
+        {
+          "num": "4070",
+          "name": "Brick 1 × 1 with Headlight"
+        },
+        {
+          "num": "30076",
+          "name": "Brick 4 × 10 with 4 Pins"
+        },
+        {
+          "num": "4588",
+          "name": "Brick 1 × 1 Round with Fins"
+        },
+        {
+          "num": "6056",
+          "name": "Brick 2 × 2 × 6 with Groove"
+        },
+        {
+          "num": "6192a",
+          "name": "Brick 2 × 4 with Curved Top"
+        },
+        {
+          "num": "6215",
+          "name": "Brick 2 × 3 with Curved Top"
+        },
+        {
+          "num": "3001b",
+          "name": "Brick 2 × 4 with Hole in Top"
+        },
+        {
+          "num": "7126",
+          "name": "Brick 1 × 1 with Curved Top"
+        },
+        {
+          "num": "6222",
+          "name": "Brick 4 × 4 Round with Holes"
+        },
+        {
+          "num": "3134",
+          "name": "Brick 1 × 2 with Cable Cutout"
+        },
+        {
+          "num": "3137",
+          "name": "Brick 2 × 2 with Axle Brackets"
+        },
+        {
+          "num": "37352",
+          "name": "Brick 1 × 2 with Curved Top"
+        },
+        {
+          "num": "18897",
+          "name": "Brick 6 × 6 Round with Holes"
+        },
+        {
+          "num": "2453b",
+          "name": "Brick 1 × 1 × 5 with Solid Stud"
+        }
+      ]
+    },
+    {
+      "id": "plate",
+      "label": "Plates",
+      "parts": [
+        {
+          "num": "728",
+          "name": "Plate 8 × 11"
+        },
+        {
+          "num": "3020",
+          "name": "Plate 2 × 4"
+        },
+        {
+          "num": "3021",
+          "name": "Plate 2 × 3"
+        },
+        {
+          "num": "3022",
+          "name": "Plate 2 × 2"
+        },
+        {
+          "num": "3023b",
+          "name": "Plate 1 × 2"
+        },
+        {
+          "num": "3024",
+          "name": "Plate 1 × 1"
+        },
+        {
+          "num": "3031",
+          "name": "Plate 4 × 4"
+        },
+        {
+          "num": "3032",
+          "name": "Plate 4 × 6"
+        },
+        {
+          "num": "3034",
+          "name": "Plate 2 × 8"
+        },
+        {
+          "num": "3035",
+          "name": "Plate 4 × 8"
+        },
+        {
+          "num": "3036",
+          "name": "Plate 6 × 8"
+        },
+        {
+          "num": "3460",
+          "name": "Plate 1 × 8"
+        },
+        {
+          "num": "3623",
+          "name": "Plate 1 × 3"
+        },
+        {
+          "num": "3666",
+          "name": "Plate 1 × 6"
+        },
+        {
+          "num": "3710",
+          "name": "Plate 1 × 4"
+        },
+        {
+          "num": "3795",
+          "name": "Plate 2 × 6"
+        },
+        {
+          "num": "3958",
+          "name": "Plate 6 × 6"
+        },
+        {
+          "num": "2445",
+          "name": "Plate 2 × 12"
+        },
+        {
+          "num": "3026",
+          "name": "Plate 6 × 24"
+        },
+        {
+          "num": "3027",
+          "name": "Plate 6 × 16"
+        },
+        {
+          "num": "3028",
+          "name": "Plate 6 × 12"
+        },
+        {
+          "num": "3029",
+          "name": "Plate 4 × 12"
+        },
+        {
+          "num": "3030",
+          "name": "Plate 4 × 10"
+        },
+        {
+          "num": "3033",
+          "name": "Plate 6 × 10"
+        },
+        {
+          "num": "3456",
+          "name": "Plate 6 × 14"
+        },
+        {
+          "num": "3832",
+          "name": "Plate 2 × 10"
+        },
+        {
+          "num": "4282",
+          "name": "Plate 2 × 16"
+        },
+        {
+          "num": "4477",
+          "name": "Plate 1 × 10"
+        },
+        {
+          "num": "11212",
+          "name": "Plate 3 × 3"
+        },
+        {
+          "num": "41539",
+          "name": "Plate 8 × 8"
+        },
+        {
+          "num": "78329",
+          "name": "Plate 1 × 5"
+        },
+        {
+          "num": "60479",
+          "name": "Plate 1 × 12"
+        },
+        {
+          "num": "91988",
+          "name": "Plate 2 × 14"
+        },
+        {
+          "num": "92438",
+          "name": "Plate 8 × 16"
+        },
+        {
+          "num": "2420",
+          "name": "Plate 2 × 2 Corner"
+        },
+        {
+          "num": "2639",
+          "name": "Plate 4 × 4 Corner"
+        },
+        {
+          "num": "6141",
+          "name": "Plate 1 × 1 Round"
+        },
+        {
+          "num": "4196",
+          "name": "Duplo Plate 6 × 12"
+        },
+        {
+          "num": "14721",
+          "name": "Duplo Plate 4 × 4"
+        },
+        {
+          "num": "15397",
+          "name": "Plate 3 × 3 Cross"
+        },
+        {
+          "num": "25549",
+          "name": "Duplo Plate 4 × 6"
+        },
+        {
+          "num": "15624",
+          "name": "Plate 8 × 8 × 0.667"
+        },
+        {
+          "num": "98233",
+          "name": "Duplo Plate 2 × 6"
+        },
+        {
+          "num": "77844",
+          "name": "Plate 3 × 3 Corner"
+        },
+        {
+          "num": "18922",
+          "name": "Plate 8 × 16 × 0.667"
+        },
+        {
+          "num": "15623",
+          "name": "Plate 16 × 16 × 0.667"
+        },
+        {
+          "num": "86996",
+          "name": "Plate 1 × 1 × 0.667"
+        },
+        {
+          "num": "30042",
+          "name": "Plate 4 × 5 Trap Door"
+        },
+        {
+          "num": "2450",
+          "name": "Plate 3 × 3 without Corner"
+        },
+        {
+          "num": "39613",
+          "name": "Plate 3 × 3 Heart Shape"
+        },
+        {
+          "num": "4779",
+          "name": "Fabuland Ferris Wheel Axle"
+        },
+        {
+          "num": "2419",
+          "name": "Plate 3 × 6 without Corners"
+        },
+        {
+          "num": "6106",
+          "name": "Plate 6 × 6 without Corner"
+        },
+        {
+          "num": "35442",
+          "name": "Plate Gear 6 Tooth 2 × 2"
+        },
+        {
+          "num": "2401",
+          "name": "Plate 10 × 10 without Corner"
+        },
+        {
+          "num": "35443",
+          "name": "Plate Gear 10 Tooth 4 × 4"
+        },
+        {
+          "num": "35446",
+          "name": "Plate Gear 14 Tooth 6 × 6"
+        },
+        {
+          "num": "26601",
+          "name": "Plate 2 × 2 without Corner"
+        },
+        {
+          "num": "30503",
+          "name": "Plate 4 × 4 without Corner"
+        },
+        {
+          "num": "30504",
+          "name": "Plate 8 × 8 without Corner"
+        },
+        {
+          "num": "30041",
+          "name": "Plate 6 × 8 Trap Door Frame"
+        },
+        {
+          "num": "32059",
+          "name": "Plate 4 × 6 without Corners"
+        },
+        {
+          "num": "22888",
+          "name": "Plate 4 × 8 Round Semicircle"
+        },
+        {
+          "num": "68297",
+          "name": "Plate 4 × 8 without Corners"
+        },
+        {
+          "num": "91049",
+          "name": "Plate 1.5 × 1.5 × 0.667 Round"
+        },
+        {
+          "num": "98218",
+          "name": "Duplo Plate 4 × 4 Corner Round"
+        },
+        {
+          "num": "6063",
+          "name": "Plate 10 × 10 Octagonal Open Center"
+        },
+        {
+          "num": "30062",
+          "name": "Plate 6 × 6 Octagonal Open Center"
+        },
+        {
+          "num": "29304",
+          "name": "Duplo Plate 4 × 8 Round Semicircle"
+        },
+        {
+          "num": "712a",
+          "name": "Plate 4 × 8 Curved Left without Stud Cutouts"
+        },
+        {
+          "num": "713a",
+          "name": "Plate 4 × 8 Curved Right without Stud Cutouts"
+        },
+        {
+          "num": "709",
+          "name": "Plate 4 × 6 with Hole"
+        },
+        {
+          "num": "711",
+          "name": "Plate 5 × 6 with Hole"
+        },
+        {
+          "num": "271",
+          "name": "Plate 2 × 2 with Hinges"
+        },
+        {
+          "num": "3176",
+          "name": "Plate 3 × 2 with Hole"
+        },
+        {
+          "num": "2817",
+          "name": "Plate 2 × 2 with Holes"
+        },
+        {
+          "num": "2540",
+          "name": "Plate 1 × 2 with Handle"
+        },
+        {
+          "num": "30043",
+          "name": "Plate 1 × 4 with Arm"
+        },
+        {
+          "num": "4175",
+          "name": "Plate 1 × 2 with Ladder"
+        },
+        {
+          "num": "19727",
+          "name": "Plate 1 × 2 with Cube"
+        },
+        {
+          "num": "6686",
+          "name": "Plate 6 × 6 with 4 Bars"
+        },
+        {
+          "num": "3184",
+          "name": "Plate 1 × 4 with Towball"
+        },
+        {
+          "num": "3731",
+          "name": "Plate 2 × 2 with Towball"
+        },
+        {
+          "num": "26599",
+          "name": "Plate 2 × 4 with Holes"
+        },
+        {
+          "num": "3023a",
+          "name": "Plate 1 × 2 with Flat Pin"
+        },
+        {
+          "num": "15092",
+          "name": "Plate 2 × 2 with 2 Pins"
+        },
+        {
+          "num": "509",
+          "name": "Plate 2 × 4 with Hook Holder"
+        },
+        {
+          "num": "92584",
+          "name": "Plate 10 × 10 without Corner without Studs in Center"
+        },
+        {
+          "num": "4510",
+          "name": "Plate 1 × 8 with Door Rail"
+        },
+        {
+          "num": "2476a",
+          "name": "Plate 2 × 2 with Pin Type 1"
+        },
+        {
+          "num": "2476b",
+          "name": "Plate 2 × 2 with Pin Type 2"
+        },
+        {
+          "num": "5904",
+          "name": "Plate 1 × 1 with 12 Petals"
+        },
+        {
+          "num": "68382",
+          "name": "Plate 1 × 4 with 2 Pins"
+        },
+        {
+          "num": "422",
+          "name": "Plate 2 × 2 with Axle Brackets"
+        },
+        {
+          "num": "24866",
+          "name": "Plate 1 × 1 with 5 Petals"
+        },
+        {
+          "num": "753",
+          "name": "Plate 2 × 4 with Magnet Holder"
+        },
+        {
+          "num": "4488",
+          "name": "Plate 2 × 2 with 1 Wheel Pin"
+        },
+        {
+          "num": "2926",
+          "name": "Plate 1 × 4 with 2 Wheel Pins"
+        },
+        {
+          "num": "30586",
+          "name": "Plate 2 × 8 with Door Rail"
+        },
+        {
+          "num": "32028",
+          "name": "Plate 1 × 2 with Door Rail"
+        },
+        {
+          "num": "32828",
+          "name": "Plate 1 × 1 Round with Bar"
+        },
+        {
+          "num": "3462",
+          "name": "Plate 2 × 3 with Rotor Holder"
+        },
+        {
+          "num": "3661",
+          "name": "Plate 1 × 1 with Vertical Bar"
+        },
+        {
+          "num": "3766",
+          "name": "Plate 4 × 6 with Rounded Ends"
+        },
+        {
+          "num": "4600",
+          "name": "Plate 2 × 2 with 2 Wheel Pins"
+        },
+        {
+          "num": "4870",
+          "name": "Plate 2 × 2 with 2 Wheel Pins"
+        },
+        {
+          "num": "33291",
+          "name": "Plate 1 × 1 Round with Tabs"
+        },
+        {
+          "num": "3614a",
+          "name": "Plate 1 × 1 Round with Towball"
+        },
+        {
+          "num": "92593",
+          "name": "Plate 1 × 4 with Two Studs"
+        },
+        {
+          "num": "967",
+          "name": "Plate 4 × 8 with Trailer Kingpin"
+        },
+        {
+          "num": "21445",
+          "name": "Plate 1 × 2 with 1 Wheel Pin"
+        },
+        {
+          "num": "30195",
+          "name": "Plate 2 × 6 with Half Saucer"
+        },
+        {
+          "num": "737",
+          "name": "Plate 2 × 4 with Coupling, Female"
+        },
+        {
+          "num": "3491",
+          "name": "Plate 2 × 5 with Towball Socket"
+        },
+        {
+          "num": "3730",
+          "name": "Plate 2 × 2 with Towball Socket"
+        },
+        {
+          "num": "3839a",
+          "name": "Plate 1 × 2 with Handles Type 1"
+        },
+        {
+          "num": "3839b",
+          "name": "Plate 1 × 2 with Handles Type 2"
+        },
+        {
+          "num": "4032a",
+          "name": "Plate 2 × 2 Round with Axlehole"
+        },
+        {
+          "num": "41948",
+          "name": "Plate 8 × 8 with Rounded End"
+        },
+        {
+          "num": "46342",
+          "name": "Plate 6 × 6 with Heart Shape"
+        },
+        {
+          "num": "30157a",
+          "name": "Plate 2 × 4 with Rounded Pins"
+        },
+        {
+          "num": "65486",
+          "name": "Plate 9 × 9 with Heart Shape"
+        },
+        {
+          "num": "30565",
+          "name": "Plate 4 × 4 with Corner Round"
+        },
+        {
+          "num": "3127a",
+          "name": "Plate 1 × 2 with Crane Hook Left"
+        },
+        {
+          "num": "67929",
+          "name": "Plate 6 × 6 Octagon with Rim"
+        },
+        {
+          "num": "4151b",
+          "name": "Plate 8 × 8 with Grille and Hole"
+        },
+        {
+          "num": "90201",
+          "name": "Plate 2 × 6 with Sloped Bars"
+        },
+        {
+          "num": "44670",
+          "name": "Duplo Plate 2 × 8 with 4L Bar"
+        },
+        {
+          "num": "53119",
+          "name": "Plate 1 × 1 with Swirl on Top"
+        },
+        {
+          "num": "11458",
+          "name": "Plate 1 × 2 with Offset Peghole"
+        },
+        {
+          "num": "27261",
+          "name": "Plate 1 × 2 with 3 Rocky Claws"
+        },
+        {
+          "num": "30157b",
+          "name": "Plate 2 × 4 with Flatened Pins"
+        },
+        {
+          "num": "6576",
+          "name": "Plate 4 × 8 with Studs in Centre"
+        },
+        {
+          "num": "6583",
+          "name": "Plate 1 × 6 with Train Wagon End"
+        },
+        {
+          "num": "30925",
+          "name": "Plate 1 × 2 with Spoiler 1 × 4"
+        },
+        {
+          "num": "3127b",
+          "name": "Plate 1 × 2 with Crane Hook Right"
+        },
+        {
+          "num": "7068",
+          "name": "Plate 2 × 2 with Rod Frame Round"
+        },
+        {
+          "num": "73831",
+          "name": "Plate 2 × 3 with 1 × 1 Cutout"
+        },
+        {
+          "num": "77842",
+          "name": "Plate 3 × 6 with 2 × 4 Cutout"
+        },
+        {
+          "num": "79491",
+          "name": "Plate 2 × 2 with Corner Round"
+        }
+      ]
+    },
+    {
+      "id": "tile",
+      "label": "Tiles",
+      "parts": [
+        {
+          "num": "1751",
+          "name": "Tile 4 × 4"
+        },
+        {
+          "num": "4162",
+          "name": "Tile 1 × 8"
+        },
+        {
+          "num": "6320",
+          "name": "Tile 6 × 8"
+        },
+        {
+          "num": "6636",
+          "name": "Tile 1 × 6"
+        },
+        {
+          "num": "6934",
+          "name": "Tile 3 × 6"
+        },
+        {
+          "num": "26603",
+          "name": "Tile 2 × 3"
+        },
+        {
+          "num": "63864",
+          "name": "Tile 1 × 3"
+        },
+        {
+          "num": "69729",
+          "name": "Tile 2 × 6"
+        },
+        {
+          "num": "87079",
+          "name": "Tile 2 × 4"
+        },
+        {
+          "num": "48288",
+          "name": "Tile 8 × 16"
+        },
+        {
+          "num": "7212",
+          "name": "Tile 6 × 6 Round"
+        },
+        {
+          "num": "14719",
+          "name": "Tile 2 × 2 Corner"
+        },
+        {
+          "num": "2756",
+          "name": "Duplo Tile 2 × 2 × 1"
+        },
+        {
+          "num": "67095",
+          "name": "Tile 3 × 3 Round"
+        },
+        {
+          "num": "7828",
+          "name": "Tile 2 × 2 Cut Left"
+        },
+        {
+          "num": "1748",
+          "name": "Tile 1 × 2 Half Round"
+        },
+        {
+          "num": "11203",
+          "name": "Tile 2 × 2 Inverted"
+        },
+        {
+          "num": "7829",
+          "name": "Tile 2 × 2 Cut Right"
+        },
+        {
+          "num": "7975",
+          "name": "Tile 4 × 4 Triangular"
+        },
+        {
+          "num": "90498",
+          "name": "Tile 8 × 16 Type 2"
+        },
+        {
+          "num": "83496",
+          "name": "Tile 4 × 8 Inverted"
+        },
+        {
+          "num": "35787",
+          "name": "Tile 2 × 2 Triangular"
+        },
+        {
+          "num": "3068a",
+          "name": "Tile 2 × 2 without Groove"
+        },
+        {
+          "num": "3069a",
+          "name": "Tile 1 × 2 without Groove"
+        },
+        {
+          "num": "3070a",
+          "name": "Tile 1 × 1 without Groove"
+        },
+        {
+          "num": "39739",
+          "name": "Tile 1 × 1 Heart Shape"
+        },
+        {
+          "num": "25269",
+          "name": "Tile 1 × 1 Corner Round"
+        },
+        {
+          "num": "27507",
+          "name": "Tile 4 × 4 Corner Round"
+        },
+        {
+          "num": "27925",
+          "name": "Tile 2 × 2 Corner Round"
+        },
+        {
+          "num": "80677",
+          "name": "Tile 2 × 2 Round Splat"
+        },
+        {
+          "num": "30256",
+          "name": "Tile 2 × 2 Roadsign Base"
+        },
+        {
+          "num": "79393",
+          "name": "Tile 3 × 3 Corner Round"
+        },
+        {
+          "num": "5091",
+          "name": "Tile 1 × 2 Cut Left 45 Degree"
+        },
+        {
+          "num": "3477",
+          "name": "Tile 4 × 4 Corner Round Type 2"
+        },
+        {
+          "num": "5092",
+          "name": "Tile 1 × 2 Cut Right 45 Degree"
+        },
+        {
+          "num": "2412a",
+          "name": "Tile 1 × 2 Grille without Groove"
+        },
+        {
+          "num": "27263",
+          "name": "Tile 2 × 2 Corner without Corner"
+        },
+        {
+          "num": "6881a",
+          "name": "Tile 6 × 6 without Underside Details"
+        },
+        {
+          "num": "65092",
+          "name": "Tile 1 × 1 × 0.5 Octagonal Facetted"
+        },
+        {
+          "num": "45",
+          "name": "Tile 1 × 2 with Ball"
+        },
+        {
+          "num": "2460",
+          "name": "Tile 2 × 2 with Pin"
+        },
+        {
+          "num": "2555",
+          "name": "Tile 1 × 1 with Clip"
+        },
+        {
+          "num": "2431",
+          "name": "Tile 1 × 4 with Groove"
+        },
+        {
+          "num": "2432",
+          "name": "Tile 1 × 2 with Handle"
+        },
+        {
+          "num": "3068b",
+          "name": "Tile 2 × 2 with Groove"
+        },
+        {
+          "num": "3069b",
+          "name": "Tile 1 × 2 with Groove"
+        },
+        {
+          "num": "3070b",
+          "name": "Tile 1 × 1 with Groove"
+        },
+        {
+          "num": "2342",
+          "name": "Tile 1 × 2 with Console"
+        },
+        {
+          "num": "1126",
+          "name": "Tile 1 × 2 with Rounded Ends"
+        },
+        {
+          "num": "6805",
+          "name": "Tile 2 × 2 with 2 × 2 Ring"
+        },
+        {
+          "num": "5520",
+          "name": "Tile 2 × 2 with Rounded End"
+        },
+        {
+          "num": "15535",
+          "name": "Tile 2 × 2 Round with Hole"
+        },
+        {
+          "num": "22385",
+          "name": "Tile 3 × 2 with Angled End"
+        },
+        {
+          "num": "2412b",
+          "name": "Tile 1 × 2 Grille with Groove"
+        },
+        {
+          "num": "24246",
+          "name": "Tile 1 × 1 with Rounded End"
+        },
+        {
+          "num": "3395",
+          "name": "Tile 2 × 4 Inverted with Groove"
+        },
+        {
+          "num": "48995",
+          "name": "Tile 2 × 3 Rounded with Hole"
+        },
+        {
+          "num": "66857",
+          "name": "Tile 2 × 4 with Rounded Ends"
+        },
+        {
+          "num": "98138",
+          "name": "Tile 1 × 1 Round with Groove"
+        },
+        {
+          "num": "2376",
+          "name": "Tile 2 × 2 Round with Lifting Ring"
+        },
+        {
+          "num": "6881b",
+          "name": "Tile 6 × 6 with Underside Details"
+        },
+        {
+          "num": "15209",
+          "name": "Tile 1 × 2 with 2 Teeth Vertical"
+        },
+        {
+          "num": "35463",
+          "name": "Tile 1 × 1 with Curved Triangle"
+        },
+        {
+          "num": "35459",
+          "name": "Tile 1 × 3 Inverted with Bar Hole"
+        },
+        {
+          "num": "24445",
+          "name": "Tile 1 × 2 with 1 Tall Centre Stud"
+        },
+        {
+          "num": "6923",
+          "name": "Tile 8 × 20 × 0.667 with Curved Ends"
+        },
+        {
+          "num": "3567",
+          "name": "Tile 2 × 2 Round Inverted with Groove"
+        },
+        {
+          "num": "2833",
+          "name": "Tile 1 × 8 × 0.833 with Channel on Ends"
+        },
+        {
+          "num": "7836",
+          "name": "Tile 2 × 2 Corner Round with Understud"
+        },
+        {
+          "num": "49153",
+          "name": "Tile 2 × 2 with Pin with Square Hole"
+        }
+      ]
+    },
+    {
+      "id": "slope",
+      "label": "Slopes",
+      "parts": [
+        {
+          "num": "2399",
+          "name": "Wedge 3 × 4"
+        },
+        {
+          "num": "4858",
+          "name": "Wedge 4 × 4"
+        },
+        {
+          "num": "6565",
+          "name": "Wedge 3 × 2 Left"
+        },
+        {
+          "num": "6564",
+          "name": "Wedge 3 × 2 Right"
+        },
+        {
+          "num": "6069",
+          "name": "Wedge 4 × 4 Triple"
+        },
+        {
+          "num": "2916",
+          "name": "Wedge 4 × 6 × 2.333"
+        },
+        {
+          "num": "41768",
+          "name": "Wedge 4 × 2 Left"
+        },
+        {
+          "num": "3037",
+          "name": "Slope Brick 45 2 × 4"
+        },
+        {
+          "num": "3038",
+          "name": "Slope Brick 45 2 × 3"
+        },
+        {
+          "num": "3039",
+          "name": "Slope Brick 45 2 × 2"
+        },
+        {
+          "num": "3040b",
+          "name": "Slope Brick 45 2 × 1"
+        },
+        {
+          "num": "3297",
+          "name": "Slope Brick 33 3 × 4"
+        },
+        {
+          "num": "3298",
+          "name": "Slope Brick 33 3 × 2"
+        },
+        {
+          "num": "3939",
+          "name": "Slope Brick 33 3 × 6"
+        },
+        {
+          "num": "4161",
+          "name": "Slope Brick 33 3 × 3"
+        },
+        {
+          "num": "41767",
+          "name": "Wedge 4 × 2 Right"
+        },
+        {
+          "num": "4286",
+          "name": "Slope Brick 33 3 × 1"
+        },
+        {
+          "num": "4445",
+          "name": "Slope Brick 45 2 × 8"
+        },
+        {
+          "num": "4515",
+          "name": "Slope Brick 10 6 × 8"
+        },
+        {
+          "num": "4569",
+          "name": "Slope Brick 10 6 × 1"
+        },
+        {
+          "num": "4856",
+          "name": "Wedge 6 × 4 Inverted"
+        },
+        {
+          "num": "5654",
+          "name": "Slope Brick 13 4 × 1"
+        },
+        {
+          "num": "47759",
+          "name": "Wedge 2 × 4 Triple"
+        },
+        {
+          "num": "22391",
+          "name": "Wedge 4 × 4 Pointed"
+        },
+        {
+          "num": "30382",
+          "name": "Wedge 2 × 12 Triple"
+        },
+        {
+          "num": "15672",
+          "name": "Slope Plate 45 2 × 1"
+        },
+        {
+          "num": "23949",
+          "name": "Slope Brick 45 2 × 6"
+        },
+        {
+          "num": "30182",
+          "name": "Slope Brick 45 4 × 4"
+        },
+        {
+          "num": "30363",
+          "name": "Slope Brick 18 4 × 2"
+        },
+        {
+          "num": "35114",
+          "name": "Duplo Slope 17 3 × 2"
+        },
+        {
+          "num": "60477",
+          "name": "Slope Brick 18 4 × 1"
+        },
+        {
+          "num": "6474",
+          "name": "Duplo Slope 2 × 2 × 1.5"
+        },
+        {
+          "num": "49570",
+          "name": "Duplo Slope 2 × 4 × 3"
+        },
+        {
+          "num": "63871",
+          "name": "Duplo Slope 2 × 3 × 2"
+        },
+        {
+          "num": "3388",
+          "name": "Wedge 1 × 5 Straight Left"
+        },
+        {
+          "num": "3504",
+          "name": "Wedge 2 × 5 Straight Left"
+        },
+        {
+          "num": "11477",
+          "name": "Slope Brick Curved 2 × 1"
+        },
+        {
+          "num": "678",
+          "name": "Slope Homemaker Awning 2 × 6"
+        },
+        {
+          "num": "3389",
+          "name": "Wedge 1 × 5 Straight Right"
+        },
+        {
+          "num": "3505",
+          "name": "Wedge 2 × 5 Straight Right"
+        },
+        {
+          "num": "41748",
+          "name": "Wedge 2 × 6 Double Left"
+        },
+        {
+          "num": "42862",
+          "name": "Wedge 3 × 3 Sloped Left"
+        },
+        {
+          "num": "43710",
+          "name": "Wedge 4 × 2 Double Left"
+        },
+        {
+          "num": "43721",
+          "name": "Wedge 4 × 2 Sloped Left"
+        },
+        {
+          "num": "24309",
+          "name": "Slope Brick Curved 3 × 2"
+        },
+        {
+          "num": "30249",
+          "name": "Slope Brick 55 1 × 6 × 5"
+        },
+        {
+          "num": "3041",
+          "name": "Slope Brick 45 2 × 4 Double"
+        },
+        {
+          "num": "3042",
+          "name": "Slope Brick 45 2 × 3 Double"
+        },
+        {
+          "num": "3043",
+          "name": "Slope Brick 45 2 × 2 Double"
+        },
+        {
+          "num": "3044b",
+          "name": "Slope Brick 45 2 × 1 Double"
+        },
+        {
+          "num": "3048b",
+          "name": "Slope Brick 45 1 × 2 Triple"
+        },
+        {
+          "num": "3299",
+          "name": "Slope Brick 33 2 × 4 Double"
+        },
+        {
+          "num": "3300",
+          "name": "Slope Brick 33 2 × 2 Double"
+        },
+        {
+          "num": "41747",
+          "name": "Wedge 2 × 6 Double Right"
+        },
+        {
+          "num": "42022",
+          "name": "Slope Brick Curved 6 × 1"
+        },
+        {
+          "num": "42918",
+          "name": "Slope Brick Curved 8 × 2"
+        },
+        {
+          "num": "92946",
+          "name": "Slope Plate 45.73 2 × 1"
+        },
+        {
+          "num": "43711",
+          "name": "Wedge 4 × 2 Double Right"
+        },
+        {
+          "num": "43720",
+          "name": "Wedge 4 × 2 Sloped Right"
+        },
+        {
+          "num": "44126",
+          "name": "Slope Brick Curved 6 × 2"
+        },
+        {
+          "num": "4509",
+          "name": "Slope Brick 33 6 × 6 Double"
+        },
+        {
+          "num": "48165",
+          "name": "Wedge 3 × 3 Sloped Right"
+        },
+        {
+          "num": "49618",
+          "name": "Slope Brick 33 8 × 1 × 3"
+        },
+        {
+          "num": "50950",
+          "name": "Slope Brick Curved 3 × 1"
+        },
+        {
+          "num": "5120",
+          "name": "Slope Brick 45 6 × 8 Double"
+        },
+        {
+          "num": "11291",
+          "name": "Wedge 3 × 4 × 0.667 Cutout"
+        },
+        {
+          "num": "61678",
+          "name": "Slope Brick Curved 4 × 1"
+        },
+        {
+          "num": "2875",
+          "name": "Slope Brick 45 2 × 6 × 0.667"
+        },
+        {
+          "num": "93606",
+          "name": "Slope Brick Curved 4 × 2"
+        },
+        {
+          "num": "43712",
+          "name": "Wedge 6 × 4 Triple Curved"
+        },
+        {
+          "num": "5404",
+          "name": "Slope Brick 18 2 × 1 × 0.667"
+        },
+        {
+          "num": "7825",
+          "name": "Slope Brick 31 1 × 3 × 0.667"
+        },
+        {
+          "num": "7835",
+          "name": "Slope Brick 31 1 × 4 × 0.667"
+        },
+        {
+          "num": "45301",
+          "name": "Wedge 4 × 16 Triple Curved"
+        },
+        {
+          "num": "45677",
+          "name": "Wedge 4 × 4 × 0.667 Curved"
+        },
+        {
+          "num": "29115",
+          "name": "Wedge 6 × 6 Triple Inverted"
+        },
+        {
+          "num": "32083",
+          "name": "Slope Brick 45 6 × 4 Double"
+        },
+        {
+          "num": "33215",
+          "name": "Roof 6 × 8 × 9 Half Pyramid"
+        },
+        {
+          "num": "35464",
+          "name": "Slope Brick 45 1 × 1 Double"
+        },
+        {
+          "num": "43708",
+          "name": "Slope Brick 18 4 × 4 Corner"
+        },
+        {
+          "num": "41766",
+          "name": "Slope Brick Curved 8 × 2 × 2"
+        },
+        {
+          "num": "54200",
+          "name": "Slope Brick 31 1 × 1 × 0.667"
+        },
+        {
+          "num": "61487",
+          "name": "Slope Brick Curved 4 × 4 × 2"
+        },
+        {
+          "num": "15580",
+          "name": "Duplo Slope 2 × 3 × 2 Shingled"
+        },
+        {
+          "num": "3573",
+          "name": "Slope Brick Curved 4 × 1 × 1.667"
+        },
+        {
+          "num": "85984",
+          "name": "Slope Brick 31 1 × 2 × 0.667"
+        },
+        {
+          "num": "4861",
+          "name": "Slope Brick 45 3 × 4 Double / 33"
+        },
+        {
+          "num": "2449",
+          "name": "Slope Brick 75 2 × 1 × 3 Inverted"
+        },
+        {
+          "num": "6153a",
+          "name": "Wedge 6 × 4 without Stud Notches"
+        },
+        {
+          "num": "7249",
+          "name": "Slope Brick Curved 4 × 1 × 1.667"
+        }
+      ]
+    },
+    {
+      "id": "slope-curved",
+      "label": "Curved Slopes",
+      "parts": [
+        {
+          "num": "5095",
+          "name": "Slope Curved 2 × 2 × 0.667 with Stud Notch Left"
+        },
+        {
+          "num": "5093",
+          "name": "Slope Curved 2 × 2 × 0.667 with Stud Notch Right"
+        },
+        {
+          "num": "1942",
+          "name": "Slope Curved 4 × 2 × 0.667 Double with Fresnel Lens"
+        }
+      ]
+    },
+    {
+      "id": "round",
+      "label": "Round",
+      "parts": [
+        {
+          "num": "6942",
+          "name": "Dish 5 × 5"
+        },
+        {
+          "num": "31333",
+          "name": "Duplo Dish"
+        },
+        {
+          "num": "3960",
+          "name": "Dish 4 × 4 Inverted"
+        },
+        {
+          "num": "4740",
+          "name": "Dish 2 × 2 Inverted"
+        },
+        {
+          "num": "92009",
+          "name": "Duplo Dish Radar"
+        },
+        {
+          "num": "27372",
+          "name": "Duplo Serving Tray"
+        },
+        {
+          "num": "2654b",
+          "name": "Dish 2 × 2 without Rim"
+        },
+        {
+          "num": "43898",
+          "name": "Dish 3 × 3 Inverted"
+        },
+        {
+          "num": "4285a",
+          "name": "Dish 6 × 6 Inverted Webbed Type 1"
+        },
+        {
+          "num": "4285b",
+          "name": "Dish 6 × 6 Inverted Webbed Type 2"
+        },
+        {
+          "num": "65473",
+          "name": "Brick Round 2 × 2 Curved 45 Degrees"
+        },
+        {
+          "num": "20952",
+          "name": "Brick Round 1.4 × 1.4 × 0.667 Dome Top"
+        },
+        {
+          "num": "902",
+          "name": "Electric Light Reflector Round 2 × 2 × 0.667"
+        },
+        {
+          "num": "2654a",
+          "name": "Dish 2 × 2 with Rim"
+        },
+        {
+          "num": "7324",
+          "name": "Brick Round 1 × 1 Curved 45 Degrees - 80 LDU Radius"
+        },
+        {
+          "num": "30210",
+          "name": "Dish 2 × 2 with Angled Bar"
+        },
+        {
+          "num": "3961",
+          "name": "Dish 8 × 8 Inverted with Solid Studs"
+        },
+        {
+          "num": "98606",
+          "name": "Dish 9 × 9 Inverted with Pinhole"
+        },
+        {
+          "num": "35394",
+          "name": "Dish 4 × 4 Inverted with Hollow Stud"
+        },
+        {
+          "num": "18859",
+          "name": "Dish 8 × 8 Inverted with Hollow Studs"
+        },
+        {
+          "num": "44375b",
+          "name": "Dish 6 × 6 Inverted with Solid Studs"
+        },
+        {
+          "num": "44375a",
+          "name": "Dish 6 × 6 Inverted with Hollow Studs"
+        },
+        {
+          "num": "50990b",
+          "name": "Dish 10 × 10 Inverted with Solid Studs"
+        },
+        {
+          "num": "50990a",
+          "name": "Dish 10 × 10 Inverted with Hollow Studs"
+        },
+        {
+          "num": "18675",
+          "name": "Dish 6 × 6 Inverted - No Studs with Handle"
+        },
+        {
+          "num": "20953",
+          "name": "Brick Round Sphere 2 × 2 × 1.667 with Stud"
+        },
+        {
+          "num": "65700",
+          "name": "Plate Round 2.5 × 2.5 with Melting Drops on Sides"
+        },
+        {
+          "num": "35154",
+          "name": "Dish 8 × 8 Inverted with Solid Studs and Squared Antistud Underside"
+        }
+      ]
+    },
+    {
+      "id": "arch",
+      "label": "Arches",
+      "parts": [
+        {
+          "num": "3455",
+          "name": "Arch 1 × 6"
+        },
+        {
+          "num": "3659",
+          "name": "Arch 1 × 4"
+        },
+        {
+          "num": "4490",
+          "name": "Arch 1 × 3"
+        },
+        {
+          "num": "2339",
+          "name": "Arch 1 × 5 × 4"
+        },
+        {
+          "num": "3308a",
+          "name": "Arch 1 × 8 × 2"
+        },
+        {
+          "num": "3572",
+          "name": "Arch 1 × 5 × 2"
+        },
+        {
+          "num": "4743",
+          "name": "Arch 2 × 8 × 3"
+        },
+        {
+          "num": "5850",
+          "name": "Arch 1 × 3 × 2"
+        },
+        {
+          "num": "6182",
+          "name": "Arch 1 × 4 × 2"
+        },
+        {
+          "num": "6108",
+          "name": "Arch 1 × 12 × 3"
+        },
+        {
+          "num": "30528",
+          "name": "Arch 1 × 8 × 6"
+        },
+        {
+          "num": "80543",
+          "name": "Arch 1 × 4 × 3"
+        },
+        {
+          "num": "92950",
+          "name": "Arch 1 × 6 Raised"
+        },
+        {
+          "num": "11198",
+          "name": "Duplo Arch 2 × 4 × 2"
+        },
+        {
+          "num": "30296",
+          "name": "Arch 2 × 14 × 2.333"
+        },
+        {
+          "num": "16577",
+          "name": "Arch 1 × 8 × 2 Raised"
+        },
+        {
+          "num": "88292",
+          "name": "Arch 1 × 3 × 2 Ogee"
+        },
+        {
+          "num": "13965",
+          "name": "Arch 1 × 3 × 3 Pointed"
+        },
+        {
+          "num": "14707",
+          "name": "Arch 1 × 12 × 3 Raised"
+        },
+        {
+          "num": "2145",
+          "name": "Arch 2 × 6 × 5 Ornamented"
+        },
+        {
+          "num": "51704",
+          "name": "Duplo Arch 2 × 10 × 2"
+        },
+        {
+          "num": "18653",
+          "name": "Arch 1 × 3 × 2 Inverted"
+        },
+        {
+          "num": "30099",
+          "name": "Arch 1 × 5 × 4 Inverted"
+        },
+        {
+          "num": "78666",
+          "name": "Arch 1 × 2 × 1 Inverted"
+        },
+        {
+          "num": "6806",
+          "name": "Arch 2 × 6 × 0.833 Inverted"
+        }
+      ]
+    },
+    {
+      "id": "gear",
+      "label": "Gears",
+      "parts": [
+        {
+          "num": "27938",
+          "name": "Gear Rack 4L Curved"
+        },
+        {
+          "num": "10928",
+          "name": "Gear 16 Tooth Reinforced"
+        },
+        {
+          "num": "24505",
+          "name": "Gear 36 Tooth Double Bevel"
+        },
+        {
+          "num": "18946",
+          "name": "Gear 28 Tooth Double Bevel"
+        },
+        {
+          "num": "4296",
+          "name": "Gear Rack 1×8"
+        },
+        {
+          "num": "3743",
+          "name": "Gear Rack 1×4"
+        },
+        {
+          "num": "2907",
+          "name": "Gear 14 Tooth Bevel"
+        },
+        {
+          "num": "4716",
+          "name": "Worm Gear Block"
+        },
+        {
+          "num": "3650",
+          "name": "Gear Worm Screw"
+        },
+        {
+          "num": "4019",
+          "name": "Gear 16 Tooth (old mold)"
+        },
+        {
+          "num": "6589",
+          "name": "Gear 16 Tooth"
+        },
+        {
+          "num": "94925",
+          "name": "Gear 20 Tooth Bevel"
+        },
+        {
+          "num": "87407",
+          "name": "Gear 12 Tooth Bevel"
+        },
+        {
+          "num": "32269",
+          "name": "Gear 20 Tooth Double Bevel"
+        },
+        {
+          "num": "32270",
+          "name": "Gear 12 Tooth Double Bevel"
+        },
+        {
+          "num": "3649",
+          "name": "Gear 40 Tooth"
+        },
+        {
+          "num": "3648",
+          "name": "Gear 24 Tooth"
+        },
+        {
+          "num": "3647",
+          "name": "Gear 8 Tooth"
+        },
+        {
+          "num": "641",
+          "name": "Technic Gear 14 Tooth"
+        },
+        {
+          "num": "32072",
+          "name": "Technic Gear 4 Knob"
+        },
+        {
+          "num": "5405",
+          "name": "Technic Gear 4 Knob 45°"
+        },
+        {
+          "num": "569",
+          "name": "Technic Gear 9 Large Tooth"
+        },
+        {
+          "num": "570",
+          "name": "Technic Gear 15 Large Tooth"
+        },
+        {
+          "num": "572",
+          "name": "Technic Gear 21 Large Tooth"
+        },
+        {
+          "num": "642",
+          "name": "Technic Gear 21 Large Tooth"
+        },
+        {
+          "num": "643",
+          "name": "Technic Gear 35 Large Tooth"
+        },
+        {
+          "num": "644",
+          "name": "Technic Gear 42 Large Tooth"
+        },
+        {
+          "num": "69778",
+          "name": "Technic Gear 12 Tooth"
+        },
+        {
+          "num": "69779",
+          "name": "Technic Gear 20 Tooth"
+        },
+        {
+          "num": "768",
+          "name": "Technic Gear Block 2 × 4 × 3"
+        },
+        {
+          "num": "4143",
+          "name": "Technic Gear 14 Tooth Bevel"
+        },
+        {
+          "num": "6585",
+          "name": "Technic Gearbox 4 × 4 × 1.667"
+        },
+        {
+          "num": "32198",
+          "name": "Technic Gear 20 Tooth Bevel"
+        },
+        {
+          "num": "69762",
+          "name": "Technic Gear 14 Tooth Bevel"
+        },
+        {
+          "num": "6588",
+          "name": "Technic Gearbox 2 × 4 × 3 & 1/3"
+        },
+        {
+          "num": "3650a",
+          "name": "Technic Gear 24 Tooth Crown Type 1"
+        },
+        {
+          "num": "3650b",
+          "name": "Technic Gear 24 Tooth Crown Type 2"
+        },
+        {
+          "num": "3650c",
+          "name": "Technic Gear 24 Tooth Crown Type 3"
+        },
+        {
+          "num": "32060",
+          "name": "Technic Gear 8 Tooth Timing Wheel"
+        }
+      ]
+    },
+    {
+      "id": "beam",
+      "label": "Beams",
+      "parts": [
+        {
+          "num": "32348",
+          "name": "Technic Beam 3×7 Bent"
+        },
+        {
+          "num": "32526",
+          "name": "Technic Beam 3×5 L-Shape Thick"
+        },
+        {
+          "num": "32271",
+          "name": "Technic Beam 3×5 L-Shape"
+        },
+        {
+          "num": "32140",
+          "name": "Technic Beam 5 Bent 90°"
+        },
+        {
+          "num": "32017",
+          "name": "Technic Beam 5 Thick"
+        },
+        {
+          "num": "11478",
+          "name": "Technic Beam 5 Thin"
+        },
+        {
+          "num": "32449",
+          "name": "Technic Beam 4 Thin"
+        },
+        {
+          "num": "6632",
+          "name": "Technic Beam 3 Thin"
+        },
+        {
+          "num": "41677",
+          "name": "Technic Beam 2 Thin"
+        },
+        {
+          "num": "32278",
+          "name": "Technic Beam 15"
+        },
+        {
+          "num": "41239",
+          "name": "Technic Beam 13"
+        },
+        {
+          "num": "32525",
+          "name": "Technic Beam 11"
+        },
+        {
+          "num": "40490",
+          "name": "Technic Beam 9"
+        },
+        {
+          "num": "32524",
+          "name": "Technic Beam 7"
+        },
+        {
+          "num": "32316",
+          "name": "Technic Beam 5"
+        },
+        {
+          "num": "32523",
+          "name": "Technic Beam 3"
+        },
+        {
+          "num": "43857",
+          "name": "Technic Beam 2"
+        },
+        {
+          "num": "18654",
+          "name": "Technic Beam 1"
+        },
+        {
+          "num": "32063",
+          "name": "Technic Beam 6 × 0.5"
+        },
+        {
+          "num": "32065",
+          "name": "Technic Beam 7 × 0.5"
+        },
+        {
+          "num": "60483",
+          "name": "Technic Beam 2 Liftarm"
+        },
+        {
+          "num": "3167",
+          "name": "Technic Beam 2 × 3 C-shaped"
+        },
+        {
+          "num": "14720",
+          "name": "Technic Beam 5 × 3 H-shaped"
+        },
+        {
+          "num": "60484",
+          "name": "Technic Beam 3 × 3 T-shaped"
+        },
+        {
+          "num": "39369",
+          "name": "Technic Beam 19 × 11 Baseplate"
+        },
+        {
+          "num": "6629",
+          "name": "Technic Beam 4 × 6 Liftarm Bent 53.13"
+        },
+        {
+          "num": "43464",
+          "name": "Technic Beam 4 × 3 Liftarm Triangle"
+        },
+        {
+          "num": "32308",
+          "name": "Technic Beam 7 × 3 × 2 Liftarm Split"
+        },
+        {
+          "num": "2905",
+          "name": "Technic Beam 5 × 3 × 0.5 Liftarm Triangle"
+        },
+        {
+          "num": "32056",
+          "name": "Technic Beam 3 × 3 × 0.5 Liftarm Bent 90"
+        },
+        {
+          "num": "32009",
+          "name": "Technic Beam 3 × 3.8 × 7 Liftarm Bent 45 Double"
+        },
+        {
+          "num": "3916",
+          "name": "Technic Beam 3 × 9 Liftarm Bent 90 Quarter Ellipse"
+        },
+        {
+          "num": "45803",
+          "name": "Technic Beam 3 × 7 × 3 Bent 90 Double Chamfered"
+        },
+        {
+          "num": "99773",
+          "name": "Technic Beam 5 × 3 × 0.5 Liftarm Triangle Type 2"
+        },
+        {
+          "num": "71708",
+          "name": "Technic Beam 2 × 3 Liftarm Bent 90 Quarter Ellipse"
+        },
+        {
+          "num": "80286",
+          "name": "Technic Beam 2 × 5 Liftarm Bent 90 Quarter Ellipse"
+        },
+        {
+          "num": "32249",
+          "name": "Technic Beam 3 × 3 × 0.5 Liftarm Bent 90 Quarter Circle"
+        },
+        {
+          "num": "32250",
+          "name": "Technic Beam 3 × 5 × 0.5 Liftarm Bent 90 Quarter Ellipse"
+        },
+        {
+          "num": "32251",
+          "name": "Technic Beam 5 × 7 × 0.5 Liftarm Bent 90 Quarter Ellipse"
+        },
+        {
+          "num": "2502",
+          "name": "Technic Beam 2 × 12 × 9 with Claw"
+        },
+        {
+          "num": "4586",
+          "name": "Technic Beam 9 × 0.5 with 3 Holes"
+        },
+        {
+          "num": "85940",
+          "name": "Technic Beam 2 with Angled Bar"
+        },
+        {
+          "num": "2391",
+          "name": "Technic Beam 7 with Alternating Holes"
+        },
+        {
+          "num": "7229",
+          "name": "Technic Beam 3 with Center Axle Hole"
+        },
+        {
+          "num": "2825",
+          "name": "Technic Beam 4 × 0.5 Liftarm with Boss"
+        },
+        {
+          "num": "6612",
+          "name": "Technic Beam 9 with Alternating Holes"
+        },
+        {
+          "num": "61071",
+          "name": "Technic Beam 3 with Panel Fairing Left"
+        },
+        {
+          "num": "32079",
+          "name": "Technic Beam 9 Liftarm Offset with Boss"
+        },
+        {
+          "num": "71710",
+          "name": "Technic Beam 15 with Alternating Holes"
+        },
+        {
+          "num": "73507",
+          "name": "Technic Beam 11 with Alternating Holes"
+        },
+        {
+          "num": "61070",
+          "name": "Technic Beam 3 with Panel Fairing Right"
+        }
+      ]
+    },
+    {
+      "id": "technic",
+      "label": "Technic",
+      "parts": [
+        {
+          "num": "3483",
+          "name": "Technic Chain Link"
+        },
+        {
+          "num": "4185",
+          "name": "Technic Wedge Belt Wheel (pulley)"
+        },
+        {
+          "num": "62821",
+          "name": "Differential 28 Tooth Bevel"
+        },
+        {
+          "num": "6573",
+          "name": "Differential Housing (old)"
+        },
+        {
+          "num": "61903",
+          "name": "Technic Cam"
+        },
+        {
+          "num": "2853",
+          "name": "Technic Crank"
+        },
+        {
+          "num": "2909",
+          "name": "Technic Crank Handle"
+        },
+        {
+          "num": "32123",
+          "name": "Technic Bush ½ Smooth"
+        },
+        {
+          "num": "3713",
+          "name": "Technic Bush"
+        },
+        {
+          "num": "48989",
+          "name": "Technic Pin Connector Toggle Joint"
+        },
+        {
+          "num": "42003",
+          "name": "Technic Axle Joiner Perpendicular 3L"
+        },
+        {
+          "num": "6536",
+          "name": "Technic Axle Joiner Perpendicular"
+        },
+        {
+          "num": "59443",
+          "name": "Technic Axle Connector"
+        },
+        {
+          "num": "32014",
+          "name": "Technic Angle Connector #6 (90°)"
+        },
+        {
+          "num": "32015",
+          "name": "Technic Angle Connector #5 (112.5°)"
+        },
+        {
+          "num": "32192",
+          "name": "Technic Angle Connector #4 (135°)"
+        },
+        {
+          "num": "32016",
+          "name": "Technic Angle Connector #3 (157.5°)"
+        },
+        {
+          "num": "32034",
+          "name": "Technic Angle Connector #2 (180°)"
+        },
+        {
+          "num": "32013",
+          "name": "Technic Angle Connector #1 (0°)"
+        },
+        {
+          "num": "99008",
+          "name": "Technic Axle 5 with Stop"
+        },
+        {
+          "num": "87083",
+          "name": "Technic Axle 4 with Stop"
+        },
+        {
+          "num": "60485",
+          "name": "Technic Axle 9"
+        },
+        {
+          "num": "55013",
+          "name": "Technic Axle 10"
+        },
+        {
+          "num": "50451",
+          "name": "Technic Axle 11"
+        },
+        {
+          "num": "24316",
+          "name": "Technic Axle 5.5 with Stop"
+        },
+        {
+          "num": "32062",
+          "name": "Technic Axle 2 Notched"
+        },
+        {
+          "num": "3708",
+          "name": "Technic Axle 12"
+        },
+        {
+          "num": "3707",
+          "name": "Technic Axle 8"
+        },
+        {
+          "num": "3706",
+          "name": "Technic Axle 6"
+        },
+        {
+          "num": "3705",
+          "name": "Technic Axle 4"
+        },
+        {
+          "num": "4519",
+          "name": "Technic Axle 3"
+        },
+        {
+          "num": "3704",
+          "name": "Technic Axle 2"
+        },
+        {
+          "num": "62462",
+          "name": "Technic Pin Joiner 3L with 4 Pins"
+        },
+        {
+          "num": "75535",
+          "name": "Technic Pin Joiner Round"
+        },
+        {
+          "num": "6628",
+          "name": "Technic Friction Pin with Tow Ball"
+        },
+        {
+          "num": "43093",
+          "name": "Technic Axle Pin with Friction"
+        },
+        {
+          "num": "32556",
+          "name": "Technic Pin 3L"
+        },
+        {
+          "num": "32054",
+          "name": "Technic Pin 3L with Stop Bush"
+        },
+        {
+          "num": "6558",
+          "name": "Technic Pin 3L with Friction"
+        },
+        {
+          "num": "2780",
+          "name": "Technic Pin with Friction"
+        },
+        {
+          "num": "4274",
+          "name": "Technic Pin ½"
+        },
+        {
+          "num": "3673",
+          "name": "Technic Pin"
+        },
+        {
+          "num": "6521",
+          "name": "Duplo Axle 8"
+        },
+        {
+          "num": "6522",
+          "name": "Duplo Axle 6"
+        },
+        {
+          "num": "6524",
+          "name": "Duplo Beam 7"
+        },
+        {
+          "num": "6525",
+          "name": "Duplo Beam 11"
+        },
+        {
+          "num": "6221",
+          "name": "Technic Handle"
+        },
+        {
+          "num": "3250",
+          "name": "Technic Ring 15"
+        },
+        {
+          "num": "3737",
+          "name": "Technic Axle 10"
+        },
+        {
+          "num": "2637",
+          "name": "Technic Link 16L"
+        },
+        {
+          "num": "31624",
+          "name": "Duplo Gearbox"
+        },
+        {
+          "num": "3749",
+          "name": "Technic Axle Pin"
+        },
+        {
+          "num": "4698",
+          "name": "Technic Axle Nut"
+        },
+        {
+          "num": "6247",
+          "name": "Technic Link 11L"
+        },
+        {
+          "num": "32073",
+          "name": "Technic Axle 5"
+        },
+        {
+          "num": "44294",
+          "name": "Technic Axle 7"
+        },
+        {
+          "num": "23948",
+          "name": "Technic Axle 11"
+        },
+        {
+          "num": "30397",
+          "name": "Technic Link 5L"
+        },
+        {
+          "num": "31625",
+          "name": "Duplo Worm Gear"
+        },
+        {
+          "num": "32002",
+          "name": "Technic Pin 3/4"
+        },
+        {
+          "num": "3711",
+          "name": "Technic Chain Link"
+        },
+        {
+          "num": "498",
+          "name": "Technic Tread Crawler"
+        },
+        {
+          "num": "50450",
+          "name": "Technic Axle 32"
+        },
+        {
+          "num": "77107",
+          "name": "Technic Ring 11"
+        },
+        {
+          "num": "2736",
+          "name": "Technic Axle Towball"
+        },
+        {
+          "num": "2792",
+          "name": "Technic Steering Top"
+        },
+        {
+          "num": "6529",
+          "name": "Duplo Gear 24 Tooth"
+        },
+        {
+          "num": "6530",
+          "name": "Duplo Gear 40 Tooth"
+        },
+        {
+          "num": "6538a",
+          "name": "Technic Axle Joiner"
+        },
+        {
+          "num": "4261",
+          "name": "Technic Steering Arm"
+        },
+        {
+          "num": "4716",
+          "name": "Technic Worm Gear 2L"
+        },
+        {
+          "num": "2712",
+          "name": "Technic Rotor 3 Blade"
+        },
+        {
+          "num": "2790a",
+          "name": "Technic Steering Rack"
+        },
+        {
+          "num": "2823",
+          "name": "Technic Forklift Fork"
+        },
+        {
+          "num": "32439",
+          "name": "Technic Disc 5 × 5"
+        },
+        {
+          "num": "49283",
+          "name": "Technic Cable Clip"
+        },
+        {
+          "num": "61510",
+          "name": "Technic Reel 2 × 1"
+        },
+        {
+          "num": "15458",
+          "name": "Technic Panel 3 × 11"
+        },
+        {
+          "num": "80295",
+          "name": "Technic Reel 4 × 3"
+        },
+        {
+          "num": "2717",
+          "name": "Technic Seat 3 × 2 Base"
+        },
+        {
+          "num": "27938",
+          "name": "Technic Worm Gear 1L"
+        },
+        {
+          "num": "60935",
+          "name": "Technic Wing 11 × 8"
+        },
+        {
+          "num": "2999",
+          "name": "Technic Large Wheel Hub"
+        },
+        {
+          "num": "32012",
+          "name": "Technic Reel 2.5 × 2"
+        },
+        {
+          "num": "71709",
+          "name": "Technic Panel 3 × 7"
+        },
+        {
+          "num": "3736",
+          "name": "Technic Pulley Wheel 5D"
+        },
+        {
+          "num": "4265a",
+          "name": "Technic Bush 1/2 Type 1"
+        },
+        {
+          "num": "48203",
+          "name": "Technic Bumper 2 × 6"
+        },
+        {
+          "num": "64782",
+          "name": "Technic Panel 5 × 11"
+        },
+        {
+          "num": "6577",
+          "name": "Technic Bush 1/2 Type 2"
+        },
+        {
+          "num": "32496",
+          "name": "Technic Wheel Spindle"
+        },
+        {
+          "num": "73071",
+          "name": "Technic Differential"
+        },
+        {
+          "num": "73763",
+          "name": "Technic Worm Gear 6L"
+        },
+        {
+          "num": "4412",
+          "name": "Technic Dome 5 × 5 × 2.5"
+        },
+        {
+          "num": "44790",
+          "name": "Technic Hockey Helmet"
+        },
+        {
+          "num": "48202",
+          "name": "Technic Bumper 2 × 18"
+        },
+        {
+          "num": "26287",
+          "name": "Technic Axle Joiner 3L"
+        },
+        {
+          "num": "2737",
+          "name": "Technic Steering Arm Tall"
+        },
+        {
+          "num": "5996",
+          "name": "Technic Steering Link 8L"
+        },
+        {
+          "num": "6610",
+          "name": "Technic Steering Link 4L"
+        },
+        {
+          "num": "32272",
+          "name": "Technic Dome 6 × 6 × 7"
+        },
+        {
+          "num": "22678",
+          "name": "Technic Ribbed Hose 31L"
+        },
+        {
+          "num": "22900",
+          "name": "Technic Ribbed Hose 17L"
+        },
+        {
+          "num": "23397",
+          "name": "Technic Ribbed Hose 24L"
+        },
+        {
+          "num": "57587",
+          "name": "Technic Dome 7 × 7 × 5"
+        },
+        {
+          "num": "57719",
+          "name": "Technic Ribbed Hose 7L"
+        },
+        {
+          "num": "32580",
+          "name": "Technic Axle Flexible 7"
+        },
+        {
+          "num": "71917",
+          "name": "Technic Ribbed Hose 9L"
+        },
+        {
+          "num": "71944",
+          "name": "Technic Ribbed Hose 6L"
+        },
+        {
+          "num": "71951",
+          "name": "Technic Ribbed Hose 8L"
+        },
+        {
+          "num": "71952",
+          "name": "Technic Ribbed Hose 4L"
+        },
+        {
+          "num": "72504",
+          "name": "Technic Ribbed Hose 2L"
+        },
+        {
+          "num": "72706",
+          "name": "Technic Ribbed Hose 3L"
+        },
+        {
+          "num": "33763",
+          "name": "Technic Ribbed Hose 26L"
+        },
+        {
+          "num": "72853",
+          "name": "Technic Ribbed Hose 5L"
+        },
+        {
+          "num": "3652",
+          "name": "Technic Piston 2 × 2 Block"
+        },
+        {
+          "num": "43675",
+          "name": "Technic Ribbed Hose 19L"
+        },
+        {
+          "num": "4413",
+          "name": "Technic Dome 11 × 11 × 5.5"
+        },
+        {
+          "num": "2851",
+          "name": "Technic Engine Piston Round"
+        },
+        {
+          "num": "6538b",
+          "name": "Technic Axle Joiner Offset"
+        },
+        {
+          "num": "32188",
+          "name": "Technic Panel Fairing #3"
+        },
+        {
+          "num": "32189",
+          "name": "Technic Panel Fairing #4"
+        },
+        {
+          "num": "32190",
+          "name": "Technic Panel Fairing #1"
+        },
+        {
+          "num": "32191",
+          "name": "Technic Panel Fairing #2"
+        },
+        {
+          "num": "32199",
+          "name": "Technic Axle Flexible 11"
+        },
+        {
+          "num": "32200",
+          "name": "Technic Axle Flexible 12"
+        },
+        {
+          "num": "32201",
+          "name": "Technic Axle Flexible 14"
+        },
+        {
+          "num": "32202",
+          "name": "Technic Axle Flexible 16"
+        },
+        {
+          "num": "32235",
+          "name": "Technic Axle Flexible 19"
+        },
+        {
+          "num": "32293",
+          "name": "Technic Steering Link 9L"
+        },
+        {
+          "num": "32527",
+          "name": "Technic Panel Fairing #5"
+        },
+        {
+          "num": "32528",
+          "name": "Technic Panel Fairing 6#"
+        },
+        {
+          "num": "32534",
+          "name": "Technic Panel Fairing #7"
+        },
+        {
+          "num": "32535",
+          "name": "Technic Panel Fairing #8"
+        },
+        {
+          "num": "71819",
+          "name": "Technic Ribbed Hose 12L"
+        },
+        {
+          "num": "71923",
+          "name": "Technic Ribbed Hose 14L"
+        },
+        {
+          "num": "71945",
+          "name": "Technic Ribbed Hose 13L"
+        },
+        {
+          "num": "71946",
+          "name": "Technic Ribbed Hose 15L"
+        },
+        {
+          "num": "71947",
+          "name": "Technic Ribbed Hose 16L"
+        },
+        {
+          "num": "71949",
+          "name": "Technic Ribbed Hose 10L"
+        },
+        {
+          "num": "71986",
+          "name": "Technic Ribbed Hose 11L"
+        },
+        {
+          "num": "72039",
+          "name": "Technic Ribbed Hose 18L"
+        },
+        {
+          "num": "80285",
+          "name": "Technic Panel 3 × 2 × 5"
+        },
+        {
+          "num": "2741",
+          "name": "Technic Steering Wheel Large"
+        },
+        {
+          "num": "2791a",
+          "name": "Technic Steering Gear Holder"
+        },
+        {
+          "num": "2819",
+          "name": "Technic Steering Wheel Small"
+        },
+        {
+          "num": "2855",
+          "name": "Technic Turntable Type 1 Top"
+        },
+        {
+          "num": "65416",
+          "name": "Technic Brake Disc 6 × 6"
+        },
+        {
+          "num": "6549",
+          "name": "Technic 4 Speed Shift Lever"
+        },
+        {
+          "num": "31622",
+          "name": "Duplo Gear 24 Tooth Crown"
+        }
+      ]
+    },
+    {
+      "id": "wheel",
+      "label": "Wheels",
+      "parts": [
+        {
+          "num": "2496",
+          "name": "Wheel Trolley"
+        },
+        {
+          "num": "4624",
+          "name": "Wheel Rim 6.4 × 8"
+        },
+        {
+          "num": "32247",
+          "name": "Wheel 41mm Znap"
+        },
+        {
+          "num": "32219",
+          "name": "Wheel 14 × 30 Znap"
+        },
+        {
+          "num": "32220",
+          "name": "Wheel 16 × 68 Znap"
+        },
+        {
+          "num": "3739",
+          "name": "Wheel 24 × 43 Technic"
+        },
+        {
+          "num": "4720",
+          "name": "Wheel Minifig Bicycle"
+        },
+        {
+          "num": "32146",
+          "name": "Wheel 14 × 30 Smooth"
+        },
+        {
+          "num": "24869",
+          "name": "Wheels Roller Coaster"
+        },
+        {
+          "num": "55889",
+          "name": "Wheel 12 × 18 Smooth"
+        },
+        {
+          "num": "2695",
+          "name": "Wheel Rim 12.7 × 30 Stepped"
+        },
+        {
+          "num": "2903",
+          "name": "Wheel Rim 14 × 62 Motorcycle"
+        },
+        {
+          "num": "22969a",
+          "name": "Wheel 56 × 46 Technic Racing"
+        },
+        {
+          "num": "867",
+          "name": "Wheel Train for 12V Electric Motor"
+        },
+        {
+          "num": "46334",
+          "name": "Wheel 16 × 75 Motorcycle Solid"
+        },
+        {
+          "num": "84772",
+          "name": "Wheel 20 × 62 Motorcycle Solid"
+        },
+        {
+          "num": "93594",
+          "name": "Wheel Rim 6.4 × 11 without Spokes"
+        },
+        {
+          "num": "32004b",
+          "name": "Wheel Rim 18 × 41 Model Team Type 2"
+        },
+        {
+          "num": "50965",
+          "name": "Wheel Cover 5 Spoke for Wheel 34 × 56"
+        },
+        {
+          "num": "54086",
+          "name": "Wheel Cover 5 Spoke for Wheel 20 × 30"
+        },
+        {
+          "num": "62359",
+          "name": "Wheel Cover 7 Spoke for Wheel 14 × 18"
+        },
+        {
+          "num": "62701",
+          "name": "Wheel Cover 9 Spoke for Wheel 14 × 17"
+        },
+        {
+          "num": "37195",
+          "name": "Wheel Cover 28 Spoke for Wheel 20 × 30"
+        },
+        {
+          "num": "58088",
+          "name": "Wheel Cover 7 Spoke Forked for Wheel 34 × 56"
+        },
+        {
+          "num": "2515a",
+          "name": "Wheel 32 × 56 Hard-Plastic without Inner Supports"
+        },
+        {
+          "num": "74967",
+          "name": "Wheel Rim 8 × 8 Notched Hole, Reinforced Back"
+        },
+        {
+          "num": "30027a",
+          "name": "Wheel Rim 8 × 8 Round Hole, for Wheel Holding Pin"
+        },
+        {
+          "num": "30324",
+          "name": "Wheel Hard with Treads"
+        },
+        {
+          "num": "2470",
+          "name": "Wheel 2.8 × 27 with 8 Spokes"
+        },
+        {
+          "num": "3464b",
+          "name": "Wheel Centre with Stub Axles"
+        }
+      ]
+    },
+    {
+      "id": "tyre",
+      "label": "Tyres",
+      "parts": [
+        {
+          "num": "36",
+          "name": "Tyre Large"
+        },
+        {
+          "num": "7860",
+          "name": "Tyre 13/ 75 × 56"
+        },
+        {
+          "num": "11209",
+          "name": "Tyre 10/ 32 × 14"
+        },
+        {
+          "num": "2696",
+          "name": "Tyre 12.7/ 51 × 30"
+        },
+        {
+          "num": "15413",
+          "name": "Tyre 20/ 48 × 30"
+        },
+        {
+          "num": "50951",
+          "name": "Tyre 6/ 30 × 11"
+        },
+        {
+          "num": "2997",
+          "name": "Tyre 34/ 38 × 56 ZR"
+        },
+        {
+          "num": "30391",
+          "name": "Tyre 14/ 50 × 17"
+        },
+        {
+          "num": "32003",
+          "name": "Tyre 24/ 65 × 41"
+        },
+        {
+          "num": "32076",
+          "name": "Tyre 14/ 20 × 60"
+        },
+        {
+          "num": "32078",
+          "name": "Tyre 28/ 21 × 57"
+        },
+        {
+          "num": "35578",
+          "name": "Tyre 14/ 70 × 17"
+        },
+        {
+          "num": "46335",
+          "name": "Tyre 38/ 26 × 75"
+        },
+        {
+          "num": "52985",
+          "name": "Tyre 27/ 48 × 43"
+        },
+        {
+          "num": "6578",
+          "name": "Tyre 14/ 36 × 20 VR"
+        },
+        {
+          "num": "6594",
+          "name": "Tyre 28/ 38 × 28 VR"
+        },
+        {
+          "num": "70490",
+          "name": "Tyre 14/ 68 × 30"
+        },
+        {
+          "num": "80279",
+          "name": "Tyre 44/ 15 × 75"
+        },
+        {
+          "num": "18450",
+          "name": "Tyre 44/ 91 × 43 R"
+        },
+        {
+          "num": "92912",
+          "name": "Tyre 38/ 76 × 56"
+        }
+      ]
+    },
+    {
+      "id": "vehicle",
+      "label": "Vehicle",
+      "parts": [
+        {
+          "num": "969",
+          "name": "Trailer Stand"
+        },
+        {
+          "num": "727",
+          "name": "Trailer 4 × 16 Ramp"
+        },
+        {
+          "num": "50015",
+          "name": "Tricycle Frame"
+        },
+        {
+          "num": "3431",
+          "name": "Forklift Forks 2 × 4"
+        },
+        {
+          "num": "784",
+          "name": "Excavator Bucket 2 × 4"
+        },
+        {
+          "num": "510",
+          "name": "Trailer Base 4 × 16 × 1"
+        },
+        {
+          "num": "24151",
+          "name": "Car Mudguard 4 × 4"
+        },
+        {
+          "num": "2475",
+          "name": "Brush Holder Car Wash"
+        },
+        {
+          "num": "4483",
+          "name": "Motorcycle Windshield"
+        },
+        {
+          "num": "968",
+          "name": "Trailer Base 4 × 14 × 1"
+        },
+        {
+          "num": "4719",
+          "name": "Minifig Bicycle Frame"
+        },
+        {
+          "num": "15314",
+          "name": "Duplo Car Base 4 × 8"
+        },
+        {
+          "num": "15396",
+          "name": "Minifig Scooter Body"
+        },
+        {
+          "num": "4626",
+          "name": "Excavator Bucket 2 × 3"
+        },
+        {
+          "num": "6058",
+          "name": "Cockpit 4 × 11 × 2.667"
+        },
+        {
+          "num": "3314",
+          "name": "Excavator Arm 2 × 6 × 2"
+        },
+        {
+          "num": "41989",
+          "name": "Duplo Car Base 2 × 4"
+        },
+        {
+          "num": "45707",
+          "name": "Forklift Forks 4 × 7"
+        },
+        {
+          "num": "871",
+          "name": "Tractor Chassis Steering Arm"
+        },
+        {
+          "num": "30644",
+          "name": "Propeller 2 Blade 4 × 22"
+        },
+        {
+          "num": "2421",
+          "name": "Propeller 3 Blade 4 Diameter"
+        },
+        {
+          "num": "2479",
+          "name": "Propeller 4 Blade 5 Diameter"
+        },
+        {
+          "num": "2952",
+          "name": "Propeller 2 Blade 9 Diameter"
+        },
+        {
+          "num": "13760",
+          "name": "Windscreen 2 × 6 × 2 Frame"
+        },
+        {
+          "num": "3430",
+          "name": "Forklift Rails 2 × 4 × 5.667"
+        },
+        {
+          "num": "4086",
+          "name": "Vehicle Roof 4 × 7.5 × 3.667"
+        },
+        {
+          "num": "47406",
+          "name": "Cockpit 6 × 10 × 2 Curved"
+        },
+        {
+          "num": "4745",
+          "name": "Propeller 2 Blade 5.5 Diameter"
+        },
+        {
+          "num": "30078",
+          "name": "Propeller 6 Blade 8 Diameter"
+        },
+        {
+          "num": "30300",
+          "name": "Tipper Bucket 8 × 12 × 3.333"
+        }
+      ]
+    },
+    {
+      "id": "windscreen",
+      "label": "Windscreens",
+      "parts": [
+        {
+          "num": "21",
+          "name": "Windscreen 2 × 4 × 1 & 2/3"
+        },
+        {
+          "num": "2352",
+          "name": "Windscreen 2 × 4 × 3"
+        },
+        {
+          "num": "2826",
+          "name": "Windscreen 5 × 8 × 3"
+        },
+        {
+          "num": "3823",
+          "name": "Windscreen 2 × 4 × 2"
+        },
+        {
+          "num": "4176",
+          "name": "Windscreen 2 × 6 × 2"
+        },
+        {
+          "num": "2694",
+          "name": "Windscreen 3 × 10 × 3"
+        },
+        {
+          "num": "6267",
+          "name": "Windscreen 2 × 12 × 4"
+        },
+        {
+          "num": "20684",
+          "name": "Windscreen 3 × 8 × 3"
+        },
+        {
+          "num": "24248",
+          "name": "Windscreen 6 × 8 × 3"
+        },
+        {
+          "num": "13252",
+          "name": "Windscreen 6 × 13 × 2"
+        },
+        {
+          "num": "30251",
+          "name": "Windscreen 4 × 5 × 3"
+        },
+        {
+          "num": "32086",
+          "name": "Windscreen 6 × 8 × 3"
+        },
+        {
+          "num": "1874",
+          "name": "Windscreen 9 × 6 × 1.667"
+        },
+        {
+          "num": "47506",
+          "name": "Windscreen 6 × 4 × 3"
+        },
+        {
+          "num": "2437",
+          "name": "Windscreen 3 × 4 × 1.333"
+        }
+      ]
+    },
+    {
+      "id": "window",
+      "label": "Windows",
+      "parts": [
+        {
+          "num": "3761",
+          "name": "Window 1 × 6 × 5"
+        },
+        {
+          "num": "3853",
+          "name": "Window 1 × 4 × 3"
+        },
+        {
+          "num": "4132",
+          "name": "Window 2 × 4 × 3"
+        },
+        {
+          "num": "4608",
+          "name": "Window 2 × 4 × 5"
+        },
+        {
+          "num": "6154",
+          "name": "Window 1 × 4 × 4"
+        },
+        {
+          "num": "3854",
+          "name": "Window 1 × 2 × 3 Pane"
+        },
+        {
+          "num": "4133",
+          "name": "Window 2 × 4 × 3 Pane"
+        },
+        {
+          "num": "4447",
+          "name": "Window 4 × 4 × 3 Roof"
+        },
+        {
+          "num": "2377",
+          "name": "Window 1 × 2 × 2 Plane"
+        },
+        {
+          "num": "791",
+          "name": "Window 1 × 3 × 5 Shutter"
+        },
+        {
+          "num": "2049",
+          "name": "Fabuland Window Shutter"
+        },
+        {
+          "num": "4863",
+          "name": "Window 1 × 4 × 2 Plane"
+        },
+        {
+          "num": "30185",
+          "name": "Window Bay 3 × 8 × 6"
+        },
+        {
+          "num": "6798",
+          "name": "Window 1 × 3 × 2 Frame"
+        },
+        {
+          "num": "3582",
+          "name": "Window 1 × 2 × 2 Shutter"
+        },
+        {
+          "num": "3856",
+          "name": "Window 1 × 2 × 3 Shutter"
+        },
+        {
+          "num": "51239",
+          "name": "Window 1 × 3 × 3 Frame"
+        },
+        {
+          "num": "4463",
+          "name": "Window 1 × 4 × 5 Curved Top"
+        },
+        {
+          "num": "2529",
+          "name": "Window 1 × 2 × 3 Pane Latticed"
+        },
+        {
+          "num": "6237",
+          "name": "Window 1 × 3 × 4 Pane Freestyle"
+        }
+      ]
+    },
+    {
+      "id": "door",
+      "label": "Doors",
+      "parts": [
+        {
+          "num": "671",
+          "name": "Door 1 × 6 × 10"
+        },
+        {
+          "num": "2657",
+          "name": "Door 1 × 3 × 5"
+        },
+        {
+          "num": "4131",
+          "name": "Door 2 × 4 × 5"
+        },
+        {
+          "num": "2596",
+          "name": "Door 1 × 9 × 11"
+        },
+        {
+          "num": "6078",
+          "name": "Door 1 × 4 × 3"
+        },
+        {
+          "num": "7930",
+          "name": "Door 1 × 3 × 4"
+        },
+        {
+          "num": "4611",
+          "name": "Door 6 × 7 Barred"
+        },
+        {
+          "num": "80683",
+          "name": "Door 1 × 3 × 6"
+        },
+        {
+          "num": "4218b",
+          "name": "Roller Door Normal"
+        },
+        {
+          "num": "2874",
+          "name": "Door Sliding Type 2"
+        },
+        {
+          "num": "30223",
+          "name": "Door 1 × 5 × 7.5"
+        },
+        {
+          "num": "670",
+          "name": "Door 1 × 6 × 10 Frame"
+        },
+        {
+          "num": "3189",
+          "name": "Door 1 × 3 × 2 Left"
+        },
+        {
+          "num": "3195",
+          "name": "Door 1 × 5 × 4 Left"
+        },
+        {
+          "num": "3822",
+          "name": "Door 1 × 3 × 1 Left"
+        },
+        {
+          "num": "3996",
+          "name": "Door 1 × 6 × 2 Left"
+        },
+        {
+          "num": "6155",
+          "name": "Door 1 × 4 × 4 Lift"
+        },
+        {
+          "num": "6546",
+          "name": "Door 1 × 2 × 3 Pane"
+        },
+        {
+          "num": "3188",
+          "name": "Door 1 × 3 × 2 Right"
+        },
+        {
+          "num": "3194",
+          "name": "Door 1 × 5 × 4 Right"
+        }
+      ]
+    },
+    {
+      "id": "panel",
+      "label": "Panels",
+      "parts": [
+        {
+          "num": "3186",
+          "name": "Gate 1 × 4 × 2"
+        },
+        {
+          "num": "3358",
+          "name": "Gate 1 × 3 × 2"
+        },
+        {
+          "num": "2466",
+          "name": "Panel 3 × 2 × 6"
+        },
+        {
+          "num": "4215a",
+          "name": "Panel 1 × 4 × 3"
+        },
+        {
+          "num": "6079",
+          "name": "Fence 1 × 8 × 2"
+        },
+        {
+          "num": "7567",
+          "name": "Panel 1 × 8 × 5"
+        },
+        {
+          "num": "2408",
+          "name": "Panel 10 × 6 × 11"
+        },
+        {
+          "num": "30077",
+          "name": "Fence 1 × 6 × 2"
+        },
+        {
+          "num": "30079",
+          "name": "Panel 3 × 3 × 3"
+        },
+        {
+          "num": "59349",
+          "name": "Panel 1 × 6 × 5"
+        },
+        {
+          "num": "30110",
+          "name": "Fence 2 × 12 × 6"
+        },
+        {
+          "num": "3187",
+          "name": "Gate 1 × 4 × 2 Base"
+        },
+        {
+          "num": "3359",
+          "name": "Gate 1 × 3 × 2 Base"
+        },
+        {
+          "num": "3161",
+          "name": "Panel 2 × 4 × 6 Rock"
+        },
+        {
+          "num": "4444",
+          "name": "Panel 2 × 5 × 6 Wall"
+        },
+        {
+          "num": "2448",
+          "name": "Panel 3 × 2 × 5 & 2/3"
+        },
+        {
+          "num": "30246",
+          "name": "Panel Wall 3 × 4 × 6"
+        },
+        {
+          "num": "3185",
+          "name": "Fence Lattice 1 × 4 × 2"
+        },
+        {
+          "num": "34732",
+          "name": "Panel 1 × 4 × 6 Wavy"
+        },
+        {
+          "num": "3633",
+          "name": "Fence Lattice 1 × 4 × 1"
+        },
+        {
+          "num": "47847",
+          "name": "Panel 2 × 4 × 6 Rock"
+        },
+        {
+          "num": "48490",
+          "name": "Panel Wall 3 × 8 × 6"
+        },
+        {
+          "num": "31021",
+          "name": "Duplo Fence 1 × 6 × 2"
+        },
+        {
+          "num": "2409",
+          "name": "Panel 10 × 10 × 12 Corner"
+        },
+        {
+          "num": "30156",
+          "name": "Panel 4 × 6 × 6 Sloped"
+        },
+        {
+          "num": "33303",
+          "name": "Fence 1 × 4 × 2 Picket"
+        },
+        {
+          "num": "6165",
+          "name": "Panel 12 × 1 × 12 Lattice"
+        },
+        {
+          "num": "2345",
+          "name": "Panel Wall 3 × 3 × 6 Corner"
+        },
+        {
+          "num": "30055",
+          "name": "Fence Spindled 1 × 4 × 2"
+        },
+        {
+          "num": "30140",
+          "name": "Panel 2 × 6 × 6 Log Wall"
+        },
+        {
+          "num": "3130",
+          "name": "Panel 2 × 2 × 1 Side Panels"
+        },
+        {
+          "num": "42604",
+          "name": "Panel 6 × 8 × 4 Fuselage"
+        },
+        {
+          "num": "6055",
+          "name": "Panel Wall 6 × 6 × 6 Corner"
+        },
+        {
+          "num": "4041",
+          "name": "Panel 4 × 4 × 3 Corner Round"
+        },
+        {
+          "num": "19121",
+          "name": "Fence Ornamented 1 × 4 × 2"
+        },
+        {
+          "num": "23405",
+          "name": "Panel 1 × 6 × 5 Corrugated"
+        },
+        {
+          "num": "2468",
+          "name": "Panel 3 × 3 × 6 Corner Convex"
+        },
+        {
+          "num": "6002",
+          "name": "Panel 6 × 6 × 9 Corner Round"
+        },
+        {
+          "num": "6059",
+          "name": "Panel 3 × 3 × 6 Corner Round"
+        },
+        {
+          "num": "7344",
+          "name": "Panel 8 × 8 × 6 Corner Round"
+        }
+      ]
+    },
+    {
+      "id": "bracket",
+      "label": "Brackets",
+      "parts": [
+        {
+          "num": "30250",
+          "name": "Bracket 4 × 7 × 3"
+        },
+        {
+          "num": "2422",
+          "name": "Bracket 2 × 2 - 1 × 4"
+        },
+        {
+          "num": "4598",
+          "name": "Bracket 2 × 3 - 2 × 2"
+        },
+        {
+          "num": "5712",
+          "name": "Bracket 5 × 1 × 1.333"
+        },
+        {
+          "num": "6970",
+          "name": "Bracket 1 × 2 - 2 × 6"
+        },
+        {
+          "num": "18671",
+          "name": "Bracket 3 × 2 × 1.333"
+        },
+        {
+          "num": "4732",
+          "name": "Bracket 8 × 2 × 1 & 1/3"
+        },
+        {
+          "num": "3956",
+          "name": "Bracket 2 × 2 - 2 × 2 Up"
+        },
+        {
+          "num": "30263",
+          "name": "Bracket 6 × 12 × 1.333"
+        },
+        {
+          "num": "7452",
+          "name": "Bracket 1 × 2 - 2 × 4 Up"
+        },
+        {
+          "num": "93274",
+          "name": "Bracket 1 × 2 - 2 × 4"
+        },
+        {
+          "num": "5175",
+          "name": "Bracket 2 × 4 - 1 × 4 Down"
+        },
+        {
+          "num": "36840",
+          "name": "Bracket 1 × 1 - 1 × 1 Up"
+        },
+        {
+          "num": "73825",
+          "name": "Bracket 1 × 1 - 2 × 1 Up"
+        },
+        {
+          "num": "98287",
+          "name": "Bracket 3 × 4 - 3 × 4 Up"
+        },
+        {
+          "num": "99207",
+          "name": "Bracket 1 × 2 - 2 × 2 Up"
+        },
+        {
+          "num": "99780",
+          "name": "Bracket 1 × 2 - 1 × 2 Up"
+        },
+        {
+          "num": "30209",
+          "name": "Bracket 1 × 2 - Dish 4 × 4"
+        },
+        {
+          "num": "36841",
+          "name": "Bracket 1 × 1 - 1 × 1 Down"
+        },
+        {
+          "num": "44728",
+          "name": "Bracket 1 × 2 - 2 × 2 Down"
+        },
+        {
+          "num": "79389",
+          "name": "Bracket 1 × 1 - 2 × 1 Down"
+        },
+        {
+          "num": "99781",
+          "name": "Bracket 1 × 2 - 1 × 2 Down"
+        },
+        {
+          "num": "7674",
+          "name": "Bracket 1 × 2 - 2 × 2 Centered"
+        },
+        {
+          "num": "4585",
+          "name": "Bracket 2 × 1 - 2 × 1 Up Centred"
+        },
+        {
+          "num": "41682",
+          "name": "Bracket 2 × 2 - 1 × 2 Up Centred"
+        }
+      ]
+    },
+    {
+      "id": "hinge",
+      "label": "Hinges",
+      "parts": [
+        {
+          "num": "2651",
+          "name": "Hinge Hook Arm"
+        },
+        {
+          "num": "2650",
+          "name": "Hinge Hook Base"
+        },
+        {
+          "num": "3938",
+          "name": "Hinge 1 × 2 Top"
+        },
+        {
+          "num": "6134",
+          "name": "Hinge 2 × 2 Top"
+        },
+        {
+          "num": "3937",
+          "name": "Hinge 1 × 2 Base"
+        },
+        {
+          "num": "4625",
+          "name": "Hinge Tile 1 × 4"
+        },
+        {
+          "num": "314d",
+          "name": "Hinge Plate 2 × 5 Top"
+        },
+        {
+          "num": "4593",
+          "name": "Hinge Control Stick"
+        },
+        {
+          "num": "652",
+          "name": "Hinge Brick 1 × 8 Male"
+        },
+        {
+          "num": "4213",
+          "name": "Hinge Car Roof 4 × 4"
+        },
+        {
+          "num": "2430",
+          "name": "Hinge Plate 1 × 4 Top"
+        },
+        {
+          "num": "3830",
+          "name": "Hinge Brick 1 × 4 Top"
+        },
+        {
+          "num": "2429",
+          "name": "Hinge Plate 1 × 4 Base"
+        },
+        {
+          "num": "653",
+          "name": "Hinge Brick 1 × 8 Female"
+        },
+        {
+          "num": "3831",
+          "name": "Hinge Brick 1 × 4 Base"
+        },
+        {
+          "num": "4592",
+          "name": "Hinge Control Stick Base"
+        },
+        {
+          "num": "2582",
+          "name": "Hinge Panel 2 × 4 × 3.333"
+        },
+        {
+          "num": "3597",
+          "name": "Hinge Plate 2 × 4 - Female"
+        },
+        {
+          "num": "654",
+          "name": "Hinge Brick 1 × 8 Joining Ring"
+        },
+        {
+          "num": "18910",
+          "name": "Hinge Panel 3 × 4 × 3 Curved"
+        }
+      ]
+    },
+    {
+      "id": "cone",
+      "label": "Cones",
+      "parts": [
+        {
+          "num": "4589",
+          "name": "Cone 1 × 1"
+        },
+        {
+          "num": "272",
+          "name": "Cone 4 × 4 × 3"
+        },
+        {
+          "num": "6233",
+          "name": "Cone 3 × 3 × 2"
+        },
+        {
+          "num": "4378a",
+          "name": "Duplo Cone 2 × 2 × 1"
+        },
+        {
+          "num": "38317",
+          "name": "Cone 4 × 2 × 3 Half"
+        },
+        {
+          "num": "4378b",
+          "name": "Duplo Cone 2 × 2 × 1.5"
+        },
+        {
+          "num": "48310",
+          "name": "Cone 8 × 4 × 6 Half"
+        },
+        {
+          "num": "29096",
+          "name": "Cone Half 10 × 5 × 6"
+        },
+        {
+          "num": "28598",
+          "name": "Cone 2 × 2 × 3 Jagged"
+        },
+        {
+          "num": "98100",
+          "name": "Cone 2 × 2 Truncated"
+        },
+        {
+          "num": "49309",
+          "name": "Cone 2 × 2 × 2 Inverted"
+        },
+        {
+          "num": "16375",
+          "name": "Duplo Roof Spire 3 × 3 × 3"
+        },
+        {
+          "num": "4841",
+          "name": "Fabuland Merry-Go-Round Roof"
+        },
+        {
+          "num": "6039",
+          "name": "Cone 2 × 2 × 1.667 Octagonal"
+        },
+        {
+          "num": "3943a",
+          "name": "Cone 4 × 4 × 2 without Axlehole"
+        },
+        {
+          "num": "33492",
+          "name": "Cone 1.5 × 1.5 × 0.667 Truncated"
+        },
+        {
+          "num": "3569",
+          "name": "Cone 4 × 4 × 3 on Brick 2 × 2 Round"
+        },
+        {
+          "num": "4742",
+          "name": "Cone 4 × 4 × 2 Hollow Without Studs"
+        },
+        {
+          "num": "98238",
+          "name": "Duplo Roof Spire Half 4.5 × 2 × 4"
+        },
+        {
+          "num": "59900",
+          "name": "Cone 1 × 1 with Stop"
+        }
+      ]
+    },
+    {
+      "id": "cylinder",
+      "label": "Cylinders",
+      "parts": [
+        {
+          "num": "6259",
+          "name": "Cylinder 2 × 4 × 4"
+        },
+        {
+          "num": "71076a",
+          "name": "Cylinder 2 × 2 Elbow"
+        },
+        {
+          "num": "44359",
+          "name": "Hemisphere 3 × 3 Ball Turret"
+        },
+        {
+          "num": "49736",
+          "name": "Cylinder Tube Slide Straight"
+        },
+        {
+          "num": "1744",
+          "name": "Cylinder 3 × 3 × 3 Dome Elongated"
+        },
+        {
+          "num": "58772",
+          "name": "=Hemisphere 3 × 3 Ball Turret"
+        },
+        {
+          "num": "58773",
+          "name": "=Hemisphere 3 × 3 Ball Turret"
+        },
+        {
+          "num": "66787",
+          "name": "Cylinder Warp Pipe 6 × 6 × 3.333"
+        },
+        {
+          "num": "49737",
+          "name": "Cylinder Tube Slide Curved 45 Degrees"
+        },
+        {
+          "num": "30361a",
+          "name": "Cylinder 2 × 2 × 2 Robot Body without Bottom Axle Holder"
+        },
+        {
+          "num": "4257",
+          "name": "Disc with Dimple Offset and Peg"
+        },
+        {
+          "num": "53993",
+          "name": "Disc 1.6 × 1.6 with Bar Hole"
+        },
+        {
+          "num": "68013",
+          "name": "Cylinder Half 1 × 2 with Cutout"
+        },
+        {
+          "num": "87617",
+          "name": "Cylinder 1 × 1 × 4.333 with Handle"
+        },
+        {
+          "num": "25214",
+          "name": "Cylinder 2 × 2 Elbow with Axle Holes"
+        }
+      ]
+    },
+    {
+      "id": "minifig",
+      "label": "Minifig",
+      "parts": [
+        {
+          "num": "685",
+          "name": "Maxifig Head"
+        },
+        {
+          "num": "2713",
+          "name": "Technic Ski"
+        },
+        {
+          "num": "973",
+          "name": "Minifig Torso"
+        },
+        {
+          "num": "33011c",
+          "name": "Scala Jar"
+        },
+        {
+          "num": "3815b",
+          "name": "Minifig Hips"
+        },
+        {
+          "num": "3820",
+          "name": "Minifig Hand"
+        },
+        {
+          "num": "3840",
+          "name": "Minifig Vest"
+        },
+        {
+          "num": "85863",
+          "name": "Microfig"
+        },
+        {
+          "num": "4336",
+          "name": "Fabuland Bed"
+        },
+        {
+          "num": "4438",
+          "name": "Fabuland Axe"
+        },
+        {
+          "num": "4524",
+          "name": "Minifig Cape"
+        },
+        {
+          "num": "4324",
+          "name": "Fabuland Rake"
+        },
+        {
+          "num": "2041",
+          "name": "Fabuland Bench"
+        },
+        {
+          "num": "4222a",
+          "name": "Fabuland Chair"
+        },
+        {
+          "num": "4223",
+          "name": "Fabuland Table"
+        },
+        {
+          "num": "2543",
+          "name": "Minifig Hat Rag"
+        },
+        {
+          "num": "26050",
+          "name": "Figure Cloud"
+        },
+        {
+          "num": "30112b",
+          "name": "Minifig Comb"
+        },
+        {
+          "num": "30381",
+          "name": "Minifig Hood"
+        },
+        {
+          "num": "3878",
+          "name": "Minifig Top Hat"
+        },
+        {
+          "num": "4206",
+          "name": "Fabuland Ladder"
+        },
+        {
+          "num": "4330a",
+          "name": "Fabuland Shovel"
+        },
+        {
+          "num": "4430",
+          "name": "Fabuland Kettle"
+        },
+        {
+          "num": "4437",
+          "name": "Fabuland Hammer"
+        },
+        {
+          "num": "10057",
+          "name": "Minifig Gollum"
+        },
+        {
+          "num": "2610",
+          "name": "Minifig Lifevest"
+        },
+        {
+          "num": "3817c",
+          "name": "Minifig Leg Left"
+        },
+        {
+          "num": "3819",
+          "name": "Minifig Arm Left"
+        },
+        {
+          "num": "3838",
+          "name": "Minifig Airtanks"
+        },
+        {
+          "num": "92590",
+          "name": "Minifig Sack"
+        },
+        {
+          "num": "4439",
+          "name": "Fabuland Pickaxe"
+        },
+        {
+          "num": "4440",
+          "name": "Fabuland Oil Can"
+        },
+        {
+          "num": "10154",
+          "name": "Bigfig Arm Left"
+        },
+        {
+          "num": "2526",
+          "name": "Minifig Epaulette"
+        },
+        {
+          "num": "2531",
+          "name": "Minifig Hand Hook"
+        },
+        {
+          "num": "27151",
+          "name": "Minifig Bowtie"
+        },
+        {
+          "num": "3816c",
+          "name": "Minifig Leg Right"
+        },
+        {
+          "num": "3818",
+          "name": "Minifig Arm Right"
+        },
+        {
+          "num": "3901",
+          "name": "Minifig Hair Male"
+        },
+        {
+          "num": "4094a",
+          "name": "Fabuland Umbrella"
+        },
+        {
+          "num": "93555",
+          "name": "Minifig Skate"
+        },
+        {
+          "num": "10124",
+          "name": "Bigfig Arm Right"
+        },
+        {
+          "num": "10127",
+          "name": "Bigfig Hand Left"
+        },
+        {
+          "num": "10531",
+          "name": "=Duplo Pitchfork"
+        },
+        {
+          "num": "2532",
+          "name": "Minifig Leg Wooden"
+        },
+        {
+          "num": "12894",
+          "name": "Minifig Hat Cone"
+        },
+        {
+          "num": "30133",
+          "name": "Minifig Bandana"
+        },
+        {
+          "num": "33011a",
+          "name": "Scala Milk Pack"
+        },
+        {
+          "num": "15504",
+          "name": "Minifig Tail Cat"
+        },
+        {
+          "num": "3624",
+          "name": "Minifig Police Hat"
+        },
+        {
+          "num": "3629",
+          "name": "Minifig Hat Cowboy"
+        },
+        {
+          "num": "1756",
+          "name": "Minifig Carrot Nose"
+        },
+        {
+          "num": "3898",
+          "name": "Minifig Cook's Hat"
+        },
+        {
+          "num": "90509",
+          "name": "Minifig Ski 6L"
+        },
+        {
+          "num": "4331",
+          "name": "Fabuland Frame Saw"
+        },
+        {
+          "num": "4335",
+          "name": "Fabuland Accordion"
+        },
+        {
+          "num": "2044",
+          "name": "Fabuland Swing Base"
+        },
+        {
+          "num": "2045",
+          "name": "Fabuland Swing Seat"
+        },
+        {
+          "num": "10126",
+          "name": "Bigfig Hand Right"
+        },
+        {
+          "num": "4780",
+          "name": "Fabuland Washbasin"
+        }
+      ]
+    },
+    {
+      "id": "accessory",
+      "label": "Accessories",
+      "parts": [
+        {
+          "num": "4629",
+          "name": "Jack Base"
+        },
+        {
+          "num": "87994",
+          "name": "Bar 3L"
+        },
+        {
+          "num": "6046",
+          "name": "Bar 9 × 13"
+        },
+        {
+          "num": "3899",
+          "name": "Minifig Cup"
+        },
+        {
+          "num": "92691",
+          "name": "Bone 5L"
+        },
+        {
+          "num": "93160",
+          "name": "Bone 2L"
+        },
+        {
+          "num": "4627",
+          "name": "Jack Lifter"
+        },
+        {
+          "num": "4628",
+          "name": "Jack Handle"
+        },
+        {
+          "num": "2488",
+          "name": "Minifig Whip"
+        },
+        {
+          "num": "69858",
+          "name": "Flame 4L"
+        },
+        {
+          "num": "2486",
+          "name": "Bar 1 × 8 × 2"
+        },
+        {
+          "num": "2583",
+          "name": "Bar 1 × 8 × 3"
+        },
+        {
+          "num": "6264",
+          "name": "=Minifig Cup"
+        },
+        {
+          "num": "3849",
+          "name": "Minifig Lance"
+        },
+        {
+          "num": "3959",
+          "name": "Minifig Torch"
+        },
+        {
+          "num": "4332",
+          "name": "Minifig Broom"
+        },
+        {
+          "num": "4337",
+          "name": "Minifig Ladle"
+        },
+        {
+          "num": "2343",
+          "name": "Minifig Goblet"
+        },
+        {
+          "num": "24085",
+          "name": "Minifig Mop"
+        },
+        {
+          "num": "6187",
+          "name": "Bar 1 × 4 × 2"
+        },
+        {
+          "num": "33054",
+          "name": "Minifig Mug"
+        },
+        {
+          "num": "35809",
+          "name": "Minifig Pen"
+        },
+        {
+          "num": "3837",
+          "name": "Minifig Shovel"
+        },
+        {
+          "num": "40359a",
+          "name": "Minifig Key"
+        },
+        {
+          "num": "4528",
+          "name": "Minifig Frypan"
+        },
+        {
+          "num": "3841",
+          "name": "Minifig Pickaxe"
+        },
+        {
+          "num": "95330",
+          "name": "Minifig Axe"
+        },
+        {
+          "num": "2542",
+          "name": "Minifig Tool Oar"
+        },
+        {
+          "num": "2570",
+          "name": "Minifig Crossbow"
+        },
+        {
+          "num": "29636",
+          "name": "Minifig Whisk"
+        },
+        {
+          "num": "30488",
+          "name": "Minifig Stand"
+        },
+        {
+          "num": "68212",
+          "name": "Minifig Tuft"
+        },
+        {
+          "num": "6899",
+          "name": "Minifig Antenna"
+        },
+        {
+          "num": "7307",
+          "name": "Bar 1 × 4 × 1.5"
+        },
+        {
+          "num": "80503",
+          "name": "Minifig Lute"
+        },
+        {
+          "num": "4094b",
+          "name": "Minifig Umbrella"
+        },
+        {
+          "num": "4341",
+          "name": "Minifig Cauldron"
+        },
+        {
+          "num": "44658",
+          "name": "Minifig Knife"
+        },
+        {
+          "num": "4529",
+          "name": "Minifig Saucepan"
+        },
+        {
+          "num": "4715",
+          "name": "Stretcher Wheels"
+        },
+        {
+          "num": "23986",
+          "name": "Minifig Teapot"
+        },
+        {
+          "num": "24077",
+          "name": "Minifig Crutch"
+        },
+        {
+          "num": "11459",
+          "name": "Minifig Plunger"
+        },
+        {
+          "num": "59232",
+          "name": "Minifig Flail"
+        },
+        {
+          "num": "71342",
+          "name": "Minifig Bugle"
+        },
+        {
+          "num": "80716",
+          "name": "Minifig Banjo"
+        },
+        {
+          "num": "3836",
+          "name": "Minifig Pushbroom"
+        },
+        {
+          "num": "3848",
+          "name": "Minifig Battleaxe"
+        },
+        {
+          "num": "4496",
+          "name": "Minifig Pitchfork"
+        },
+        {
+          "num": "99253",
+          "name": "Minifig Lasso"
+        },
+        {
+          "num": "2495",
+          "name": "Minifig Hand Truck"
+        },
+        {
+          "num": "2561",
+          "name": "Minifig Gun Musket"
+        },
+        {
+          "num": "5822",
+          "name": "Minifig Food Pear"
+        },
+        {
+          "num": "29109",
+          "name": "Minifig Machete"
+        },
+        {
+          "num": "13665",
+          "name": "Animal Bird Crow"
+        },
+        {
+          "num": "30002",
+          "name": "=Minifig Goblet"
+        },
+        {
+          "num": "30154",
+          "name": "Minifig Sextant"
+        },
+        {
+          "num": "30193",
+          "name": "Minifig Ice Axe"
+        },
+        {
+          "num": "69947",
+          "name": "Minifig Violin"
+        },
+        {
+          "num": "35485",
+          "name": "Minifig Chakram"
+        }
+      ]
+    },
+    {
+      "id": "plant",
+      "label": "Plants",
+      "parts": [
+        {
+          "num": "6064b",
+          "name": "Plant Bush"
+        },
+        {
+          "num": "3742",
+          "name": "Plant Flower"
+        },
+        {
+          "num": "6065",
+          "name": "Plant Bush Base"
+        },
+        {
+          "num": "51270",
+          "name": "Plant Pumpkin"
+        },
+        {
+          "num": "3741a",
+          "name": "Plant Flower Stem"
+        },
+        {
+          "num": "2417",
+          "name": "Plant Leaves 6 × 5"
+        },
+        {
+          "num": "2423",
+          "name": "Plant Leaves 4 × 3"
+        },
+        {
+          "num": "30093",
+          "name": "Plant Sea Grass"
+        },
+        {
+          "num": "15279",
+          "name": "Plant Grass Stem"
+        },
+        {
+          "num": "2566b",
+          "name": "Plant Tree Palm Top"
+        },
+        {
+          "num": "2682a",
+          "name": "Plant Serrated Leaf"
+        },
+        {
+          "num": "2563a",
+          "name": "Plant Tree Palm Base"
+        },
+        {
+          "num": "74587",
+          "name": "Duplo Plant Bush"
+        },
+        {
+          "num": "6148",
+          "name": "Plant Palm Leaf Small"
+        },
+        {
+          "num": "3470",
+          "name": "Plant Tree Oval 4 × 4 × 6"
+        },
+        {
+          "num": "4727",
+          "name": "Plant Flower 2 × 2 Leaves"
+        },
+        {
+          "num": "2518",
+          "name": "Plant Tree Palm Leaf Large"
+        },
+        {
+          "num": "30131",
+          "name": "Tree 6 × 6 Hollow Stump"
+        },
+        {
+          "num": "30338",
+          "name": "Plant Tree Palm Base 4 × 4"
+        },
+        {
+          "num": "2435",
+          "name": "Plant Tree Pyramidal 3 × 3 × 4"
+        }
+      ]
+    },
+    {
+      "id": "animal",
+      "label": "Animals",
+      "parts": [
+        {
+          "num": "1569",
+          "name": "Animal Lamb"
+        },
+        {
+          "num": "35574",
+          "name": "Beehive"
+        },
+        {
+          "num": "6649",
+          "name": "Animal Wolf"
+        },
+        {
+          "num": "23714",
+          "name": "Animal Ant"
+        },
+        {
+          "num": "30103",
+          "name": "Animal Bat"
+        },
+        {
+          "num": "40232",
+          "name": "Animal Owl"
+        },
+        {
+          "num": "40234",
+          "name": "Animal Rat"
+        },
+        {
+          "num": "64452",
+          "name": "Animal Cow"
+        },
+        {
+          "num": "33121",
+          "name": "Animal Crab"
+        },
+        {
+          "num": "33320",
+          "name": "Animal Frog"
+        },
+        {
+          "num": "87621",
+          "name": "Animal Pig"
+        },
+        {
+          "num": "43892",
+          "name": "Animal Tail"
+        },
+        {
+          "num": "48812",
+          "name": "Animal Wolf"
+        },
+        {
+          "num": "11575",
+          "name": "Animal Poodle"
+        },
+        {
+          "num": "11603",
+          "name": "Animal Turtle"
+        },
+        {
+          "num": "6086",
+          "name": "Animal Octopus"
+        },
+        {
+          "num": "6228b",
+          "name": "Animal Dolphin"
+        },
+        {
+          "num": "29685",
+          "name": "Animal Bunny"
+        },
+        {
+          "num": "30115",
+          "name": "Animal Snake"
+        },
+        {
+          "num": "35757",
+          "name": "Animal Mouse"
+        }
+      ]
+    }
+  ]
+}

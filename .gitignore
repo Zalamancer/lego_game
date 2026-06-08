@@ -1,0 +1,5 @@
+# LDraw parts library — ~80MB, downloaded via scripts/setup-ldraw.sh
+assets/ldraw/
+
+# OS
+.DS_Store
